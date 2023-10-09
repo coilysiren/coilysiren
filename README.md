@@ -9,7 +9,6 @@ More personable information about me:
 - 🌱 backyard gardener
 - 💪 strong, tall
 - 🎓 materials sci / astronautical eng
-- 🔮 low tier polytheistic pagan
 
 <!--
 **coilysiren/coilysiren** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
