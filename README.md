@@ -1,5 +1,7 @@
 ### Hi there 👋
 
+I'm Kai, a DevOps engineer with almost a decade of industry experience. I have about spent five years writing Python code for backend product engineering, and another five years doing infrastructure work in AWS. I'm familiar with AWS and GCP, and would like more Azure to round out the set. I'm proficient in six programming languages, Python, Golang, and NodeJS being the strongest. My expertise shines brightest when working on deploy tooling (ex: Kubernetes) and application monitoring (ex: Datadog). I am best described as a DevOps Engineer - but Infrastructure Engineer or Platform Engineer also fit.
+
 <!--
 **coilysiren/coilysiren** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
