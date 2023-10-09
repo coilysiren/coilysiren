@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-I'm Kai, a DevOps engineer with a decade of industry experience. I'm 75% dev (mostly Python) and 25% ops (mostly AWS). I'm familiar with AWS and GCP, and would like more Azure to round out the set. I'm proficient in six programming languages, Python, Golang, and NodeJS being the strongest. My expertise shines brightest with deploy tooling and application monitoring.
+I'm Kai, a DevOps engineer with a decade of industry experience. I'm 75% dev (mostly Python) and 25% ops (mostly AWS). I'm familiar with AWS and GCP, and would like more Azure to round out the set. I'm proficient in six programming languages - Python, Golang, and NodeJS being the strongest. My expertise shines brightest with deploy tooling and application monitoring.
 
 More personable information about me:
 
