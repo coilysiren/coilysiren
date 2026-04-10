@@ -1,5 +1,4 @@
-I'm **Kai Siren** (preferred name), AKA **Lynn Conway** (legal name). 
-I’m a platform engineer with over 10 years of experience building high-impact systems that empower engineering teams.
+I'm **Kai Siren** (preferred name), AKA **Lynn Conway** (legal name). I’m a platform engineer with over 10 years of experience building high-impact systems that empower engineering teams.
 
 I have recent experience working with LLM-based systems and AI-assisted workflows, focusing on integrating them into existing platforms in a reliable and observable way. This includes designing systems that help teams experiment with and adopt AI without compromising production quality.
 
@@ -9,4 +8,4 @@ My career is powered by a passion for enabling engineering teams to achieve thei
 
 Throughout my career, I've been primarily responsible for implementing operations systems such as application monitoring, data pipelines, and deployment tooling from scratch. More recently, this has included systems that incorporate AI-driven components, extending my existing focus on reliability, observability, and developer productivity. This hands-on experience has honed my skills as an IC engineer, and I also managed a small team at EnergyHub.
 
-Outside work, I enjoy gaming, game development, gardening, and crafts. I also manage a game server, a unique intersection of my personal and professional interests.
+Outside work, I enjoy gaming, game development, gardening, and crafts. I also manage a game server, a unique intersection of my personal and professional interests
