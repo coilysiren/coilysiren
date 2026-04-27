@@ -2,14 +2,17 @@
 $ ssh kai@kai-server
 Last login: now from anywhere via tailscale
 
-██╗  ██╗ █████╗ ██╗    ███████╗██╗██████╗ ███████╗███╗   ██╗
-██║ ██╔╝██╔══██╗██║    ██╔════╝██║██╔══██╗██╔════╝████╗  ██║
-█████╔╝ ███████║██║    ███████╗██║██████╔╝█████╗  ██╔██╗ ██║
-██╔═██╗ ██╔══██║██║    ╚════██║██║██╔══██╗██╔══╝  ██║╚██╗██║
-██║  ██╗██║  ██║██║    ███████║██║██║  ██║███████╗██║ ╚████║
-╚═╝  ╚═╝╚═╝  ╚═╝╚═╝    ╚══════╝╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝
+  ┌─────────────────────────────────────────────────────────┐
+  │  kai-server  ·  lights-out  ·  uptime: ten years and    │
+  │  counting  ·  operator: kai siren  ·  east bay, ca      │
+  └─────────────────────────────────────────────────────────┘
 
-  platform / sre · east bay · >10 yrs in
+  $ systemctl status platform.target
+  ● platform.target - kai's lights-out factory
+       Loaded: loaded
+       Active: active (running)
+       Status: "agents on shift, line is green"
+
   ⚙⚒ lights out, platform's green, agents are working the line ⚒⚙
 ```
 
