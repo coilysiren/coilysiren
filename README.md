@@ -1,6 +1,6 @@
 ```
-$ ssh kai@lights-out.factory
-Last login: now from anywhere
+$ ssh kai@kai-server
+Last login: now from anywhere via tailscale
 
 ██╗  ██╗ █████╗ ██╗    ███████╗██╗██████╗ ███████╗███╗   ██╗
 ██║ ██╔╝██╔══██╗██║    ██╔════╝██║██╔══██╗██╔════╝████╗  ██║
@@ -9,8 +9,8 @@ Last login: now from anywhere
 ██║  ██╗██║  ██║██║    ███████║██║██║  ██║███████╗██║ ╚████║
 ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝    ╚══════╝╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝
 
-  platform / sre · east bay · 13 yrs in
-  the lights are out. the factory's running.
+  platform / sre · east bay · >10 yrs in
+  lights out, platform's green, agents are working the line.
 ```
 
 <table>
@@ -19,7 +19,7 @@ Last login: now from anywhere
 
 ### `> whoami`
 
-**Hi! I'm Kai.** Platform engineer, 13 years in, currently most interested in what one person can build right now. The ceiling has shifted a lot in the last year and I'm pushing on it.
+**Hi! I'm Kai.** Platform engineer, >10 years in, currently most interested in what one person can build right now. The ceiling has shifted a lot in the last year and I'm pushing on it.
 
 Day job is platform / SRE work that's slowly bending toward AI agents and observability. Off-hours I run a small lights-out factory: a single-node k3s homelab, a herd of agents that build and break my own services in the dark, and a steady output of small tools that exist because I wanted them to.
 
@@ -37,6 +37,7 @@ operator:    Kai Siren
 role:        Senior Platform Engineer
 employer:    Kapwing
 location:    East Bay, California
+             (Ohlone territory)
 shift:       lights-out
 
 active_repos_30d: ~35
