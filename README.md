@@ -37,7 +37,6 @@ operator:    Kai Siren
 role:        Senior Platform Engineer
 employer:    Kapwing
 location:    East Bay, California
-             (Ohlone territory)
 shift:       lights-out
 
 active_repos_30d: ~35
