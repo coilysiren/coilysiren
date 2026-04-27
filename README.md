@@ -10,7 +10,7 @@ Last login: now from anywhere via tailscale
 ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝    ╚══════╝╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝
 
   platform / sre · east bay · >10 yrs in
-  lights out, platform's green, agents are working the line.
+  ⛭⚒ lights out, platform's green, agents are working the line ⚒⛭
 ```
 
 <table>
