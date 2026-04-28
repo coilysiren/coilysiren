@@ -24,7 +24,7 @@ Last login: now from anywhere via tailscale
 
 **Hi! I'm Kai.** Platform engineer, >10 years in, currently most interested in what one person can build right now. The ceiling has shifted a lot in the last year and I'm pushing on it.
 
-Day job is platform / SRE work that's slowly bending toward AI agents and observability. Off-hours I run a small lights-out factory: a single-node k3s homelab, a herd of agents that build and break my own services in the dark, and a steady output of small tools that exist because I wanted them to.
+Day job is platform engineering - accelerating engineers as their work goes agentic, with observability designed for LLM consumers as the current bet. Off-hours I run a small lights-out factory: a single-node k3s homelab, a herd of agents that build and break my own services in the dark, and a steady output of small tools that exist because I wanted them to.
 
 I treat AI tooling the way I'd treat any other piece of infra. Wire it in, instrument it, then push on it until it shows you where it breaks.
 
