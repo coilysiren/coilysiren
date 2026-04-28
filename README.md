@@ -80,9 +80,8 @@ What's running in the dark factory right now. Status is honest, not aspirational
 | 🌱 **[eco-mods-public](https://github.com/coilysiren/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilysiren/eco-cycle-prep)** | C# mods + Python cycle automation for [Eco via Sirens](https://play.eco). Biggest OSS output over rolling 6-month windows. | `ACTIVE` |
 | 📡 **[eco-spec-tracker](https://github.com/coilysiren/eco-spec-tracker)** | FastAPI + HTMX live dashboard of every player's professions. Live at [eco-jobs-tracker.coilysiren.me](https://eco-jobs-tracker.coilysiren.me). | `LIVE` |
 | 🔌 **[eco-mcp-app](https://github.com/coilysiren/eco-mcp-app)** | Inline Claude Desktop widget for any public Eco server. Hand-rolled MCP Apps iframe in ~300 lines, no bundler. | `WIP` |
-| 📊 **[bsky-popularity-contest](https://coilysiren.me/apps/bsky-popularity-contest/)** | Small Bluesky stats app. | `LIVE` |
-| 📈 **claude-code-pulse** | Cognition-stack telemetry over Claude transcripts. Daily rollups, reading lists, the whole pipeline. | `ACTIVE` |
-| 📝 **[Golang PR Field Notes](https://coilysiren.me)** | Blog series on real OSS contributions. | `ONGOING` |
+| 🧠 **[repo-recall](https://github.com/coilysiren/repo-recall)** | Local dev dashboard that indexes Claude Code session history and joins sessions to git repos on disk. | `ACTIVE` |
+| 🌌 **[galaxy-gen](https://github.com/coilysiren/galaxy-gen)** | Procedural galaxy simulation. Rust compiled to WASM, rendered in the browser. | `LIVE` |
 
 ---
 
