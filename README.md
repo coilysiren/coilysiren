@@ -74,13 +74,16 @@ What's running in the dark factory right now. Status is honest, not aspirational
 
 | Build | What it is | Status |
 |-------|-----------|--------|
-| 🥊 **[gauntlet](https://github.com/coilysiren/gauntlet)** | Two-agent adversarial loop. Infers correctness by watching code behave under sustained, targeted attack. A fleet of agents running on it (count [on /now](https://coilysiren.me/now)). | `RUNNING HOT` |
+| 🥊 **[gauntlet](https://github.com/coilysiren/gauntlet)** | Two-agent adversarial loop. Infers correctness by watching code behave under sustained, targeted attack. Active fleet (count [on /now](https://coilysiren.me/now)). | `RUNNING HOT` |
+| 🔁 **[otel-a2a-relay](https://github.com/coilysiren/otel-a2a-relay)** | "o2r" for short. Drop-in relay between A2A agents that turns wire traffic into OTel spans, so any o11y tool can render agent coordination. | `ACTIVE` |
 | 🛰️ **[infrastructure](https://github.com/coilysiren/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, reachable over Tailscale. The substrate everything else lives on. | `OPERATIONAL` |
-| 🧰 **[coily](https://github.com/coilysiren/coily)** | Operator CLI wrapping kubectl / aws / gh / ssh for kai-server. The only tool authorized for privileged ops. Audit-logs everything. | `ACTIVE` |
+| 🛡️ **[coily](https://github.com/coilysiren/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops (kubectl / aws / gh / ssh). The only tool authorized to touch kai-server. Audit-logs everything. | `ACTIVE` |
 | 🌱 **[eco-mods-public](https://github.com/coilysiren/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilysiren/eco-cycle-prep)** | C# mods + Python cycle automation for [Eco via Sirens](https://play.eco). Biggest OSS output over rolling 6-month windows. | `ACTIVE` |
-| 📡 **[eco-spec-tracker](https://github.com/coilysiren/eco-spec-tracker)** | FastAPI + HTMX live dashboard of every player's professions. Live at [eco-jobs-tracker.coilysiren.me](https://eco-jobs-tracker.coilysiren.me). | `LIVE` |
+| 📡 **[eco-jobs-tracker](https://github.com/coilysiren/eco-jobs-tracker)** | FastAPI + HTMX live dashboard of every player's professions. Live at [eco-jobs-tracker.coilysiren.me](https://eco-jobs-tracker.coilysiren.me). | `LIVE` |
 | 🔌 **[eco-mcp-app](https://github.com/coilysiren/eco-mcp-app)** | Inline Claude Desktop widget for any public Eco server. Hand-rolled MCP Apps iframe in ~300 lines, no bundler. | `WIP` |
+| 📊 **[eco-telemetry](https://github.com/coilysiren/eco-telemetry)** | OpenTelemetry observability mod for Eco game servers. Game-server traces flowing into the same o11y stack as everything else. | `ACTIVE` |
 | 🧠 **[repo-recall](https://github.com/coilysiren/repo-recall)** | Local dev dashboard that indexes Claude Code session history and joins sessions to git repos on disk. | `ACTIVE` |
+| 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Statusline + rollup hook for Claude Code. Per-turn ctx / token / cache / cost vitals with deltas. Pattern-triggered session rollup injection. | `ACTIVE` |
 | 🌌 **[galaxy-gen](https://github.com/coilysiren/galaxy-gen)** | Procedural galaxy simulation. Rust compiled to WASM, rendered in the browser. | `LIVE` |
 
 ---
