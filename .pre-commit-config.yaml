@@ -1,4 +1,5 @@
 repos:
+  
   # BEGIN managed by coilyco-ai/scripts/apply-commit-msg-hook.py
   - repo: local
     hooks:
