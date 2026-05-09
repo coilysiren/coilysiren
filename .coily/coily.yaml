@@ -1,0 +1,6 @@
+# Per-repo command allowlist for coilysiren (profile README repo). No dev
+# verbs - this repo is just the GitHub profile landing page. Present so
+# coily's repocfg loader recognizes the repo and the lockdown discipline
+# is uniform across coilysiren/* checkouts.
+
+commands: {}
