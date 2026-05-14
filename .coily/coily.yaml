@@ -4,3 +4,15 @@
 # is uniform across coilysiren/* checkouts.
 
 commands: {}
+
+# Catalog metadata for the cross-repo knowledge graph.
+# Schema: coilysiren/coilyco-ai#420 (tracker).
+catalog:
+  kind: Component
+  type: documentation
+  system: content
+  owner: kai
+  lifecycle: production
+  description: "GitHub profile README. Landing page for the lights-out factory."
+  dependsOn: []
+  providesApis: []
