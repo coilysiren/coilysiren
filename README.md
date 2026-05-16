@@ -1,19 +1,16 @@
 ```
 $ ssh kai@kai-server
-Last login: now from anywhere via tailscale
 
   ┌─────────────────────────────────────────────────────────┐
-  │  kai-server  ·  lights-out  ·  uptime: ten years and    │
-  │  counting  ·  operator: kai siren  ·  east bay, ca      │
+  │  kai-server · lights-out · uptime: ten years counting   │
+  │  operator: kai siren · east bay, ca                     │
   └─────────────────────────────────────────────────────────┘
 
-  $ systemctl status platform.target
   ● platform.target - kai's lights-out factory
-       Loaded: loaded
        Active: active (running)
        Status: "agents on shift, line is green"
 
-  ⚙⚒ lights out, platform's green, agents are working the line ⚒⚙
+  ⚙⚒ lights out, platform green, agents on the line ⚒⚙
 ```
 
 <table>
@@ -22,13 +19,11 @@ Last login: now from anywhere via tailscale
 
 ### `> whoami`
 
-**Hi! I'm Kai.** Platform engineer, >10 years in, currently most interested in what one person can build right now. The ceiling has shifted a lot in the last year and I'm pushing on it.
+**Hi! I'm Kai.** Platform engineer, 10+ years in. Day job: accelerating engineers as their work goes agentic, with observability designed for LLM consumers as the current bet. Off-hours I run a small lights-out factory: single-node k3s homelab, a herd of agents building and breaking my own services in the dark, a steady output of small tools.
 
-Day job is platform engineering - accelerating engineers as their work goes agentic, with observability designed for LLM consumers as the current bet. Off-hours I run a small lights-out factory: a single-node k3s homelab, a herd of agents that build and break my own services in the dark, and a steady output of small tools that exist because I wanted them to.
+I treat AI tooling the way I'd treat any other piece of infra. Wire it in, instrument it, push on it until it breaks.
 
-I treat AI tooling the way I'd treat any other piece of infra. Wire it in, instrument it, then push on it until it shows you where it breaks.
-
-> "The thing I'm most excited about right now is **Gauntlet**, a two-agent adversarial loop that infers software correctness by watching how code behaves under sustained, targeted attack in a dark factory environment. About 20 agents are running on it as I write this." - [/now](https://coilysiren.me/now)
+> Most excited about **Gauntlet**: a two-agent adversarial loop that infers software correctness under sustained, targeted attack. - [/now](https://coilysiren.me/now)
 
 </td>
 <td width="42%" valign="top">
@@ -36,29 +31,24 @@ I treat AI tooling the way I'd treat any other piece of infra. Wire it in, instr
 ### `> shift_report`
 
 ```yaml
-operator:    Kai Siren
-role:        Senior Platform Engineer
-employer:    Kapwing
-location:    East Bay, California
-shift:       lights-out
-
-active_repos_30d: ~35
-homelab:          single-node k3s
-                  on Tailscale
+operator:  Kai Siren
+role:      Senior Platform Engineer
+employer:  Kapwing
+location:  East Bay, CA
+shift:     lights-out
+homelab:   single-node k3s on Tailscale
 
 specialties:
   - platform / SRE
   - AI agents + MCP
   - observability
   - adversarial testing
-  - the substrate nobody
-    notices until it breaks
 
 prior_art:
   - urfave/cli maintainer
-  - Built HHS gov site @ Nava
+  - HHS gov site @ Nava
   - DevOps EM @ EnergyHub
-  - Multi-cloud BGP VPN @ Textio
+  - BGP VPN @ Textio
   - Crypto product @ Callisto
 ```
 
@@ -70,83 +60,40 @@ prior_art:
 
 ## `> production_floor`
 
-What's running in the dark factory right now. Status is honest, not aspirational.
-
 | Build | What it is | Status |
 |-------|-----------|--------|
-| 🥊 **[gauntlet](https://github.com/coilysiren/gauntlet)** | Two-agent adversarial loop. Infers correctness by watching code behave under sustained, targeted attack. Active fleet (count [on /now](https://coilysiren.me/now)). | `RUNNING HOT` |
-| 🔁 **[otel-a2a-relay](https://github.com/coilysiren/otel-a2a-relay)** | "o2r" for short. Drop-in relay between A2A agents that turns wire traffic into OTel spans, so any o11y tool can render agent coordination. | `ACTIVE` |
-| 🛰️ **[infrastructure](https://github.com/coilysiren/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, reachable over Tailscale. The substrate everything else lives on. | `OPERATIONAL` |
-| 🛡️ **[coily](https://github.com/coilysiren/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops (kubectl / aws / gh / ssh). The only tool authorized to touch kai-server. Audit-logs everything. | `ACTIVE` |
-| 🌱 **[eco-mods-public](https://github.com/coilysiren/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilysiren/eco-cycle-prep)** | C# mods + Python cycle automation for [Eco via Sirens](https://play.eco). Biggest OSS output over rolling 6-month windows. | `ACTIVE` |
-| 📡 **[eco-jobs-tracker](https://github.com/coilysiren/eco-jobs-tracker)** | FastAPI + HTMX live dashboard of every player's professions. Live at [eco-jobs-tracker.coilysiren.me](https://eco-jobs-tracker.coilysiren.me). | `LIVE` |
-| 🔌 **[eco-mcp-app](https://github.com/coilysiren/eco-mcp-app)** | Inline Claude Desktop widget for any public Eco server. Hand-rolled MCP Apps iframe in ~300 lines, no bundler. | `WIP` |
-| 📊 **[eco-telemetry](https://github.com/coilysiren/eco-telemetry)** | OpenTelemetry observability mod for Eco game servers. Game-server traces flowing into the same o11y stack as everything else. | `ACTIVE` |
-| 🧠 **[repo-recall](https://github.com/coilysiren/repo-recall)** | Local dev dashboard that indexes Claude Code session history and joins sessions to git repos on disk. | `ACTIVE` |
-| 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Statusline + rollup hook for Claude Code. Per-turn ctx / token / cache / cost vitals with deltas. Pattern-triggered session rollup injection. | `ACTIVE` |
-| 🌌 **[galaxy-gen](https://github.com/coilysiren/galaxy-gen)** | Procedural galaxy simulation. Rust compiled to WASM, rendered in the browser. | `LIVE` |
-
----
+| 🥊 **[gauntlet](https://github.com/coilysiren/gauntlet)** | Two-agent adversarial loop. Infers correctness under sustained, targeted attack. | `RUNNING HOT` |
+| 🔁 **[otel-a2a-relay](https://github.com/coilysiren/otel-a2a-relay)** | "o2r". Relay between A2A agents that turns wire traffic into OTel spans. | `ACTIVE` |
+| 🛰️ **[infrastructure](https://github.com/coilysiren/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale. | `OPERATIONAL` |
+| 🛡️ **[coily](https://github.com/coilysiren/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops. Audit-logs everything. | `ACTIVE` |
+| 🌱 **[eco-mods-public](https://github.com/coilysiren/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilysiren/eco-cycle-prep)** | C# mods + Python automation for [Eco via Sirens](https://play.eco). | `ACTIVE` |
+| 📡 **[eco-jobs-tracker](https://github.com/coilysiren/eco-jobs-tracker)** | FastAPI + HTMX live dashboard of every player's professions. | `LIVE` |
+| 🔌 **[eco-mcp-app](https://github.com/coilysiren/eco-mcp-app)** | Inline Claude Desktop widget for any public Eco server. | `WIP` |
+| 📊 **[eco-telemetry](https://github.com/coilysiren/eco-telemetry)** | OpenTelemetry mod for Eco game servers. | `ACTIVE` |
+| 🧠 **[repo-recall](https://github.com/coilysiren/repo-recall)** | Local dashboard indexing Claude Code session history against git repos. | `ACTIVE` |
+| 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Statusline + rollup hook. Per-turn ctx/token/cache/cost vitals. | `ACTIVE` |
+| 🌌 **[galaxy-gen](https://github.com/coilysiren/galaxy-gen)** | Procedural galaxy sim. Rust -> WASM in the browser. | `LIVE` |
 
 ## `> stack`
 
-<div align="center">
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=csharp&logoColor=white)
-
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
-![k3s](https://img.shields.io/badge/k3s-FFC61C?style=flat-square&logoColor=black)
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Tailscale](https://img.shields.io/badge/Tailscale-242424?style=flat-square&logo=tailscale&logoColor=white)
-
-![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white)
-![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white)
-![Sentry](https://img.shields.io/badge/Sentry-362D59?style=flat-square&logo=sentry&logoColor=white)
-
-![Claude](https://img.shields.io/badge/Claude_Code-CC785C?style=flat-square&logo=anthropic&logoColor=white)
-![MCP](https://img.shields.io/badge/MCP-191919?style=flat-square&logo=anthropic&logoColor=white)
-
-</div>
-
----
+Python, Go, TypeScript, Bash, C#. AWS, Kubernetes (k3s), Terraform, Docker, Tailscale. Prometheus, Grafana, Sentry. Claude Code, MCP.
 
 ## `> service_history`
 
 ```
-2025 - now    Kapwing                Senior Software Engineer
-2023 - 2025   Nava                   Principal Infrastructure Engineer
-2022 - 2023   Textio                 Staff Infrastructure Engineer
-2021 - 2022   EnergyHub              DevOps Engineering Manager
-2020 - 2021   Bluelink               Senior Backend Engineer
-2018 - 2020   Textio                 Senior Infrastructure Engineer
-2016 - 2018   Callisto               Senior Software Engineer
-2015 - 2016   Harlot Media           Software Engineer
-2014 - 2015   Quirell / CollectQT    Software Engineer
-2012 - 2013   NASA Goddard           Engineering Student Ambassador
+2025 - now    Kapwing       Senior Software Engineer
+2023 - 2025   Nava          Principal Infrastructure Engineer
+2022 - 2023   Textio        Staff Infrastructure Engineer
+2021 - 2022   EnergyHub     DevOps Engineering Manager
+2020 - 2021   Bluelink      Senior Backend Engineer
+2018 - 2020   Textio        Senior Infrastructure Engineer
+2016 - 2018   Callisto      Senior Software Engineer
 ```
 
-Full career page with stack details and shipped projects: [coilysiren.me/resume](https://coilysiren.me/resume).
-Living document of what I'm into this week: [coilysiren.me/now](https://coilysiren.me/now).
-
----
+Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/resume](https://coilysiren.me/resume). Current focus: [coilysiren.me/now](https://coilysiren.me/now).
 
 ## `> comms`
 
-<div align="center">
-
-[![Site](https://img.shields.io/badge/coilysiren.me-Site-FF6B6B?style=flat-square)](https://coilysiren.me)
-[![Bluesky](https://img.shields.io/badge/@coilysiren.me-Bluesky-0285FF?style=flat-square&logo=bluesky&logoColor=white)](https://bsky.app/profile/coilysiren.me)
-[![X](https://img.shields.io/badge/@coilysiren-X-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/coilysiren)
-[![LinkedIn](https://img.shields.io/badge/coilysiren-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/coilysiren)
-
-</div>
-
----
+[coilysiren.me](https://coilysiren.me) · [Bluesky](https://bsky.app/profile/coilysiren.me) · [X](https://x.com/coilysiren) · [LinkedIn](https://linkedin.com/in/coilysiren)
 
 > I build things for the joy of it. Things that give engineering teams more leverage. Now I'm pointing the same instinct at my own work, with AI as the accelerant.
