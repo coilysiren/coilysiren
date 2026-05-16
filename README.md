@@ -59,7 +59,7 @@ prior_art:
 | Build | What it is | Status |
 |-------|-----------|--------|
 | 🥊 **[gauntlet](https://github.com/coilysiren/gauntlet)** | Two-agent adversarial loop. Infers correctness under sustained, targeted attack. | `RUNNING HOT` |
-| 🔁 **[otel-a2a-relay](https://github.com/coilysiren/otel-a2a-relay)** | "o2r". Relay between A2A agents that turns wire traffic into OTel spans. | `ACTIVE` |
+| 🧬 **[session-lattice](https://github.com/coilysiren/session-lattice)** | Materialized-view service over Claude session data via Feldera (DBSP). Pulls from repo-recall, served to luca. | `SCAFFOLDED` |
 | 🛰️ **[infrastructure](https://github.com/coilysiren/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale. | `OPERATIONAL` |
 | 🛡️ **[coily](https://github.com/coilysiren/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops. Audit-logs everything. | `ACTIVE` |
 | 🌱 **[eco-mods-public](https://github.com/coilysiren/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilysiren/eco-cycle-prep)** | C# mods + Python automation for [Eco via Sirens](https://play.eco). | `ACTIVE` |

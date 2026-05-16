@@ -8,7 +8,7 @@ Last full sweep: 2026-05-11.
 
 - **GitHub profile README** at [README.md](../README.md), rendered as the landing page on <https://github.com/coilysiren>.
 - **Hero block**: faux SSH banner, lights-out platform framing, current shift report (role, employer, location, specialties, prior art).
-- **`production_floor` table**: hand-curated index of active builds (gauntlet, otel-a2a-relay, infrastructure, coily, eco-mods-public, eco-cycle-prep, eco-jobs-tracker, eco-mcp-app, eco-telemetry, repo-recall, claude-code-pulse, galaxy-gen) with one-line descriptions and status badges.
+- **`production_floor` table**: hand-curated index of active builds (gauntlet, session-lattice, infrastructure, coily, eco-mods-public, eco-cycle-prep, eco-jobs-tracker, eco-mcp-app, eco-telemetry, repo-recall, claude-code-pulse, galaxy-gen) with one-line descriptions and status badges.
 - **Stack badges**: language + cloud + observability + AI tooling shields.
 - **`service_history` block**: pre-formatted career timeline pointing at [coilysiren.me/resume](https://coilysiren.me/resume) and [coilysiren.me/now](https://coilysiren.me/now).
 - **`comms` block**: links to site, Bluesky, X, LinkedIn.
