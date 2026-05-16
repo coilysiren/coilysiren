@@ -23,7 +23,8 @@ Last full sweep: 2026-05-11.
 
 ## See also
 
-- [README.md](../README.md) - the rendered profile.
-- [AGENTS.md](../AGENTS.md) - agent-facing operating rules for this repo.
+- [README.md](../README.md) - human-facing intro.
+- [AGENTS.md](../AGENTS.md) - agent-facing operating rules.
+- [.coily/coily.yaml](../.coily/coily.yaml) - allowlisted commands.
 
-Cross-reference convention from [coilysiren/agentic-os-kai#313](https://github.com/coilysiren/agentic-os-kai/issues/313). The worked example is [otel-a2a-relay/docs/FEATURES.md](https://github.com/coilysiren/otel-a2a-relay/blob/main/docs/FEATURES.md).
+Cross-reference convention from [coilysiren/agentic-os#59](https://github.com/coilysiren/agentic-os/issues/59).

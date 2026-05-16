@@ -19,9 +19,7 @@ $ ssh kai@kai-server
 
 ### `> whoami`
 
-**Hi! I'm Kai.** Platform engineer, 10+ years in. Day job: accelerating engineers as their work goes agentic, with observability designed for LLM consumers as the current bet. Off-hours I run a small lights-out factory: single-node k3s homelab, a herd of agents building and breaking my own services in the dark, a steady output of small tools.
-
-I treat AI tooling the way I'd treat any other piece of infra. Wire it in, instrument it, push on it until it breaks.
+**Hi! I'm Kai.** Platform engineer, 10+ years in. Day job: accelerating engineers as their work goes agentic, with observability for LLM consumers as the current bet. Off-hours I run a small lights-out factory: single-node k3s homelab, a herd of agents building and breaking my own services in the dark, a steady output of small tools. Wire it in, instrument it, push on it until it breaks.
 
 > Most excited about **Gauntlet**: a two-agent adversarial loop that infers software correctness under sustained, targeted attack. - [/now](https://coilysiren.me/now)
 
@@ -56,8 +54,6 @@ prior_art:
 </tr>
 </table>
 
----
-
 ## `> production_floor`
 
 | Build | What it is | Status |
@@ -67,12 +63,10 @@ prior_art:
 | 🛰️ **[infrastructure](https://github.com/coilysiren/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale. | `OPERATIONAL` |
 | 🛡️ **[coily](https://github.com/coilysiren/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops. Audit-logs everything. | `ACTIVE` |
 | 🌱 **[eco-mods-public](https://github.com/coilysiren/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilysiren/eco-cycle-prep)** | C# mods + Python automation for [Eco via Sirens](https://play.eco). | `ACTIVE` |
-| 📡 **[eco-jobs-tracker](https://github.com/coilysiren/eco-jobs-tracker)** | FastAPI + HTMX live dashboard of every player's professions. | `LIVE` |
-| 🔌 **[eco-mcp-app](https://github.com/coilysiren/eco-mcp-app)** | Inline Claude Desktop widget for any public Eco server. | `WIP` |
-| 📊 **[eco-telemetry](https://github.com/coilysiren/eco-telemetry)** | OpenTelemetry mod for Eco game servers. | `ACTIVE` |
-| 🧠 **[repo-recall](https://github.com/coilysiren/repo-recall)** | Local dashboard indexing Claude Code session history against git repos. | `ACTIVE` |
-| 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Statusline + rollup hook. Per-turn ctx/token/cache/cost vitals. | `ACTIVE` |
-| 🌌 **[galaxy-gen](https://github.com/coilysiren/galaxy-gen)** | Procedural galaxy sim. Rust -> WASM in the browser. | `LIVE` |
+| 📡 **[eco-jobs-tracker](https://github.com/coilysiren/eco-jobs-tracker)** | FastAPI + HTMX dashboard of player professions. | `LIVE` |
+| 🔌 **[eco-mcp-app](https://github.com/coilysiren/eco-mcp-app)** + 📊 **[eco-telemetry](https://github.com/coilysiren/eco-telemetry)** | Claude Desktop widget + OTel mod for Eco servers. | `WIP/ACTIVE` |
+| 🧠 **[repo-recall](https://github.com/coilysiren/repo-recall)** + 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Claude Code substrate: session indexing + per-turn vitals. | `ACTIVE` |
+| 🌌 **[galaxy-gen](https://github.com/coilysiren/galaxy-gen)** | Procedural galaxy sim, Rust -> WASM. | `LIVE` |
 
 ## `> stack`
 
@@ -90,10 +84,16 @@ Python, Go, TypeScript, Bash, C#. AWS, Kubernetes (k3s), Terraform, Docker, Tail
 2016 - 2018   Callisto      Senior Software Engineer
 ```
 
-Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/resume](https://coilysiren.me/resume). Current focus: [coilysiren.me/now](https://coilysiren.me/now).
+Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/resume](https://coilysiren.me/resume). Now: [coilysiren.me/now](https://coilysiren.me/now).
 
 ## `> comms`
 
 [coilysiren.me](https://coilysiren.me) · [Bluesky](https://bsky.app/profile/coilysiren.me) · [X](https://x.com/coilysiren) · [LinkedIn](https://linkedin.com/in/coilysiren)
 
-> I build things for the joy of it. Things that give engineering teams more leverage. Now I'm pointing the same instinct at my own work, with AI as the accelerant.
+## See also
+
+- [AGENTS.md](AGENTS.md) - agent-facing operating rules.
+- [docs/FEATURES.md](docs/FEATURES.md) - inventory of what ships today.
+- [.coily/coily.yaml](.coily/coily.yaml) - allowlisted commands.
+
+Cross-reference convention from [coilysiren/agentic-os#59](https://github.com/coilysiren/agentic-os/issues/59).
