@@ -56,17 +56,7 @@ prior_art:
 
 ## `> production_floor`
 
-| Build | What it is | Status |
-|-------|-----------|--------|
-| 🥊 **[gauntlet](https://github.com/coilysiren/gauntlet)** | Two-agent adversarial loop. Infers correctness under sustained, targeted attack. | `RUNNING HOT` |
-| 🧬 **[session-lattice](https://github.com/coilysiren/session-lattice)** | Materialized-view service over Claude session data via Feldera (DBSP). Pulls from repo-recall, served to luca. | `SCAFFOLDED` |
-| 🛰️ **[infrastructure](https://github.com/coilysiren/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale. | `OPERATIONAL` |
-| 🛡️ **[coily](https://github.com/coilysiren/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops. Audit-logs everything. | `ACTIVE` |
-| 🌱 **[eco-mods-public](https://github.com/coilysiren/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilysiren/eco-cycle-prep)** | C# mods + Python automation for [Eco via Sirens](https://play.eco). | `ACTIVE` |
-| 📡 **[eco-jobs-tracker](https://github.com/coilysiren/eco-jobs-tracker)** | FastAPI + HTMX dashboard of player professions. | `LIVE` |
-| 🔌 **[eco-mcp-app](https://github.com/coilysiren/eco-mcp-app)** + 📊 **[eco-telemetry](https://github.com/coilysiren/eco-telemetry)** | Claude Desktop widget + OTel mod for Eco servers. | `WIP/ACTIVE` |
-| 🧠 **[repo-recall](https://github.com/coilysiren/repo-recall)** + 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Claude Code substrate: session indexing + per-turn vitals. | `ACTIVE` |
-| 🌌 **[galaxy-gen](https://github.com/coilysiren/galaxy-gen)** | Procedural galaxy sim, Rust -> WASM. | `LIVE` |
+Active builds from the lights-out factory, with status badges: [docs/production_floor.md](docs/production_floor.md).
 
 ## `> stack`
 
@@ -74,17 +64,7 @@ Python, Go, TypeScript, Bash, C#. AWS, Kubernetes (k3s), Terraform, Docker, Tail
 
 ## `> service_history`
 
-```
-2025 - now    Kapwing       Senior Software Engineer
-2023 - 2025   Nava          Principal Infrastructure Engineer
-2022 - 2023   Textio        Staff Infrastructure Engineer
-2021 - 2022   EnergyHub     DevOps Engineering Manager
-2020 - 2021   Bluelink      Senior Backend Engineer
-2018 - 2020   Textio        Senior Infrastructure Engineer
-2016 - 2018   Callisto      Senior Software Engineer
-```
-
-Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/resume](https://coilysiren.me/resume). Now: [coilysiren.me/now](https://coilysiren.me/now).
+Career timeline, 2016 to now: [docs/service_history.md](docs/service_history.md). Full résumé: [coilysiren.me/resume](https://coilysiren.me/resume). Now: [coilysiren.me/now](https://coilysiren.me/now).
 
 ## `> comms`
 
