@@ -1,0 +1,6 @@
+# Presence of this file opts the repo out of all agentic-os baseline
+# normalization: apply-agentic-os-hooks and the up-to-date host-tracker
+# hook wiring both skip it. Contents are ignored; only existence matters.
+# Remove the file to re-enroll.
+#
+# See agentic-os-kai .agents/skills/tooling-repo-baseline.
