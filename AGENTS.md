@@ -14,7 +14,7 @@ The GitHub profile landing page and its supporting docs. No application code.
 
 ## Project shape
 
-`README.md` is the rendered profile. `docs/` holds overflow split out of the README (`production_floor.md`, `FEATURES.md`). `scripts/` holds the shared commit-msg hook.
+`README.md` is the rendered profile. `docs/` holds overflow split out of the README (`production_floor.md`, `service_history.md`, `FEATURES.md`). Commit-msg enforcement rides the `coilysiren/agentic-os` pre-commit suite in `.pre-commit-config.yaml`, not a local `scripts/` dir.
 
 ## Repo boundaries
 
@@ -34,7 +34,7 @@ Never use `--no-verify`. Never commit secrets - opaque ids go in AWS SSM per the
 
 ## Cross-repo contracts
 
-`README.md` intro paragraphs sync from `Resume.md` (sync list in the parent `coilysiren/AGENTS.md`). The commit-msg hook is rolled out from `agentic-os-kai`.
+`README.md` intro paragraphs sync from `Resume.md` (sync list in the parent `coilysiren/AGENTS.md`). The pre-commit hook suite is pinned by upstream ref to `coilysiren/agentic-os` and rolled out from `agentic-os-kai`.
 
 ## Release
 
