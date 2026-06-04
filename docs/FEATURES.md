@@ -19,7 +19,7 @@ Last full sweep: 2026-06-04.
 
 ## Repo baseline
 
-- **Pre-commit gate** at [.pre-commit-config.yaml](../.pre-commit-config.yaml), pinning the `coilysiren/agentic-os` upstream-ref hook suite (catalog-doc-size, catalog-trifecta, documentation-layout, context-load-points, code-comments, catalog-block-present, validate-skills, dead-cross-links, repo-pointer-skills, closes-issue, conventional-commit, trufflehog, coily-trailer). Run with `pre-commit run --all-files`.
+- **Pre-commit gate** at [.pre-commit-config.yaml](../.pre-commit-config.yaml), pinning the `coilyco-flight-deck/agentic-os` upstream-ref hook suite (catalog-doc-size, catalog-trifecta, documentation-layout, context-load-points, code-comments, catalog-block-present, validate-skills, dead-cross-links, repo-pointer-skills, misplaced-skills, agent-compose-size, agent-compose-dedup, closes-issue, conventional-commit, trufflehog). Run with `pre-commit run --all-files`.
 - **Commit-msg enforcement** via the `closes-issue` and `conventional-commit` hooks in that suite, replacing the retired local `scripts/` commit-msg hook.
 
 ## See also
