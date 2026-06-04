@@ -1,8 +1,8 @@
 repos:
 
   # BEGIN managed by agentic-os/scripts/apply-agentic-os-hooks.py
-  - repo: https://github.com/coilysiren/agentic-os
-    rev: v0.11.1
+  - repo: https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os
+    rev: v0.14.0
     hooks:
       - id: catalog-doc-size
       - id: catalog-trifecta
@@ -13,8 +13,10 @@ repos:
       - id: validate-skills
       - id: dead-cross-links
       - id: repo-pointer-skills
+      - id: misplaced-skills
+      - id: agent-compose-size
+      - id: agent-compose-dedup
       - id: closes-issue
       - id: conventional-commit
       - id: trufflehog
-      - id: coily-trailer
   # END managed by agentic-os/scripts/apply-agentic-os-hooks.py
