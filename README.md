@@ -9,8 +9,8 @@ $ ssh kai@kai-server
 
 ● platform.target
      Active: active (running)
-     Status: "agents on shift,
-              line is green"
+     Status: "27 devices · 48 pods
+              · 2 ✗ · agents on shift"
 
 ⚙⚒ agents on the line ⚒⚙
 ```
@@ -21,13 +21,21 @@ $ ssh kai@kai-server
 
 > Most excited about **Gauntlet**: a two-agent adversarial loop that infers software correctness under sustained, targeted attack. - [/now](https://coilysiren.me/now)
 
+## `> lights_out`
+
+The factory framing is not a bit. The goal is a dark factory: code written by agents, verified by attack, shipped while I sleep. The pieces that make that safe instead of terrifying:
+
+- **A security boundary first.** Agents on this fleet route privileged operations through [coily](https://github.com/coilyco-bridge/coily), an escape-hatch-resistant CLI wrapper. Every privileged call lands in an audit log. The interesting design constraint is that the boundary must hold against the agent operating inside it, which rules out most of the obvious implementations.
+- **Verification by adversary, not by vibes.** [gauntlet](https://github.com/coilyco-flight-deck/gauntlet) runs a two-role loop, an attacker and an inspector, against a running service and infers correctness from how the service behaves under sustained attack. Built for the case where a human never reads the diff.
+- **Observability over the whole substrate.** [repo-recall](https://github.com/coilyco-flight-deck/repo-recall) joins OTel spans, git state, and Claude Code sessions into one queryable surface. [session-lattice](https://github.com/coilyco-flight-deck/session-lattice) maintains incremental views over it. Agent-to-agent traffic rides [otel-a2a-relay](https://github.com/coilyco-flight-deck/otel-a2a-relay), so even the agents talking to each other shows up as spans.
+
+When the line breaks, the agents file the issue. When it breaks badly, see the power strip in the `tailnet` section below.
+
 ## `> shift_report`
 
 ```yaml
-operator: Kai Siren
 role:     Senior Platform Engineer
 employer: Kapwing
-location: East Bay, CA
 shift:    lights-out
 fleet:    27 devices · 1 tailnet
 
@@ -46,6 +54,8 @@ prior_art:
 ```
 
 ## `> tailnet`
+
+Everything above is claims. From here down, receipts.
 
 "Homelab" undersells it. The fleet is joined by Tailscale into a single tailnet across two physical sites, and the device list is most of the story: the machines, the phones, the WSL guests, and every k3s service that publishes itself onto the mesh as its own node.
 
@@ -203,29 +213,19 @@ And one edge case: the Mac keeps a Qwen 9B warm through Ollama + OpenCode, scope
 
 ## `> production_floor`
 
-Hand-curated index of active builds from the lights-out factory.
+Hand-curated index of active builds from the lights-out factory. Two starting points: [gauntlet](https://github.com/coilyco-flight-deck/gauntlet) is the thesis in code (verification by adversary), and [coily](https://github.com/coilyco-bridge/coily) is the hard design problem (a boundary that must hold against its own operator). If you want to click something that runs right now, the galaxy sim is live at [galaxy-gen.coilysiren.me](https://galaxy-gen.coilysiren.me).
 
 | Build | What it is |
 |-------|-----------|
 | 🥊 **[gauntlet](https://github.com/coilyco-flight-deck/gauntlet)** | Two-agent adversarial loop. Infers correctness under sustained, targeted attack. `RUNNING HOT` |
-| 🧬 **[session-lattice](https://github.com/coilyco-flight-deck/session-lattice)** | Materialized-view service over Claude session data via Feldera (DBSP). Pulls from repo-recall, served to luca. `SCAFFOLDED` |
+| 🧬 **[session-lattice](https://github.com/coilyco-flight-deck/session-lattice)** | Materialized-view service over Claude session data via Feldera (DBSP). Pulls from repo-recall, served to [luca](https://github.com/coilyco-flight-deck/luca), the agent-activity observability plugin. `SCAFFOLDED` |
 | 🛰️ **[infrastructure](https://github.com/coilyco-flight-deck/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale. `OPERATIONAL` |
 | 🛡️ **[coily](https://github.com/coilyco-bridge/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops. Audit-logs everything. `ACTIVE` |
 | 🌱 **[eco-mods-public](https://github.com/coilyco-flight-deck/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilyco-bridge/eco-cycle-prep)** | C# mods + Python automation for [Eco via Sirens](https://play.eco). `ACTIVE` |
 | 📡 **[eco-jobs-tracker](https://github.com/coilyco-flight-deck/eco-jobs-tracker)** | FastAPI + HTMX dashboard of player professions. `LIVE` |
 | 🔌 **[eco-mcp-app](https://github.com/coilyco-flight-deck/eco-mcp-app)** + 📊 **[eco-telemetry](https://github.com/coilyco-flight-deck/eco-telemetry)** | Claude Desktop widget + OTel mod for Eco servers. `WIP/ACTIVE` |
 | 🧠 **[repo-recall](https://github.com/coilyco-flight-deck/repo-recall)** + 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Claude Code substrate: session indexing (`ACTIVE`) + per-turn vitals (`ARCHIVED`) |
-| 🌌 **[galaxy-gen](https://github.com/coilyco-flight-deck/galaxy-gen)** | Procedural galaxy sim, Rust -> WASM. `LIVE` |
-
-## `> lights_out`
-
-The factory framing is not a bit. The goal is a dark factory: code written by agents, verified by attack, shipped while I sleep. The pieces that make that safe instead of terrifying:
-
-- **A security boundary first.** Agents on this fleet route privileged operations through [coily](https://github.com/coilyco-bridge/coily), an escape-hatch-resistant CLI wrapper. Every privileged call lands in an audit log. The interesting design constraint is that the boundary must hold against the agent operating inside it, which rules out most of the obvious implementations.
-- **Verification by adversary, not by vibes.** [gauntlet](https://github.com/coilyco-flight-deck/gauntlet) runs a two-role loop, an attacker and an inspector, against a running service and infers correctness from how the service behaves under sustained attack. Built for the case where a human never reads the diff.
-- **Observability over the whole substrate.** [repo-recall](https://github.com/coilyco-flight-deck/repo-recall) joins OTel spans, git state, and Claude Code sessions into one queryable surface. [session-lattice](https://github.com/coilyco-flight-deck/session-lattice) maintains incremental views over it. Agent-to-agent traffic rides [otel-a2a-relay](https://github.com/coilyco-flight-deck/otel-a2a-relay), so even the agents talking to each other shows up as spans.
-
-When the line breaks, the agents file the issue. When it breaks badly, see the power strip above.
+| 🌌 **[galaxy-gen](https://github.com/coilyco-flight-deck/galaxy-gen)** | Procedural galaxy sim, Rust -> WASM. `LIVE` at [galaxy-gen.coilysiren.me](https://galaxy-gen.coilysiren.me) |
 
 ## `> stack`
 
@@ -249,7 +249,7 @@ Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/re
 
 **Why does a profile README have a network diagram and a pod listing?** Because this repo is the one place in the fleet with no size cap, no managed hooks, and no validators. Every other repo I own answers to a pre-commit suite rolled out from a central baseline. This one carries an exemption marker and does what it wants. Naturally it became the long-form surface.
 
-**Are the readouts real?** Yes. They're generated by [scripts/fleet-readout.sh](scripts/fleet-readout.sh) against the live tailnet and cluster, then pasted in. The redaction is the interesting part: tailnet IPs, FQDNs, account labels, pod hash suffixes, and other people's devices are all stripped before anything lands in git, because opaque identifiers stay out of tracked files on principle. The systemd unit in the banner is aspirational.
+**Are the readouts real?** Yes. They're generated by [scripts/fleet-readout.sh](scripts/fleet-readout.sh) against the live tailnet and cluster, then pasted in. The redaction is the interesting part: tailnet IPs, FQDNs, account labels, pod hash suffixes, and other people's devices are all stripped before anything lands in git, because opaque identifiers stay out of tracked files on principle. The systemd unit in the banner is aspirational - the numbers in its status line are not.
 
 ## `> comms`
 
