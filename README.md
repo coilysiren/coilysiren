@@ -17,6 +17,8 @@ $ ssh kai@kai-server
 
 ## `> whoami`
 
+<img src="https://github.com/coilysiren.png?size=200" width="88" align="right" alt="Kai Siren">
+
 **Hi! I'm Kai.** Platform engineer, 10+ years in. Day job: accelerating engineers as their work goes agentic, with observability for LLM consumers as the current bet. Off-hours I run a small lights-out factory: single-node k3s homelab, a herd of agents building and breaking my own services in the dark, a steady output of small tools. Wire it in, instrument it, push on it until it breaks.
 
 > Most excited about **Gauntlet**: a two-agent adversarial loop that infers software correctness under sustained, targeted attack. - [/now](https://coilysiren.me/now)
@@ -214,6 +216,11 @@ And one edge case: the Mac keeps a Qwen 9B warm through Ollama + OpenCode, scope
 ## `> production_floor`
 
 Hand-curated index of active builds from the lights-out factory. Two starting points: [gauntlet](https://github.com/coilyco-flight-deck/gauntlet) is the thesis in code (verification by adversary), and [coily](https://github.com/coilyco-bridge/coily) is the hard design problem (a boundary that must hold against its own operator). If you want to click something that runs right now, the galaxy sim is live at [galaxy-gen.coilysiren.me](https://galaxy-gen.coilysiren.me).
+
+The builds ship from two org bays:
+
+- <img src="https://github.com/coilyco-flight-deck.png?size=40" width="18" alt=""> **[coilyco-flight-deck](https://github.com/coilyco-flight-deck)** - the flight deck, where builds launch: gauntlet, infrastructure, repo-recall, galaxy-gen, most of the line.
+- <img src="https://github.com/coilyco-bridge.png?size=40" width="18" alt=""> **[coilyco-bridge](https://github.com/coilyco-bridge)** - the bridge, where the controls live: coily and the cycle tooling.
 
 | Build | What it is |
 |-------|-----------|
