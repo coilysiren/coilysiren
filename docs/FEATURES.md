@@ -19,7 +19,7 @@ Last full sweep: 2026-05-11.
 
 ## Repo baseline
 
-- **Commit-msg hook** at [scripts/check-commit-closes-issue.py](../scripts/check-commit-closes-issue.py), canonical version rolled out from `coilysiren/agentic-os-kai`.
+- **Fleet-management exemption** via [.agentic-os-ignore](../.agentic-os-ignore): baseline rollouts (managed pre-commit block, hook wiring) skip this repo, and [.pre-commit-config.yaml](../.pre-commit-config.yaml) is intentionally empty. The marker file documents which tools honor it and which gaps have issues filed. The previously rolled-out commit-msg hook is gone (the stale `scripts/` reference with it).
 
 ## See also
 

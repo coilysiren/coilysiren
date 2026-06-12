@@ -1,6 +1,17 @@
-# Presence of this file opts the repo out of all agentic-os baseline
-# normalization: apply-agentic-os-hooks and the up-to-date host-tracker
-# hook wiring both skip it. Contents are ignored; only existence matters.
-# Remove the file to re-enroll.
+# Presence of this file opts the repo out of all agentic-os fleet
+# management / baseline normalization. Contents are ignored; only
+# existence matters. Remove the file to re-enroll.
+#
+# Honored by (fail-closed, presence skips, no override):
+#   - agentic-os scripts/apply-agentic-os-hooks.py (managed pre-commit block)
+#   - infrastructure ansible precommit-hooks role (the fleet rollout of same)
+#   - agentic-os-kai scripts/up-to-date.py step 4 (ward / pre-commit wiring)
+#
+# Not yet honored (issues filed):
+#   - coily lockdown --recursive (re-stamps .claude/ lockdown files; that is
+#     a security boundary, so exempting it is a human/CI decision upstream) -
+#     coilyco-bridge/coily#210
+#   - agentic-os-kai scripts/sweep-repo-pointer-skills.py (stamps
+#     .agents/skills/repo-<name>/) - coilyco-bridge/agentic-os-kai#656
 #
 # See agentic-os-kai .agents/skills/tooling-repo-baseline.

@@ -1,19 +1,6 @@
-repos:
-
-  # BEGIN managed by agentic-os/scripts/apply-agentic-os-hooks.py
-  - repo: https://github.com/coilysiren/agentic-os
-    rev: v0.11.1
-    hooks:
-      - id: catalog-doc-size
-      - id: catalog-trifecta
-      - id: documentation-layout
-      - id: context-load-points
-      - id: code-comments
-      - id: catalog-block-present
-      - id: validate-skills
-      - id: dead-cross-links
-      - id: repo-pointer-skills
-      - id: closes-issue
-      - id: conventional-commit
-      - id: trufflehog
-  # END managed by agentic-os/scripts/apply-agentic-os-hooks.py
+# Intentionally empty. This repo is exempt from the agentic-os fleet
+# baseline (see .agentic-os-ignore) - the managed hook block was removed
+# and apply-agentic-os-hooks skips this repo, so it will not come back.
+# The file stays so already-installed pre-commit git hooks no-op cleanly
+# instead of erroring on a missing config.
+repos: []

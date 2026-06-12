@@ -14,7 +14,7 @@ The GitHub profile landing page and its supporting docs. No application code.
 
 ## Project shape
 
-`README.md` is the rendered profile. `docs/` holds overflow split out of the README (`production_floor.md`, `FEATURES.md`). `scripts/` holds the shared commit-msg hook.
+`README.md` is the rendered profile. `docs/` holds overflow split out of the README (`production_floor.md`, `FEATURES.md`).
 
 ## Repo boundaries
 
@@ -22,11 +22,11 @@ Stay inside this repo. Cross-repo context lives in the parent `../AGENTS.md` and
 
 ## Commands
 
-No dev verbs - see [.coily/coily.yaml](.coily/coily.yaml). Run the gate with `pre-commit run --all-files`.
+No dev verbs - see [.coily/coily.yaml](.coily/coily.yaml).
 
 ## Validation
 
-`pre-commit run --all-files` must pass before any commit (agentic-os documentation-layout, catalog, and commit hooks).
+None. This repo is exempt from the agentic-os fleet baseline - `.agentic-os-ignore` opts it out of the managed pre-commit block and hook wiring, and `.pre-commit-config.yaml` is intentionally empty. Proofread by hand.
 
 ## Safety
 
@@ -34,7 +34,7 @@ Never use `--no-verify`. Never commit secrets - opaque ids go in AWS SSM per the
 
 ## Cross-repo contracts
 
-`README.md` intro paragraphs sync from `Resume.md` (sync list in the parent `coilysiren/AGENTS.md`). The commit-msg hook is rolled out from `agentic-os-kai`.
+`README.md` intro paragraphs sync from `Resume.md` (sync list in the parent `coilysiren/AGENTS.md`). This repo opts out of fleet management via `.agentic-os-ignore` - baseline rollouts (managed hook block, hook wiring) skip it.
 
 ## Release
 
