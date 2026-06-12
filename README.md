@@ -270,6 +270,6 @@ Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/re
 
 ## See also
 
-- [AGENTS.md](AGENTS.md) - agent-facing operating rules.
+- [AGENTS.md](AGENTS.md) - agent bootstrap guide and operating rules.
 - [docs/FEATURES.md](docs/FEATURES.md) - inventory of what ships today.
 - [.coily/coily.yaml](.coily/coily.yaml) - allowlisted commands.

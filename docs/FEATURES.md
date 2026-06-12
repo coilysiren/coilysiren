@@ -31,7 +31,7 @@ Last full sweep: 2026-06-12.
 ## See also
 
 - [README.md](../README.md) - human-facing intro.
-- [AGENTS.md](../AGENTS.md) - agent-facing operating rules.
+- [AGENTS.md](../AGENTS.md) - agent bootstrap guide: orientation, context pointers, and the repo's operating rules.
 - [.coily/coily.yaml](../.coily/coily.yaml) - allowlisted commands.
 
 Cross-reference convention from [coilyco-flight-deck/agentic-os#59](https://github.com/coilyco-flight-deck/agentic-os/issues/59).

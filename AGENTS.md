@@ -1,72 +1,40 @@
 # Agent instructions
 
-Workspace conventions load globally via `~/.claude/CLAUDE.md` -> `agentic-os-kai/AGENTS.md` (`coilyco-bridge/agentic-os-kai` on Forgejo - bare `agentic-os-kai` below means that repo). This file covers only what is specific to this repo.
+You have landed in `coilysiren/coilysiren`, the GitHub profile repo: `README.md` renders as the landing page on <https://github.com/coilysiren>. This file is the bootstrap guide for an agent starting here with no other context. It points at where the rest of the world lives and how to find things, rather than prescribing steps.
 
----
+## Orient yourself
 
-This is the GitHub profile repo - `coilysiren/coilysiren` renders as the landing page on <https://github.com/coilysiren>.
+How much context you have depends on where you are running:
 
-`README.md` is one of the sync targets for `Resume.md`'s intro paragraphs (full sync list in the `writing-bio-surface` skill, shipped from `coilyco-bridge/agentic-os-kai` on Forgejo). Direct-to-main per the workspace git workflow, no PR.
+- **On Kai's fleet**, the global conventions are already loaded: `~/.claude/CLAUDE.md` chains to `agentic-os-kai/AGENTS.md` (the private operating context, `coilyco-bridge/agentic-os-kai` on Forgejo), which layers on the public base from `agentic-os`. If a term in this repo confuses you, search those two files and their skills before searching the web.
+- **On a standalone clone**, there is no global context and no `../AGENTS.md` to resolve. Everything this repo itself requires is in this file. The public half of the wider system is browsable at [coilyco-flight-deck/agentic-os](https://github.com/coilyco-flight-deck/agentic-os); the private half lives on a Forgejo you cannot reach, and nothing in this repo depends on it.
 
-## Scope
+## The world this repo sits in
 
-The GitHub profile landing page and its supporting docs. No application code.
+A search map, not a setup script:
 
-## Project shape
+- **Workspace layout** - repos on Kai's fleet check out to `~/projects/<owner>/<repo>`, so this repo's canonical home is `~/projects/coilysiren/coilysiren/`. Owner directories (`~/projects/coilysiren/`) are not repos - never clone into one directly. The `repo-coilysiren` pointer skill (stamped at `.agents/skills/repo-coilysiren/` by a fleet sweep) encodes the same path.
+- **Two hosts, split canonicality** - the fleet's source of truth is Forgejo (`forgejo.coilysiren.me`), with GitHub as a PR-gated mirror. This repo is the one inversion: **GitHub is canonical** because the profile renders from GitHub `main`, and Forgejo is the mirror (fleet-tooling encoding: [infrastructure#299](https://forgejo.coilysiren.me/coilyco-flight-deck/infrastructure/issues/299)). Cross-repo issue refs in this repo are full URLs so the host is never ambiguous; a bare `#N` means this repo's tracker.
+- **Four org bays** - `coilyco-flight-deck` (public builds), `coilyco-bridge` (control surfaces, including the coily security boundary), `coilyco-gaming` (game-server code), and `coilysiren` (personal: this repo, the website). The README's `production_floor` table is the human-facing map of the same split, and the website repo (`coilysiren/website`) is where the bay logos canonically live (`src/images/icons/`).
+- **Commands route through coily on the fleet** - a CLI security boundary that reads each repo's `.coily/coily.yaml`. This repo declares no dev verbs (`commands: {}`); there is nothing to build or run here. On a standalone clone, plain git and a markdown preview are the whole toolchain. The one script, `scripts/fleet-readout.sh`, only works on the fleet (it reads the live tailnet and cluster through coily).
+- **Deeper context ships as skills** - on the fleet, search `agentic-os-kai/.agents/skills/` by topic (`writing-bio-surface` holds the Resume sync list, `kai-git-workflow` the git exceptions, `tooling-repo-baseline` the fleet-management machinery behind `.agentic-os-ignore`).
 
-`README.md` is the rendered profile, deliberately long-form (this repo is exempt from the fleet size caps and is the designated long-content surface). `docs/` holds `FEATURES.md` plus pointer stubs (`production_floor.md`, `service_history.md`) for content folded back into the README. `assets/` holds committed images the README cannot hotlink (the coily-siren bay logo - the GitHub account avatar is Kai's headshot, so the `github.com/<name>.png` trick serves the wrong image; canonical logo source is `coilysiren/website` `src/images/icons/`). `scripts/fleet-readout.sh` regenerates the README's live tailnet and pod readout blocks with the redaction rules built in.
+## This repo, specifically
 
-## Repo boundaries
+- **Shape** - `README.md` is the product: the rendered profile, deliberately long-form, the one repo exempt from fleet size caps. `docs/` holds `FEATURES.md` (the living inventory - update it in the same commit as any feature-shaped change) plus pointer stubs for content folded back into the README. `assets/` holds images that cannot be hotlinked. `scripts/fleet-readout.sh` regenerates the README's live readout blocks with the redaction rules built in.
+- **Sync contract** - the README's intro paragraphs are a sync target for `Resume.md` (sync list in the `writing-bio-surface` skill). Edits to the `whoami` prose may be overwritten or propagated by that sync.
+- **Validation** - none. `.agentic-os-ignore` opts the repo out of fleet baseline management and `.pre-commit-config.yaml` is intentionally empty. Proofread by hand.
+- **Writing rules** - mobile first: no layout wider than 2 columns, code blocks under ~44 chars. Voice: she/her, no em-dashes, no semicolons in prose. The readouts are real - regenerate them with the script rather than hand-editing, and keep the honesty marks (the ✗ pods, the `1/3 nodes`) instead of greenwashing them.
+- **Safety** - never `--no-verify`. Opaque identifiers (tokens, tailnet IPs/FQDNs, hash suffixes) never land in tracked files - on the fleet they belong in AWS SSM, and the readout script already strips them on the way in.
 
-Stay inside this repo. Cross-repo context lives in `agentic-os-kai/AGENTS.md`, loaded globally via `~/.claude/CLAUDE.md` on Kai's fleet - there is no workspace-relative `../AGENTS.md` a standalone clone can resolve.
+## Landing work
 
-**Workspace layout.** On Kai's fleet every repo checks out to `~/projects/<owner>/<repo>`, where `<owner>` is the Forgejo org (here, also the GitHub owner). This repo's canonical path is `~/projects/coilysiren/coilysiren/`. `~/projects/coilysiren/` is the owner directory holding all coilysiren-org repos, not a repo itself - never clone into it directly. The `repo-coilysiren` pointer skill stamps the canonical path on this convention.
-
-**Issue-ref convention.** Cross-repo issue refs in this repo are full URLs so the host is unambiguous (canonicality is split across the fleet: most repos are Forgejo-canonical at `forgejo.coilysiren.me`, this one is GitHub-canonical). Bare `owner/repo#N` is allowed only for same-repo refs.
-
-## Commands
-
-No dev verbs - see [.coily/coily.yaml](.coily/coily.yaml).
-
-## Validation
-
-None. This repo is exempt from the agentic-os fleet baseline - `.agentic-os-ignore` opts it out of the managed pre-commit block and hook wiring, and `.pre-commit-config.yaml` is intentionally empty. Proofread by hand.
-
-## Safety
-
-Never use `--no-verify`. Never commit secrets - opaque ids go in AWS SSM per the global operating context (`agentic-os-kai/AGENTS.md`).
-
-## Cross-repo contracts
-
-`README.md` intro paragraphs sync from `Resume.md` (sync list in the `writing-bio-surface` skill, shipped from `coilyco-bridge/agentic-os-kai` on Forgejo). This repo opts out of fleet management via `.agentic-os-ignore` - baseline rollouts (managed hook block, hook wiring) skip it.
-
-## Release
-
-No release artifact. **GitHub is canonical for this repo - the only GitHub-canonical repo in the fleet.** The profile page renders from GitHub `main`, so changes land by pushing straight to GitHub `main` - no branches, no PRs. Forgejo is the mirror here (the inverse of the workspace default). Push it too so the fleet git sweep stays quiet. Fleet-tooling encoding of this exception: [infrastructure#299](https://forgejo.coilysiren.me/coilyco-flight-deck/infrastructure/issues/299).
-
-**Remote setup.** The canonical checkout carries two remotes: `origin` fetches from GitHub (`git@github.com:coilysiren/coilysiren.git`) and pushes to **both** GitHub and the Forgejo mirror via a second pushurl, and `forgejo` fetches from the mirror (`https://forgejo.coilysiren.me/coilysiren/coilysiren.git`). With that wiring, `git push origin main` satisfies the dual-push contract in one command. A fresh clone from GitHub has only `origin` - recreate the wiring with:
-
-```sh
-git remote set-url --add --push \
-  origin \
-  git@github.com:coilysiren/coilysiren.git
-git remote set-url --add --push \
-  origin \
-  https://forgejo.coilysiren.me/coilysiren/coilysiren.git
-git remote add forgejo \
-  https://forgejo.coilysiren.me/coilysiren/coilysiren.git
-```
-
-Forgejo push auth comes from Kai's usual Forgejo credentials (HTTPS token or credential helper) - if the mirror push fails on a host without them, the GitHub push still landed and the fleet git sweep will flag the mirror as behind rather than losing work.
-
-## Agent rules
-
-Commit to `main` directly and push after each commit, no branches, no PRs. **Mobile first**: the profile renders on phones, so no layout wider than 2 columns (no side-by-side HTML tables, no 3-column markdown tables) and code blocks stay under ~44 characters wide. Close issues with a `closes #<N>` trailer. Voice rules apply (she/her, no em-dashes, no semicolons in prose).
+Commit straight to `main`, no branches, no PRs, push after each commit. Close issues with a `closes #<N>` trailer. The canonical checkout pushes GitHub and the Forgejo mirror in one command: `origin` fetches from GitHub and carries both pushurls, and a `forgejo` remote fetches the mirror - run `git remote -v` on a fleet checkout to see the wiring if a fresh clone needs it recreated. If the mirror push fails for lack of Forgejo credentials, the GitHub push already landed and the fleet git sweep will flag the mirror as behind - nothing is lost.
 
 ## See also
 
-- [README.md](README.md) - human-facing intro.
+- [README.md](README.md) - the product.
 - [docs/FEATURES.md](docs/FEATURES.md) - inventory of what ships today.
-- [.coily/coily.yaml](.coily/coily.yaml) - allowlisted commands.
+- [.coily/coily.yaml](.coily/coily.yaml) - catalog metadata, no commands.
 
 Cross-reference convention from [coilyco-flight-deck/agentic-os#59](https://github.com/coilyco-flight-deck/agentic-os/issues/59). The README intentionally drops this footer: a profile repo citing its own owner's convention repo read as circular, and this repo is exempt from the convention's enforcement anyway.
