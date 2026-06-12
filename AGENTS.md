@@ -6,7 +6,7 @@ Workspace conventions load globally via `~/.claude/CLAUDE.md` -> `agentic-os-kai
 
 This is the GitHub profile repo - `coilysiren/coilysiren` renders as the landing page on <https://github.com/coilysiren>.
 
-`README.md` is one of the sync targets for `Resume.md`'s intro paragraphs (see the parent `AGENTS.md` for the full sync list). Direct-to-main per the workspace git workflow, no PR.
+`README.md` is one of the sync targets for `Resume.md`'s intro paragraphs (full sync list in the `writing-bio-surface` skill, shipped from `agentic-os-kai`). Direct-to-main per the workspace git workflow, no PR.
 
 ## Scope
 
@@ -18,7 +18,7 @@ The GitHub profile landing page and its supporting docs. No application code.
 
 ## Repo boundaries
 
-Stay inside this repo. Cross-repo context lives in the parent `../AGENTS.md` and `agentic-os-kai`.
+Stay inside this repo. Cross-repo context lives in `agentic-os-kai/AGENTS.md`, loaded globally via `~/.claude/CLAUDE.md` on Kai's fleet - there is no workspace-relative `../AGENTS.md` a standalone clone can resolve.
 
 ## Commands
 
@@ -30,11 +30,11 @@ None. This repo is exempt from the agentic-os fleet baseline - `.agentic-os-igno
 
 ## Safety
 
-Never use `--no-verify`. Never commit secrets - opaque ids go in AWS SSM per the parent `AGENTS.md`.
+Never use `--no-verify`. Never commit secrets - opaque ids go in AWS SSM per the global operating context (`agentic-os-kai/AGENTS.md`).
 
 ## Cross-repo contracts
 
-`README.md` intro paragraphs sync from `Resume.md` (sync list in the parent `coilysiren/AGENTS.md`). This repo opts out of fleet management via `.agentic-os-ignore` - baseline rollouts (managed hook block, hook wiring) skip it.
+`README.md` intro paragraphs sync from `Resume.md` (sync list in the `writing-bio-surface` skill, shipped from `agentic-os-kai`). This repo opts out of fleet management via `.agentic-os-ignore` - baseline rollouts (managed hook block, hook wiring) skip it.
 
 ## Release
 
