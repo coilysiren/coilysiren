@@ -217,10 +217,22 @@ And one edge case: the Mac keeps a Qwen 9B warm through Ollama + OpenCode, scope
 
 Hand-curated index of active builds from the lights-out factory. Two starting points: [gauntlet](https://github.com/coilyco-flight-deck/gauntlet) is the thesis in code (verification by adversary), and [coily](https://github.com/coilyco-bridge/coily) is the hard design problem (a boundary that must hold against its own operator). If you want to click something that runs right now, the galaxy sim is live at [galaxy-gen.coilysiren.me](https://galaxy-gen.coilysiren.me).
 
-The builds ship from two org bays:
+The builds ship from three bays:
 
-- <img src="https://github.com/coilyco-flight-deck.png?size=40" width="18" alt=""> **[coilyco-flight-deck](https://github.com/coilyco-flight-deck)** - the flight deck, where builds launch: gauntlet, infrastructure, repo-recall, galaxy-gen, most of the line.
-- <img src="https://github.com/coilyco-bridge.png?size=40" width="18" alt=""> **[coilyco-bridge](https://github.com/coilyco-bridge)** - the bridge, where the controls live: coily and the cycle tooling.
+<table>
+<tr>
+<td width="112" align="center"><a href="https://github.com/coilyco-flight-deck"><img src="https://github.com/coilyco-flight-deck.png?size=200" width="96" alt="coilyco-flight-deck logo"></a></td>
+<td><strong><a href="https://github.com/coilyco-flight-deck">coilyco-flight-deck</a></strong> - the flight deck, where builds launch: gauntlet, infrastructure, repo-recall, galaxy-gen, most of the line.</td>
+</tr>
+<tr>
+<td width="112" align="center"><a href="https://github.com/coilyco-bridge"><img src="https://github.com/coilyco-bridge.png?size=200" width="96" alt="coilyco-bridge logo"></a></td>
+<td><strong><a href="https://github.com/coilyco-bridge">coilyco-bridge</a></strong> - the bridge, where the controls live: coily and the cycle tooling.</td>
+</tr>
+<tr>
+<td width="112" align="center"><a href="https://github.com/coilysiren"><img src="https://github.com/coilysiren.png?size=200" width="96" alt="coilysiren avatar"></a></td>
+<td><strong><a href="https://github.com/coilysiren">coilysiren</a></strong> - the operator's own bay: this profile, the claude-code-pulse archive, and <a href="https://coilysiren.me">coilysiren.me</a>.</td>
+</tr>
+</table>
 
 | Build | What it is |
 |-------|-----------|
