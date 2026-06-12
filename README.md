@@ -41,24 +41,22 @@ The floor is organized into three bays. Two starting points if you're browsing: 
 <tr>
 <td width="112" align="center"><a href="https://github.com/coilyco-flight-deck"><img src="https://github.com/coilyco-flight-deck.png?size=200" width="96" alt="coilyco-flight-deck logo"></a></td>
 <td><strong><a href="https://github.com/coilyco-flight-deck">coilyco-flight-deck</a></strong> - the flight deck, where the builds launch.<br><br>
-🥊 <a href="https://github.com/coilyco-flight-deck/gauntlet">gauntlet</a> - two-agent adversarial loop, infers correctness under sustained, targeted attack · <code>RUNNING HOT</code><br>
-🧬 <a href="https://github.com/coilyco-flight-deck/session-lattice">session-lattice</a> - materialized views over Claude session data via Feldera (DBSP), served to <a href="https://github.com/coilyco-flight-deck/luca">luca</a>, the agent-activity observability plugin · <code>SCAFFOLDED</code><br>
-🛰️ <a href="https://github.com/coilyco-flight-deck/infrastructure">infrastructure</a> - the factory floor itself: single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale · <code>OPERATIONAL</code><br>
-🧠 <a href="https://github.com/coilyco-flight-deck/repo-recall">repo-recall</a> - session indexing for the observability substrate · <code>ACTIVE</code><br>
-🌌 <a href="https://github.com/coilyco-flight-deck/galaxy-gen">galaxy-gen</a> - procedural galaxy sim, Rust -> WASM · <code>LIVE</code> at <a href="https://galaxy-gen.coilysiren.me">galaxy-gen.coilysiren.me</a><br>
-🌱 The <a href="https://play.eco">Eco</a> game-server suite: <a href="https://github.com/coilyco-flight-deck/eco-mods-public">eco-mods-public</a> (C# mods · <code>ACTIVE</code>), 📡 <a href="https://github.com/coilyco-flight-deck/eco-jobs-tracker">eco-jobs-tracker</a> (FastAPI + HTMX dashboard of player professions · <code>LIVE</code>), 🔌 <a href="https://github.com/coilyco-flight-deck/eco-mcp-app">eco-mcp-app</a> + 📊 <a href="https://github.com/coilyco-flight-deck/eco-telemetry">eco-telemetry</a> (Claude Desktop widget + OTel mod · <code>WIP/ACTIVE</code>)</td>
+The flagship is <a href="https://github.com/coilyco-flight-deck/gauntlet">gauntlet</a> <code>RUNNING HOT</code>, the two-agent adversarial loop from the thesis above: point it at a running service and it infers correctness from how the service holds up under sustained, targeted attack. Feeding it context is the observability substrate: <a href="https://github.com/coilyco-flight-deck/repo-recall">repo-recall</a> <code>ACTIVE</code> indexes every Claude Code session on the fleet, and <a href="https://github.com/coilyco-flight-deck/session-lattice">session-lattice</a> <code>SCAFFOLDED</code> keeps incremental materialized views over that data (Feldera, DBSP) for <a href="https://github.com/coilyco-flight-deck/luca">luca</a> to answer questions with. <a href="https://github.com/coilyco-flight-deck/infrastructure">infrastructure</a> <code>OPERATIONAL</code> is the factory floor everything else stands on - the single-node k3s cluster, GH Actions deploys, SSM-backed secrets, Tailscale. And for something with no agents in it at all, <a href="https://github.com/coilyco-flight-deck/galaxy-gen">galaxy-gen</a> <code>LIVE</code> draws procedural galaxies in Rust-compiled-to-WASM at <a href="https://galaxy-gen.coilysiren.me">galaxy-gen.coilysiren.me</a>.</td>
 </tr>
 <tr>
 <td width="112" align="center"><a href="https://github.com/coilyco-bridge"><img src="https://github.com/coilyco-bridge.png?size=200" width="96" alt="coilyco-bridge logo"></a></td>
 <td><strong><a href="https://github.com/coilyco-bridge">coilyco-bridge</a></strong> - the bridge, where the controls live.<br><br>
-🛡️ <a href="https://github.com/coilyco-bridge/coily">coily</a> - escape-hatch-resistant CLI security boundary for privileged ops, audit-logs everything. The boundary must hold against the agent operating inside it · <code>ACTIVE</code><br>
-🌱 <a href="https://github.com/coilyco-bridge/eco-cycle-prep">eco-cycle-prep</a> - Python automation for the <a href="https://play.eco">Eco</a> cycle · <code>ACTIVE</code></td>
+<a href="https://github.com/coilyco-bridge/coily">coily</a> <code>ACTIVE</code> is the security boundary the whole lights-out bet rests on: an escape-hatch-resistant CLI wrapper that privileged operations route through, audit-logging every call. The design constraint that makes it interesting is that the boundary has to hold against the agent operating inside it, which rules out most of the obvious implementations. Its neighbor <a href="https://github.com/coilyco-bridge/eco-cycle-prep">eco-cycle-prep</a> <code>ACTIVE</code> runs the automation that stands up each new Eco server cycle.</td>
+</tr>
+<tr>
+<td width="112" align="center"><a href="https://github.com/coilyco-gaming"><img src="https://github.com/coilyco-gaming.png?size=200" width="96" alt="coilyco-gaming logo"></a></td>
+<td><strong><a href="https://github.com/coilyco-gaming">coilyco-gaming</a></strong> - the gaming bay, newest on the floor.<br><br>
+Everything for the <a href="https://play.eco">Eco via Sirens</a> game server lives here. <a href="https://github.com/coilyco-gaming/eco-app">eco-app</a> is the companion-services monorepo - the MCP server Claude Desktop talks to, the player-professions dashboard, the replay browser, and the telemetry mod, four former repos fused into one deployable. <a href="https://github.com/coilyco-gaming/eco-mods">eco-mods</a> carries the C# gameplay mods that run inside the server itself.</td>
 </tr>
 <tr>
 <td width="112" align="center"><a href="https://github.com/coilysiren"><img src="assets/coily-siren.png" width="96" alt="coilysiren logo"></a></td>
 <td><strong><a href="https://github.com/coilysiren">coilysiren</a></strong> - the operator's own bay.<br><br>
-💓 <a href="https://github.com/coilysiren/claude-code-pulse">claude-code-pulse</a> - per-turn vitals for Claude Code · <code>ARCHIVED</code><br>
-📍 this profile, plus the site at <a href="https://coilysiren.me">coilysiren.me</a></td>
+The personal namespace: this profile you're reading, and the site at <a href="https://coilysiren.me">coilysiren.me</a>, where the <a href="https://coilysiren.me/resume">resume</a> and the <a href="https://coilysiren.me/now">/now</a> page live.</td>
 </tr>
 </table>
 
