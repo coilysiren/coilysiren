@@ -1,48 +1,35 @@
 ```
 $ ssh kai@kai-server
 
-  ┌──────────────────────────────────────────────────────────────────┐
-  │  kai-server · lights-out · uptime: ten years counting            │
-  │  operator: kai siren · east bay, ca                              │
-  └──────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────┐
+│ kai-server · lights-out            │
+│ uptime: ten years counting         │
+│ operator: kai siren · east bay, ca │
+└────────────────────────────────────┘
 
-  ● platform.target - kai's lights-out factory
-       Active: active (running)
-       Status: "agents on shift, line is green"
+● platform.target
+     Active: active (running)
+     Status: "agents on shift,
+              line is green"
 
-$ tailscale status
-  100.··.··.··   kai-server           linux    online   [k3s · always-on]
-  100.··.··.··   kai-desktop-tower    windows  online   [3090 ti · 24 GB · llm bench]
-  100.··.··.··   kai-windows-laptop   windows  online   [travel · burst gpu]
-  100.··.··.··   kais-macbook-pro     macos    online   [travel default]
-  100.··.··.··   ser8                 linux    online   [warm standby · site 2]
-  100.··.··.··   gha-runner-*         linux    idle     [ci · ephemeral]
-
-  ⚙⚒ one tailnet, two sites, agents on the line ⚒⚙
+⚙⚒ agents on the line ⚒⚙
 ```
 
-<table>
-<tr>
-<td width="58%" valign="top">
-
-### `> whoami`
+## `> whoami`
 
 **Hi! I'm Kai.** Platform engineer, 10+ years in. Day job: accelerating engineers as their work goes agentic, with observability for LLM consumers as the current bet. Off-hours I run a small lights-out factory: single-node k3s homelab, a herd of agents building and breaking my own services in the dark, a steady output of small tools. Wire it in, instrument it, push on it until it breaks.
 
 > Most excited about **Gauntlet**: a two-agent adversarial loop that infers software correctness under sustained, targeted attack. - [/now](https://coilysiren.me/now)
 
-</td>
-<td width="42%" valign="top">
-
-### `> shift_report`
+## `> shift_report`
 
 ```yaml
-operator:  Kai Siren
-role:      Senior Platform Engineer
-employer:  Kapwing
-location:  East Bay, CA
-shift:     lights-out
-fleet:     5 machines · 1 tailnet · 2 sites
+operator: Kai Siren
+role:     Senior Platform Engineer
+employer: Kapwing
+location: East Bay, CA
+shift:    lights-out
+fleet:    27 devices · 1 tailnet
 
 specialties:
   - platform / SRE
@@ -58,43 +45,149 @@ prior_art:
   - Crypto product @ Callisto
 ```
 
-</td>
-</tr>
-</table>
-
 ## `> tailnet`
 
-"Homelab" undersells it. The fleet is five machines joined by Tailscale into a single tailnet across two physical sites, with one of them rack-shaped enough to deserve the homelab name. Everything below talks to everything else over the mesh: laptops, WSL instances, k3s services, game servers, even the ephemeral GitHub Actions runners that deploy to the cluster.
+"Homelab" undersells it. The fleet is joined by Tailscale into a single tailnet across two physical sites, and the device list is most of the story: the machines, the phones, the WSL guests, and every k3s service that publishes itself onto the mesh as its own node.
 
 ```
-        site 1 (east bay)                      site 2
-  ┌────────────────────────────┐        ┌──────────────────────┐
-  │  kai-server     [always-on]│        │  ser8  [warm standby]│
-  │   └─ k3s · game servers    │◄──────►│   └─ DR target for   │
-  │  kai-desktop-tower         │tailnet │      the k3s control │
-  │   └─ rtx 3090 ti · llm     │  mesh  │      plane           │
-  │  kasa hs300 power strip    │        └──────────────────────┘
-  │   └─ the hard-reset path   │             ▲
-  └────────────────────────────┘             │
-              ▲                              │
-              ▼                              ▼
-  ┌──────────────────────────────────────────────────────┐
-  │  roaming: kais-macbook-pro · kai-windows-laptop      │
-  │  ephemeral: gha runners · wsl guests · k8s services  │
-  └──────────────────────────────────────────────────────┘
+site 1 · east bay
+├─ kai-server      k3s · always-on
+├─ kai-tower-3026  3090 ti · llm bench
+└─ kasa hs300      hard-reset path
+
+site 2
+└─ ser8            warm standby · DR
+
+roaming
+├─ kais-macbook-pro
+├─ kai-windows-laptop
+└─ pixel-9
+
+ephemeral
+└─ gha runners · wsl · k8s proxies
 ```
 
 ### `> fleet_inventory`
 
-| Node | Hardware | Role |
-|------|----------|------|
-| **kai-server** | Intel i7-14700 (8P+12E, 28 threads), 32 GB, NVMe, no dGPU | The always-on box. Single-node k3s running every personal service, plus host-side game servers (Eco, Factorio, Icarus, Core Keeper). The only machine allowed to hold state. |
-| **kai-desktop-tower** | Ryzen 9 9950X3D, 64 GB DDR5-6000, RTX 3090 Ti 24 GB, fresh AM5 rebuild | Daily driver and the local-LLM bench. The 24 GB card serves the 32B-tier models. |
-| **kai-windows-laptop** | i7-11800H, 16 GB, RTX 3060 mobile 6 GB | Travel Windows host. Burst inference when it happens to be open. |
-| **kais-macbook-pro** | Apple Silicon | Travel default. Where most Claude Code sessions originate. Not a serious inference host, and it knows it. |
-| **ser8** | Beelink SER8, Ryzen 7 PRO 8845HS, 64 GB, 1 TB NVMe, 2.5 GbE | Cross-site warm standby for the k3s control plane. Manual promotion, not HA. A separate power, ISP, and site failure domain is what makes it a real DR story. |
+| Node | Notes |
+|------|-------|
+| **kai-server** | Intel i7-14700, 32 GB, no dGPU. The always-on box: single-node k3s running every personal service, plus game servers (Eco, Factorio, Icarus, Core Keeper). The only machine allowed to hold state. |
+| **kai-tower-3026** | Ryzen 9 9950X3D, 64 GB DDR5, RTX 3090 Ti 24 GB. Fresh AM5 rebuild, daily driver, the local-LLM bench. |
+| **kai-windows-laptop** | i7-11800H, 16 GB, RTX 3060 mobile. Travel Windows host, burst inference when open. |
+| **kais-macbook-pro** | Apple Silicon. Travel default, where most Claude Code sessions originate. Not a serious inference host, and it knows it. |
+| **ser8** | Beelink SER8, Ryzen 7 PRO 8845HS, 64 GB. Cross-site warm standby for the k3s control plane. Separate power, ISP, and site, which is what makes the DR story real. |
 
-Footnotes to the inventory: a worker-only Radxa Zero 3W appears in the standby topology but is unfit to hold state (WiFi plus SD card, no thanks), and a Kasa HS300 smart power strip feeds the site-1 fleet as the hard-power-cycle path of last resort. When software observability fails, there is always the physical layer.
+Footnotes: a worker-only Radxa Zero 3W appears in the standby topology but is unfit to hold state (WiFi plus SD card, no thanks), and a Kasa HS300 smart power strip feeds the site-1 fleet as the hard-power-cycle path of last resort. When software observability fails, there is always the physical layer.
+
+### `> tailscale_status`
+
+The live mesh, regenerated by [scripts/fleet-readout.sh](scripts/fleet-readout.sh). Hostnames real, everything opaque redacted, third-party devices excluded.
+
+```
+$ tailscale status
+  ● kais-macbook-pro             macos
+  ● api                          linux
+  ● backend-db                   linux
+  ○ coilysiren-backend-coilysir… linux
+  ● coilysiren-eco-mcp-app-coil… linux
+  ● coilysiren-eco-spec-tracker… linux
+  ○ coilysiren-galaxy-gen-coily… linux
+  ● forgejo-1                    linux
+  ○ forgejo                      linux
+  ● galaxy-gen                   linux
+  ○ kai-desktop-tower-wsl        linux
+  ○ kai-desktop-tower            windows
+  ○ kai-mac-kapwing              macos
+  ○ kai-macbook-pro-vm           linux
+  ● kai-server                   linux
+  ● kai-tower-3026-wsl           linux
+  ● kai-tower-3026               windows
+  ○ kai-windows-laptop           windows
+  ○ kais-macbook-pro-1           macos
+  ● ntfy                         linux
+  ○ observability-vmsingle-tail… linux
+  ● pixel-9                      android
+  ● repo-recall                  linux
+  ● ser8                         linux
+  ● signoz                       linux
+  ● tailscale-operator           linux
+  ● vmsingle                     linux
+  27 devices · 1 tailnet · 2 sites
+```
+
+Yes, the phone is a tailnet node. Yes, the Forgejo instance, the notification daemon, and the metrics store are each their own device. The Tailscale operator publishes k3s services onto the mesh, so the cluster's insides show up on the device list like roommates.
+
+### `> kubectl_get_pods`
+
+The same factory from the cluster's point of view, same redaction rules (hash suffixes are opaque ids, so they drop).
+
+```
+$ kubectl get pods -A
+  cert-manager/
+    ● cert-manager
+    ● cert-manager-cainjector
+    ● cert-manager-webhook
+  coilysiren-backend/
+    ● coilysiren-backend-app
+    ● coilysiren-backend-db
+  coilysiren-eco-mcp-app/
+    ● coilysiren-eco-mcp-app-app
+  coilysiren-eco-spec-tracker/
+    ● coilysiren-eco-spec-tracker-a…
+  coilysiren-galaxy-gen/
+    ● coilysiren-galaxy-gen-app
+  default/
+    ● null-db
+  external-secrets/
+    ● external-secrets
+    ● external-secrets-cert-control…
+    ● external-secrets-webhook
+  forgejo/
+    ● forgejo-db
+    ● forgejo
+    ◌ forgejo-runner
+    ✗ forgejo-runner-tap-writer
+    ● ts-forgejo
+  kube-system/
+    ● coredns
+    ✓ helm-install-traefik-crd
+    ✓ helm-install-traefik
+    ● local-path-provisioner
+    ● metrics-server
+    ● svclb-traefik ×3
+    ● traefik
+  lunch-money/
+    ● lunch-money-lunch-money-k8s
+  ntfy/
+    ● ntfy
+  observability/
+    ● chi-signoz-clickhouse-cluster
+    ● grafana
+    ✗ node-exporter-prometheus-node…
+    ● node-exporter-prometheus-node… ×2
+    ● signoz
+    ● signoz-clickhouse-operator
+    ● signoz-otel-collector
+    ✓ signoz-telemetrystore-migrator
+    ● signoz-zookeeper
+    ● ts-signoz
+    ● ts-vmsingle
+    ● victoria-metrics-victoria-met…
+    ● vmagent-victoria-metrics-agent
+  openclaw/
+    ◌ openclaw
+  registry/
+    ● registry
+  repo-recall/
+    ● repo-recall
+  tailscale/
+    ● operator
+    ● ts-coilysiren-eco-mcp-app-ser…
+    ● ts-coilysiren-eco-spec-tracke…
+  48 pods · 16 namespaces · 1 node
+```
+
+The ✗ marks are real. A lights-out factory that only ever shows green is lying to you.
 
 ### `> local_llm_modes`
 
@@ -108,17 +201,17 @@ The fleet maps onto a three-mode local-model plan:
 
 Hand-curated index of active builds from the lights-out factory.
 
-| Build | What it is | Status |
-|-------|-----------|--------|
-| 🥊 **[gauntlet](https://github.com/coilysiren/gauntlet)** | Two-agent adversarial loop. Infers correctness under sustained, targeted attack. | `RUNNING HOT` |
-| 🧬 **[session-lattice](https://github.com/coilysiren/session-lattice)** | Materialized-view service over Claude session data via Feldera (DBSP). Pulls from repo-recall, served to luca. | `SCAFFOLDED` |
-| 🛰️ **[infrastructure](https://github.com/coilysiren/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale. | `OPERATIONAL` |
-| 🛡️ **[coily](https://github.com/coilysiren/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops. Audit-logs everything. | `ACTIVE` |
-| 🌱 **[eco-mods-public](https://github.com/coilysiren/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilysiren/eco-cycle-prep)** | C# mods + Python automation for [Eco via Sirens](https://play.eco). | `ACTIVE` |
-| 📡 **[eco-jobs-tracker](https://github.com/coilysiren/eco-jobs-tracker)** | FastAPI + HTMX dashboard of player professions. | `LIVE` |
-| 🔌 **[eco-mcp-app](https://github.com/coilysiren/eco-mcp-app)** + 📊 **[eco-telemetry](https://github.com/coilysiren/eco-telemetry)** | Claude Desktop widget + OTel mod for Eco servers. | `WIP/ACTIVE` |
-| 🧠 **[repo-recall](https://github.com/coilysiren/repo-recall)** + 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Claude Code substrate: session indexing + per-turn vitals. | `ACTIVE` |
-| 🌌 **[galaxy-gen](https://github.com/coilysiren/galaxy-gen)** | Procedural galaxy sim, Rust -> WASM. | `LIVE` |
+| Build | What it is |
+|-------|-----------|
+| 🥊 **[gauntlet](https://github.com/coilysiren/gauntlet)** | Two-agent adversarial loop. Infers correctness under sustained, targeted attack. `RUNNING HOT` |
+| 🧬 **[session-lattice](https://github.com/coilysiren/session-lattice)** | Materialized-view service over Claude session data via Feldera (DBSP). Pulls from repo-recall, served to luca. `SCAFFOLDED` |
+| 🛰️ **[infrastructure](https://github.com/coilysiren/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale. `OPERATIONAL` |
+| 🛡️ **[coily](https://github.com/coilysiren/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops. Audit-logs everything. `ACTIVE` |
+| 🌱 **[eco-mods-public](https://github.com/coilysiren/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilysiren/eco-cycle-prep)** | C# mods + Python automation for [Eco via Sirens](https://play.eco). `ACTIVE` |
+| 📡 **[eco-jobs-tracker](https://github.com/coilysiren/eco-jobs-tracker)** | FastAPI + HTMX dashboard of player professions. `LIVE` |
+| 🔌 **[eco-mcp-app](https://github.com/coilysiren/eco-mcp-app)** + 📊 **[eco-telemetry](https://github.com/coilysiren/eco-telemetry)** | Claude Desktop widget + OTel mod for Eco servers. `WIP/ACTIVE` |
+| 🧠 **[repo-recall](https://github.com/coilysiren/repo-recall)** + 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Claude Code substrate: session indexing + per-turn vitals. `ACTIVE` |
+| 🌌 **[galaxy-gen](https://github.com/coilysiren/galaxy-gen)** | Procedural galaxy sim, Rust -> WASM. `LIVE` |
 
 ## `> lights_out`
 
@@ -137,24 +230,22 @@ Python, Go, TypeScript, Bash, C#. AWS, Kubernetes (k3s), Terraform, Docker, Tail
 ## `> service_history`
 
 ```
-2025 - now    Kapwing       Senior Software Engineer
-2023 - 2025   Nava          Principal Infrastructure Engineer
-2022 - 2023   Textio        Staff Infrastructure Engineer
-2021 - 2022   EnergyHub     DevOps Engineering Manager
-2020 - 2021   Bluelink      Senior Backend Engineer
-2018 - 2020   Textio        Senior Infrastructure Engineer
-2016 - 2018   Callisto      Senior Software Engineer
+2025-now   Kapwing    Senior SWE
+2023-2025  Nava       Principal Infra
+2022-2023  Textio     Staff Infra
+2021-2022  EnergyHub  DevOps EM
+2020-2021  Bluelink   Senior Backend
+2018-2020  Textio     Senior Infra
+2016-2018  Callisto   Senior SWE
 ```
 
 Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/resume](https://coilysiren.me/resume). What I'm doing right now: [coilysiren.me/now](https://coilysiren.me/now).
 
 ## `> faq`
 
-**Why does a profile README have a network diagram?** Because this repo is the one place in the fleet with no size cap, no managed hooks, and no validators. Every other repo I own answers to a pre-commit suite rolled out from a central baseline. This one carries an exemption marker and does what it wants. Naturally it became the long-form surface.
+**Why does a profile README have a network diagram and a pod listing?** Because this repo is the one place in the fleet with no size cap, no managed hooks, and no validators. Every other repo I own answers to a pre-commit suite rolled out from a central baseline. This one carries an exemption marker and does what it wants. Naturally it became the long-form surface.
 
-**Is the SSH banner real?** It's a faithful dramatization. The hostnames are real, the tailnet is real, the systemd unit is aspirational, and the IPs are redacted because opaque identifiers stay out of tracked files on principle.
-
-**How long can a GitHub README get?** No documented cap. Markdown rendering gives out around 512 KB per file, and the repo page truncates very large READMEs before the blob view does. This one has two orders of magnitude of headroom, which sounds like a challenge but is actually a budget.
+**Are the readouts real?** Yes. They're generated by [scripts/fleet-readout.sh](scripts/fleet-readout.sh) against the live tailnet and cluster, then pasted in. The redaction is the interesting part: tailnet IPs, FQDNs, account labels, pod hash suffixes, and other people's devices are all stripped before anything lands in git, because opaque identifiers stay out of tracked files on principle. The systemd unit in the banner is aspirational.
 
 ## `> comms`
 

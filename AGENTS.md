@@ -14,7 +14,7 @@ The GitHub profile landing page and its supporting docs. No application code.
 
 ## Project shape
 
-`README.md` is the rendered profile, deliberately long-form (this repo is exempt from the fleet size caps and is the designated long-content surface). `docs/` holds `FEATURES.md` plus pointer stubs (`production_floor.md`, `service_history.md`) for content folded back into the README.
+`README.md` is the rendered profile, deliberately long-form (this repo is exempt from the fleet size caps and is the designated long-content surface). `docs/` holds `FEATURES.md` plus pointer stubs (`production_floor.md`, `service_history.md`) for content folded back into the README. `scripts/fleet-readout.sh` regenerates the README's live tailnet and pod readout blocks with the redaction rules built in.
 
 ## Repo boundaries
 
@@ -42,7 +42,7 @@ No release artifact. **GitHub is canonical for this repo - the only GitHub-canon
 
 ## Agent rules
 
-Commit to `main` directly and push after each commit, no branches, no PRs. Close issues with a `closes #<N>` trailer. Voice rules apply (she/her, no em-dashes, no semicolons in prose).
+Commit to `main` directly and push after each commit, no branches, no PRs. **Mobile first**: the profile renders on phones, so no layout wider than 2 columns (no side-by-side HTML tables, no 3-column markdown tables) and code blocks stay under ~44 characters wide. Close issues with a `closes #<N>` trailer. Voice rules apply (she/her, no em-dashes, no semicolons in prose).
 
 ## See also
 
