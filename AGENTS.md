@@ -1,6 +1,6 @@
 # Agent instructions
 
-See `../AGENTS.md` for workspace-level conventions (git workflow, test/lint autonomy, readonly ops, writing voice). This file covers only what's specific to this repo.
+Workspace conventions load globally via `~/.claude/CLAUDE.md` -> `agentic-os-kai/AGENTS.md`. This file covers only what is specific to this repo.
 
 ---
 
@@ -14,7 +14,7 @@ The GitHub profile landing page and its supporting docs. No application code.
 
 ## Project shape
 
-`README.md` is the rendered profile. `docs/` holds overflow split out of the README (`production_floor.md`, `FEATURES.md`).
+`README.md` is the rendered profile. `docs/` holds overflow split out of the README (`production_floor.md`, `service_history.md`, `FEATURES.md`).
 
 ## Repo boundaries
 

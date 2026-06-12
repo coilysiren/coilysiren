@@ -2,7 +2,7 @@
 
 Baseline inventory of what `coilysiren/coilysiren` (the GitHub profile repo) ships today. Use this as the reference point for scope changes. When a feature is added, removed, or materially reshaped, update the relevant section so the diff against this file shows scope drift over time.
 
-Last full sweep: 2026-05-11.
+Last full sweep: 2026-06-04.
 
 ## Profile landing page
 
@@ -19,7 +19,7 @@ Last full sweep: 2026-05-11.
 
 ## Repo baseline
 
-- **Fleet-management exemption** via [.agentic-os-ignore](../.agentic-os-ignore): baseline rollouts (managed pre-commit block, hook wiring) skip this repo, and [.pre-commit-config.yaml](../.pre-commit-config.yaml) is intentionally empty. The marker file documents which tools honor it and which gaps have issues filed. The previously rolled-out commit-msg hook is gone (the stale `scripts/` reference with it).
+- **Fleet-management exemption** via [.agentic-os-ignore](../.agentic-os-ignore): baseline rollouts (managed pre-commit block, hook wiring) skip this repo, and [.pre-commit-config.yaml](../.pre-commit-config.yaml) is intentionally empty - the agentic-os hook suite, including the `closes-issue` / `conventional-commit` commit-msg enforcement, no longer runs here. The marker file documents which tools honor it and which gaps have issues filed.
 
 ## See also
 
