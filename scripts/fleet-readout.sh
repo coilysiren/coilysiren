@@ -13,7 +13,8 @@
 # kubectl quirk: the kubeconfig default https://kai-server:6443 answers
 # Bad Gateway on this path, so we point at kai-server.local. The API
 # cert has no kai-server.local SAN, hence skip-tls-verify; drop it once
-# the k3s tls-san gains the .local name.
+# the k3s tls-san gains the .local name. Tracking:
+# https://forgejo.coilysiren.me/coilyco-flight-deck/infrastructure/issues/303
 #
 # Usage:
 #   scripts/fleet-readout.sh            # both blocks
@@ -24,9 +25,14 @@ set -euo pipefail
 # Devices owned by other people on the shared tailnet. Never listed.
 THIRD_PARTY='^(kats-macbook-pro|iphone-13-pro)$'
 
+# Physical sites on the tailnet. Not derivable from tailscale status
+# (site membership is physical knowledge), so it lives here as the one
+# hand-maintained count. Update when the site topology changes.
+SITES=2
+
 tailnet() {
   echo '$ tailscale status'
-  coily tailscale status | awk -v third="$THIRD_PARTY" '
+  coily tailscale status | awk -v third="$THIRD_PARTY" -v sites="$SITES" '
     $2 ~ third { skipped++; next }
     {
       glyph = ($0 ~ /offline/) ? "○" : "●"
@@ -36,16 +42,26 @@ tailnet() {
       total++
     }
     END {
-      printf "  %d devices · 1 tailnet · 2 sites\n", total
+      printf "  %d devices · 1 tailnet · %d sites\n", total, sites
     }'
 }
 
 pods() {
   echo '$ kubectl get pods -A'
+  local node_summary
+  node_summary=$(coily ops kubectl -- \
+    --server=https://kai-server.local:6443 \
+    --insecure-skip-tls-verify \
+    get nodes --no-headers | awk '
+    { total++; if ($2 == "Ready") ready++ }
+    END {
+      if (ready == total) printf "%d node%s", total, (total == 1 ? "" : "s")
+      else printf "%d/%d nodes", ready, total
+    }')
   coily ops kubectl -- \
     --server=https://kai-server.local:6443 \
     --insecure-skip-tls-verify \
-    get pods -A --no-headers | awk '
+    get pods -A --no-headers | awk -v node_summary="$node_summary" '
     {
       ns = $1; name = $2; status = $4
       # Strip opaque suffixes: deploy <hex8-10>-<5>, then
@@ -85,7 +101,7 @@ pods() {
         }
       }
       n = 0; for (ns in namespaces) n++
-      printf "  %d pods · %d namespaces · 1 node\n", total, n
+      printf "  %d pods · %d namespaces · %s\n", total, n, node_summary
     }'
 }
 

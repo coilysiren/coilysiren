@@ -3,8 +3,10 @@
 
 commands: {}
 
-# Catalog metadata for the cross-repo knowledge graph.
-# Schema: coilysiren/agentic-os-kai#420 (tracker).
+# Catalog metadata for the cross-repo knowledge graph. Schema: relaxed
+# in agentic-os v0.19.0 (description + dependsOn required; kind / type /
+# system / owner / lifecycle deprecated, pending fleet strip). Tracker:
+# https://forgejo.coilysiren.me/coilyco-bridge/agentic-os-kai/issues/643
 catalog:
   kind: Component
   type: documentation

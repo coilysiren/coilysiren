@@ -186,10 +186,10 @@ $ kubectl get pods -A
     ● operator
     ● ts-coilysiren-eco-mcp-app-ser…
     ● ts-coilysiren-eco-spec-tracke…
-  48 pods · 16 namespaces · 1 node
+  48 pods · 16 namespaces · 1/3 nodes
 ```
 
-The ✗ marks are real. A lights-out factory that only ever shows green is lying to you.
+The ✗ marks are real. So is the `1/3 nodes`: two joined workers (the WSL guest and a Mac VM from the tailnet list above) sit NotReady while kai-server carries everything. A lights-out factory that only ever shows green is lying to you.
 
 ### `> local_llm_modes`
 
@@ -207,23 +207,23 @@ Hand-curated index of active builds from the lights-out factory.
 
 | Build | What it is |
 |-------|-----------|
-| 🥊 **[gauntlet](https://github.com/coilysiren/gauntlet)** | Two-agent adversarial loop. Infers correctness under sustained, targeted attack. `RUNNING HOT` |
-| 🧬 **[session-lattice](https://github.com/coilysiren/session-lattice)** | Materialized-view service over Claude session data via Feldera (DBSP). Pulls from repo-recall, served to luca. `SCAFFOLDED` |
-| 🛰️ **[infrastructure](https://github.com/coilysiren/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale. `OPERATIONAL` |
-| 🛡️ **[coily](https://github.com/coilysiren/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops. Audit-logs everything. `ACTIVE` |
-| 🌱 **[eco-mods-public](https://github.com/coilysiren/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilysiren/eco-cycle-prep)** | C# mods + Python automation for [Eco via Sirens](https://play.eco). `ACTIVE` |
-| 📡 **[eco-jobs-tracker](https://github.com/coilysiren/eco-jobs-tracker)** | FastAPI + HTMX dashboard of player professions. `LIVE` |
-| 🔌 **[eco-mcp-app](https://github.com/coilysiren/eco-mcp-app)** + 📊 **[eco-telemetry](https://github.com/coilysiren/eco-telemetry)** | Claude Desktop widget + OTel mod for Eco servers. `WIP/ACTIVE` |
-| 🧠 **[repo-recall](https://github.com/coilysiren/repo-recall)** + 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Claude Code substrate: session indexing + per-turn vitals. `ACTIVE` |
-| 🌌 **[galaxy-gen](https://github.com/coilysiren/galaxy-gen)** | Procedural galaxy sim, Rust -> WASM. `LIVE` |
+| 🥊 **[gauntlet](https://github.com/coilyco-flight-deck/gauntlet)** | Two-agent adversarial loop. Infers correctness under sustained, targeted attack. `RUNNING HOT` |
+| 🧬 **[session-lattice](https://github.com/coilyco-flight-deck/session-lattice)** | Materialized-view service over Claude session data via Feldera (DBSP). Pulls from repo-recall, served to luca. `SCAFFOLDED` |
+| 🛰️ **[infrastructure](https://github.com/coilyco-flight-deck/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale. `OPERATIONAL` |
+| 🛡️ **[coily](https://github.com/coilyco-bridge/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops. Audit-logs everything. `ACTIVE` |
+| 🌱 **[eco-mods-public](https://github.com/coilyco-flight-deck/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilyco-bridge/eco-cycle-prep)** | C# mods + Python automation for [Eco via Sirens](https://play.eco). `ACTIVE` |
+| 📡 **[eco-jobs-tracker](https://github.com/coilyco-flight-deck/eco-jobs-tracker)** | FastAPI + HTMX dashboard of player professions. `LIVE` |
+| 🔌 **[eco-mcp-app](https://github.com/coilyco-flight-deck/eco-mcp-app)** + 📊 **[eco-telemetry](https://github.com/coilyco-flight-deck/eco-telemetry)** | Claude Desktop widget + OTel mod for Eco servers. `WIP/ACTIVE` |
+| 🧠 **[repo-recall](https://github.com/coilyco-flight-deck/repo-recall)** + 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Claude Code substrate: session indexing (`ACTIVE`) + per-turn vitals (`ARCHIVED`) |
+| 🌌 **[galaxy-gen](https://github.com/coilyco-flight-deck/galaxy-gen)** | Procedural galaxy sim, Rust -> WASM. `LIVE` |
 
 ## `> lights_out`
 
 The factory framing is not a bit. The goal is a dark factory: code written by agents, verified by attack, shipped while I sleep. The pieces that make that safe instead of terrifying:
 
-- **A security boundary first.** Agents on this fleet route privileged operations through [coily](https://github.com/coilysiren/coily), an escape-hatch-resistant CLI wrapper. Every privileged call lands in an audit log. The interesting design constraint is that the boundary must hold against the agent operating inside it, which rules out most of the obvious implementations.
-- **Verification by adversary, not by vibes.** [gauntlet](https://github.com/coilysiren/gauntlet) runs a two-role loop, an attacker and an inspector, against a running service and infers correctness from how the service behaves under sustained attack. Built for the case where a human never reads the diff.
-- **Observability over the whole substrate.** [repo-recall](https://github.com/coilysiren/repo-recall) joins OTel spans, git state, and Claude Code sessions into one queryable surface. [session-lattice](https://github.com/coilysiren/session-lattice) maintains incremental views over it. Agent-to-agent traffic rides [otel-a2a-relay](https://github.com/coilyco-flight-deck/otel-a2a-relay), so even the agents talking to each other shows up as spans.
+- **A security boundary first.** Agents on this fleet route privileged operations through [coily](https://github.com/coilyco-bridge/coily), an escape-hatch-resistant CLI wrapper. Every privileged call lands in an audit log. The interesting design constraint is that the boundary must hold against the agent operating inside it, which rules out most of the obvious implementations.
+- **Verification by adversary, not by vibes.** [gauntlet](https://github.com/coilyco-flight-deck/gauntlet) runs a two-role loop, an attacker and an inspector, against a running service and infers correctness from how the service behaves under sustained attack. Built for the case where a human never reads the diff.
+- **Observability over the whole substrate.** [repo-recall](https://github.com/coilyco-flight-deck/repo-recall) joins OTel spans, git state, and Claude Code sessions into one queryable surface. [session-lattice](https://github.com/coilyco-flight-deck/session-lattice) maintains incremental views over it. Agent-to-agent traffic rides [otel-a2a-relay](https://github.com/coilyco-flight-deck/otel-a2a-relay), so even the agents talking to each other shows up as spans.
 
 When the line breaks, the agents file the issue. When it breaks badly, see the power strip above.
 
