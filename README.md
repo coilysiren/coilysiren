@@ -33,6 +33,35 @@ The factory framing is not a bit. The goal is a dark factory: code written by ag
 
 When the line breaks, the agents file the issue. When it breaks badly, see the power strip in the `tailnet` section below.
 
+## `> production_floor`
+
+The floor is organized into three bays. Two starting points if you're browsing: [gauntlet](https://github.com/coilyco-flight-deck/gauntlet) is the thesis in code, and [coily](https://github.com/coilyco-bridge/coily) is the hard design problem. If you want to click something that runs right now, the galaxy sim is live at [galaxy-gen.coilysiren.me](https://galaxy-gen.coilysiren.me).
+
+<table>
+<tr>
+<td width="112" align="center"><a href="https://github.com/coilyco-flight-deck"><img src="https://github.com/coilyco-flight-deck.png?size=200" width="96" alt="coilyco-flight-deck logo"></a></td>
+<td><strong><a href="https://github.com/coilyco-flight-deck">coilyco-flight-deck</a></strong> - the flight deck, where the builds launch.<br><br>
+🥊 <a href="https://github.com/coilyco-flight-deck/gauntlet">gauntlet</a> - two-agent adversarial loop, infers correctness under sustained, targeted attack · <code>RUNNING HOT</code><br>
+🧬 <a href="https://github.com/coilyco-flight-deck/session-lattice">session-lattice</a> - materialized views over Claude session data via Feldera (DBSP), served to <a href="https://github.com/coilyco-flight-deck/luca">luca</a>, the agent-activity observability plugin · <code>SCAFFOLDED</code><br>
+🛰️ <a href="https://github.com/coilyco-flight-deck/infrastructure">infrastructure</a> - the factory floor itself: single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale · <code>OPERATIONAL</code><br>
+🧠 <a href="https://github.com/coilyco-flight-deck/repo-recall">repo-recall</a> - session indexing for the observability substrate · <code>ACTIVE</code><br>
+🌌 <a href="https://github.com/coilyco-flight-deck/galaxy-gen">galaxy-gen</a> - procedural galaxy sim, Rust -> WASM · <code>LIVE</code> at <a href="https://galaxy-gen.coilysiren.me">galaxy-gen.coilysiren.me</a><br>
+🌱 The <a href="https://play.eco">Eco</a> game-server suite: <a href="https://github.com/coilyco-flight-deck/eco-mods-public">eco-mods-public</a> (C# mods · <code>ACTIVE</code>), 📡 <a href="https://github.com/coilyco-flight-deck/eco-jobs-tracker">eco-jobs-tracker</a> (FastAPI + HTMX dashboard of player professions · <code>LIVE</code>), 🔌 <a href="https://github.com/coilyco-flight-deck/eco-mcp-app">eco-mcp-app</a> + 📊 <a href="https://github.com/coilyco-flight-deck/eco-telemetry">eco-telemetry</a> (Claude Desktop widget + OTel mod · <code>WIP/ACTIVE</code>)</td>
+</tr>
+<tr>
+<td width="112" align="center"><a href="https://github.com/coilyco-bridge"><img src="https://github.com/coilyco-bridge.png?size=200" width="96" alt="coilyco-bridge logo"></a></td>
+<td><strong><a href="https://github.com/coilyco-bridge">coilyco-bridge</a></strong> - the bridge, where the controls live.<br><br>
+🛡️ <a href="https://github.com/coilyco-bridge/coily">coily</a> - escape-hatch-resistant CLI security boundary for privileged ops, audit-logs everything. The boundary must hold against the agent operating inside it · <code>ACTIVE</code><br>
+🌱 <a href="https://github.com/coilyco-bridge/eco-cycle-prep">eco-cycle-prep</a> - Python automation for the <a href="https://play.eco">Eco</a> cycle · <code>ACTIVE</code></td>
+</tr>
+<tr>
+<td width="112" align="center"><a href="https://github.com/coilysiren"><img src="assets/coily-siren.png" width="96" alt="coilysiren logo"></a></td>
+<td><strong><a href="https://github.com/coilysiren">coilysiren</a></strong> - the operator's own bay.<br><br>
+💓 <a href="https://github.com/coilysiren/claude-code-pulse">claude-code-pulse</a> - per-turn vitals for Claude Code · <code>ARCHIVED</code><br>
+📍 this profile, plus the site at <a href="https://coilysiren.me">coilysiren.me</a></td>
+</tr>
+</table>
+
 ## `> shift_report`
 
 ```yaml
@@ -212,39 +241,6 @@ The fleet maps onto a three-mode local-model plan:
 - **Mode 3 (api)** - frontier models over the wire for everything that deserves them.
 
 And one edge case: the Mac keeps a Qwen 9B warm through Ollama + OpenCode, scoped to trivial tasks only. Everything bigger escalates up the modes.
-
-## `> production_floor`
-
-Hand-curated index of active builds from the lights-out factory. Two starting points: [gauntlet](https://github.com/coilyco-flight-deck/gauntlet) is the thesis in code (verification by adversary), and [coily](https://github.com/coilyco-bridge/coily) is the hard design problem (a boundary that must hold against its own operator). If you want to click something that runs right now, the galaxy sim is live at [galaxy-gen.coilysiren.me](https://galaxy-gen.coilysiren.me).
-
-The builds ship from three bays:
-
-<table>
-<tr>
-<td width="112" align="center"><a href="https://github.com/coilyco-flight-deck"><img src="https://github.com/coilyco-flight-deck.png?size=200" width="96" alt="coilyco-flight-deck logo"></a></td>
-<td><strong><a href="https://github.com/coilyco-flight-deck">coilyco-flight-deck</a></strong> - the flight deck, where builds launch: gauntlet, infrastructure, repo-recall, galaxy-gen, most of the line.</td>
-</tr>
-<tr>
-<td width="112" align="center"><a href="https://github.com/coilyco-bridge"><img src="https://github.com/coilyco-bridge.png?size=200" width="96" alt="coilyco-bridge logo"></a></td>
-<td><strong><a href="https://github.com/coilyco-bridge">coilyco-bridge</a></strong> - the bridge, where the controls live: coily and the cycle tooling.</td>
-</tr>
-<tr>
-<td width="112" align="center"><a href="https://github.com/coilysiren"><img src="https://github.com/coilysiren.png?size=200" width="96" alt="coilysiren avatar"></a></td>
-<td><strong><a href="https://github.com/coilysiren">coilysiren</a></strong> - the operator's own bay: this profile, the claude-code-pulse archive, and <a href="https://coilysiren.me">coilysiren.me</a>.</td>
-</tr>
-</table>
-
-| Build | What it is |
-|-------|-----------|
-| 🥊 **[gauntlet](https://github.com/coilyco-flight-deck/gauntlet)** | Two-agent adversarial loop. Infers correctness under sustained, targeted attack. `RUNNING HOT` |
-| 🧬 **[session-lattice](https://github.com/coilyco-flight-deck/session-lattice)** | Materialized-view service over Claude session data via Feldera (DBSP). Pulls from repo-recall, served to [luca](https://github.com/coilyco-flight-deck/luca), the agent-activity observability plugin. `SCAFFOLDED` |
-| 🛰️ **[infrastructure](https://github.com/coilyco-flight-deck/infrastructure)** | Single-node k3s, GH Actions deploys, SSM-backed secrets, Tailscale. `OPERATIONAL` |
-| 🛡️ **[coily](https://github.com/coilyco-bridge/coily)** | Escape-hatch-resistant CLI security boundary for privileged ops. Audit-logs everything. `ACTIVE` |
-| 🌱 **[eco-mods-public](https://github.com/coilyco-flight-deck/eco-mods-public)** + **[eco-cycle-prep](https://github.com/coilyco-bridge/eco-cycle-prep)** | C# mods + Python automation for [Eco via Sirens](https://play.eco). `ACTIVE` |
-| 📡 **[eco-jobs-tracker](https://github.com/coilyco-flight-deck/eco-jobs-tracker)** | FastAPI + HTMX dashboard of player professions. `LIVE` |
-| 🔌 **[eco-mcp-app](https://github.com/coilyco-flight-deck/eco-mcp-app)** + 📊 **[eco-telemetry](https://github.com/coilyco-flight-deck/eco-telemetry)** | Claude Desktop widget + OTel mod for Eco servers. `WIP/ACTIVE` |
-| 🧠 **[repo-recall](https://github.com/coilyco-flight-deck/repo-recall)** + 💓 **[claude-code-pulse](https://github.com/coilysiren/claude-code-pulse)** | Claude Code substrate: session indexing (`ACTIVE`) + per-turn vitals (`ARCHIVED`) |
-| 🌌 **[galaxy-gen](https://github.com/coilyco-flight-deck/galaxy-gen)** | Procedural galaxy sim, Rust -> WASM. `LIVE` at [galaxy-gen.coilysiren.me](https://galaxy-gen.coilysiren.me) |
 
 ## `> stack`
 

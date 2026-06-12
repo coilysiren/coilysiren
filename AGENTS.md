@@ -14,7 +14,7 @@ The GitHub profile landing page and its supporting docs. No application code.
 
 ## Project shape
 
-`README.md` is the rendered profile, deliberately long-form (this repo is exempt from the fleet size caps and is the designated long-content surface). `docs/` holds `FEATURES.md` plus pointer stubs (`production_floor.md`, `service_history.md`) for content folded back into the README. `scripts/fleet-readout.sh` regenerates the README's live tailnet and pod readout blocks with the redaction rules built in.
+`README.md` is the rendered profile, deliberately long-form (this repo is exempt from the fleet size caps and is the designated long-content surface). `docs/` holds `FEATURES.md` plus pointer stubs (`production_floor.md`, `service_history.md`) for content folded back into the README. `assets/` holds committed images the README cannot hotlink (the coily-siren bay logo - the GitHub account avatar is Kai's headshot, so the `github.com/<name>.png` trick serves the wrong image; canonical logo source is `coilysiren/website` `src/images/icons/`). `scripts/fleet-readout.sh` regenerates the README's live tailnet and pod readout blocks with the redaction rules built in.
 
 ## Repo boundaries
 
