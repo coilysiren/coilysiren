@@ -51,12 +51,13 @@ prior_art:
 
 ```
 site 1 · east bay
-├─ kai-server      k3s · always-on
-├─ kai-tower-3026  3090 ti · llm bench
-└─ kasa hs300      hard-reset path
+├─ kai-server         k3s · always-on
+├─ kai-tower-3026     3090 ti · llm
+├─ kai-desktop-tower  rtx 2080 · dark
+└─ kasa hs300         hard-reset path
 
 site 2
-└─ ser8            warm standby · DR
+└─ ser8               warm standby · DR
 
 roaming
 ├─ kais-macbook-pro
@@ -72,9 +73,10 @@ ephemeral
 | Node | Notes |
 |------|-------|
 | **kai-server** | Intel i7-14700, 32 GB, no dGPU. The always-on box: single-node k3s running every personal service, plus game servers (Eco, Factorio, Icarus, Core Keeper). The only machine allowed to hold state. |
-| **kai-tower-3026** | Ryzen 9 9950X3D, 64 GB DDR5, RTX 3090 Ti 24 GB. Fresh AM5 rebuild, daily driver, the local-LLM bench. |
+| **kai-tower-3026** | Brand new AM5 build: Ryzen 9 9950X3D, 64 GB DDR5, RTX 3090 Ti 24 GB. Daily driver and heavy LLM machine one of two. |
+| **kai-desktop-tower** | The previous tower, i7-8700 with an RTX 2080. Heavy LLM machine two of two, currently dark: the new build is borrowing its power cable. Showing `○ offline` above until a second cable arrives. |
 | **kai-windows-laptop** | i7-11800H, 16 GB, RTX 3060 mobile. Travel Windows host, burst inference when open. |
-| **kais-macbook-pro** | Apple Silicon. Travel default, where most Claude Code sessions originate. Not a serious inference host, and it knows it. |
+| **kais-macbook-pro** | Apple Silicon. Travel default, where most Claude Code sessions originate. Runs a local Qwen 9B (MLX) through Ollama with OpenCode pointed at it, scoped to trivial tasks. |
 | **ser8** | Beelink SER8, Ryzen 7 PRO 8845HS, 64 GB. Cross-site warm standby for the k3s control plane. Separate power, ISP, and site, which is what makes the DR story real. |
 
 Footnotes: a worker-only Radxa Zero 3W appears in the standby topology but is unfit to hold state (WiFi plus SD card, no thanks), and a Kasa HS300 smart power strip feeds the site-1 fleet as the hard-power-cycle path of last resort. When software observability fails, there is always the physical layer.
@@ -193,9 +195,11 @@ The ✗ marks are real. A lights-out factory that only ever shows green is lying
 
 The fleet maps onto a three-mode local-model plan:
 
-- **Mode 1 (burst)** - the dGPU machines, when they happen to be on. The tower's 3090 Ti is the workhorse, the laptop's 3060 pitches in.
-- **Mode 2 (always-on)** - kai-server orchestrates, calls into the tower's GPU over the tailnet when reachable, falls back to CPU-only inference or an API otherwise. CPU-only on the i7-14700 is real but humble.
+- **Mode 1 (burst)** - the dGPU machines, when they happen to be on and plugged in. The new tower's 3090 Ti is the workhorse, the old tower's 2080 rejoins the line once it gets its power cable back, and the laptop's 3060 pitches in.
+- **Mode 2 (always-on)** - kai-server orchestrates, calls into a tower GPU over the tailnet when reachable, falls back to CPU-only inference or an API otherwise. CPU-only on the i7-14700 is real but humble.
 - **Mode 3 (api)** - frontier models over the wire for everything that deserves them.
+
+And one edge case: the Mac keeps a Qwen 9B warm through Ollama + OpenCode, scoped to trivial tasks only. Everything bigger escalates up the modes.
 
 ## `> production_floor`
 
@@ -256,5 +260,3 @@ Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/re
 - [AGENTS.md](AGENTS.md) - agent-facing operating rules.
 - [docs/FEATURES.md](docs/FEATURES.md) - inventory of what ships today.
 - [.coily/coily.yaml](.coily/coily.yaml) - allowlisted commands.
-
-Cross-reference convention from [coilysiren/agentic-os#59](https://github.com/coilysiren/agentic-os/issues/59).

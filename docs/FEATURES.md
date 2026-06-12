@@ -33,4 +33,4 @@ Last full sweep: 2026-06-04.
 - [AGENTS.md](../AGENTS.md) - agent-facing operating rules.
 - [.coily/coily.yaml](../.coily/coily.yaml) - allowlisted commands.
 
-Cross-reference convention from [coilysiren/agentic-os#59](https://github.com/coilysiren/agentic-os/issues/59).
+Cross-reference convention from [coilyco-flight-deck/agentic-os#59](https://github.com/coilyco-flight-deck/agentic-os/issues/59).
