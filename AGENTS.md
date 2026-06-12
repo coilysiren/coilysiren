@@ -38,11 +38,11 @@ Never use `--no-verify`. Never commit secrets - opaque ids go in AWS SSM per the
 
 ## Release
 
-No release artifact. Changes land on `main` and render live on the profile page.
+No release artifact. **GitHub is canonical for this repo - the only GitHub-canonical repo in the fleet.** The profile page renders from GitHub `main`, so changes land by pushing straight to GitHub `main` - no branches, no PRs. Forgejo is the mirror here (the inverse of the workspace default); push it too so the fleet git sweep stays quiet. Fleet-tooling encoding of this exception: [infrastructure#299](https://forgejo.coilysiren.me/coilyco-flight-deck/infrastructure/issues/299).
 
 ## Agent rules
 
-Commit to `main` directly and push after each commit, no PRs unless asked. Close issues with a `closes #<N>` trailer. Voice rules apply (she/her, no em-dashes, no semicolons in prose).
+Commit to `main` directly and push after each commit, no branches, no PRs. Close issues with a `closes #<N>` trailer. Voice rules apply (she/her, no em-dashes, no semicolons in prose).
 
 ## See also
 
