@@ -16,7 +16,7 @@ A search map, not a setup script:
 - **Workspace layout** - repos on Kai's fleet check out to `~/projects/<owner>/<repo>`, so this repo's canonical home is `~/projects/coilysiren/coilysiren/`. Owner directories (`~/projects/coilysiren/`) are not repos - never clone into one directly. The `repo-coilysiren` pointer skill (stamped at `.agents/skills/repo-coilysiren/` by a fleet sweep) encodes the same path.
 - **Two hosts, split canonicality** - the fleet's source of truth is Forgejo (`forgejo.coilysiren.me`), with GitHub as a PR-gated mirror. This repo is the one inversion: **GitHub is canonical** because the profile renders from GitHub `main`, and Forgejo is the mirror (fleet-tooling encoding: [infrastructure#299](https://forgejo.coilysiren.me/coilyco-flight-deck/infrastructure/issues/299)). Cross-repo issue refs in this repo are full URLs so the host is never ambiguous; a bare `#N` means this repo's tracker.
 - **Four org bays** - `coilyco-flight-deck` (public builds), `coilyco-bridge` (control surfaces, including the coily security boundary), `coilyco-gaming` (game-server code), and `coilysiren` (personal: this repo, the website). The README's `production_floor` table is the human-facing map of the same split, and the website repo (`coilysiren/website`) is where the bay logos canonically live (`src/images/icons/`).
-- **Commands route through coily on the fleet** - a CLI security boundary that reads each repo's `.coily/coily.yaml`. This repo declares no dev verbs (`commands: {}`); there is nothing to build or run here. On a standalone clone, plain git and a markdown preview are the whole toolchain. The one script, `scripts/fleet-readout.sh`, only works on the fleet (it reads the live tailnet and cluster through coily).
+- **Commands route through ward on the fleet** - a CLI security boundary that reads each repo's `.ward/ward.yaml`. This repo declares no dev verbs (`commands: {}`); there is nothing to build or run here. On a standalone clone, plain git and a markdown preview are the whole toolchain. The one script, `scripts/fleet-readout.sh`, only works on the fleet (it reads the live tailnet and cluster through coily).
 - **Deeper context ships as skills** - on the fleet, search `agentic-os-kai/.agents/skills/` by topic (`writing-bio-surface` holds the Resume sync list, `kai-git-workflow` the git exceptions, `tooling-repo-baseline` the fleet-management machinery behind `.agentic-os-ignore`).
 
 ## This repo, specifically
@@ -35,6 +35,6 @@ Commit straight to `main`, no branches, no PRs, push after each commit. Close is
 
 - [README.md](README.md) - the product.
 - [docs/FEATURES.md](docs/FEATURES.md) - inventory of what ships today.
-- [.coily/coily.yaml](.coily/coily.yaml) - catalog metadata, no commands.
+- [.ward/ward.yaml](.ward/ward.yaml) - catalog metadata, no commands.
 
 Cross-reference convention from [coilyco-flight-deck/agentic-os#59](https://github.com/coilyco-flight-deck/agentic-os/issues/59). The README intentionally drops this footer: a profile repo citing its own owner's convention repo read as circular, and this repo is exempt from the convention's enforcement anyway.
