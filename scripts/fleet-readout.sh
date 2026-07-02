@@ -32,7 +32,7 @@ SITES=2
 
 tailnet() {
   echo '$ tailscale status'
-  coily tailscale status | awk -v third="$THIRD_PARTY" -v sites="$SITES" '
+  ward-kdl ops tailscale status | awk -v third="$THIRD_PARTY" -v sites="$SITES" '
     $2 ~ third { skipped++; next }
     {
       glyph = ($0 ~ /offline/) ? "○" : "●"
@@ -49,7 +49,7 @@ tailnet() {
 pods() {
   echo '$ kubectl get pods -A'
   local node_summary
-  node_summary=$(coily ops kubectl -- \
+  node_summary=$(ward-kdl ops kubectl -- \
     --server=https://kai-server.local:6443 \
     --insecure-skip-tls-verify \
     get nodes --no-headers | awk '
@@ -58,7 +58,7 @@ pods() {
       if (ready == total) printf "%d node%s", total, (total == 1 ? "" : "s")
       else printf "%d/%d nodes", ready, total
     }')
-  coily ops kubectl -- \
+  ward-kdl ops kubectl -- \
     --server=https://kai-server.local:6443 \
     --insecure-skip-tls-verify \
     get pods -A --no-headers | awk -v node_summary="$node_summary" '

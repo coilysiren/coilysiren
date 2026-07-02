@@ -8,9 +8,6 @@
 #   - agentic-os-kai scripts/up-to-date.py step 4 (ward / pre-commit wiring)
 #
 # Not yet honored (issues filed):
-#   - coily lockdown --recursive (re-stamps .claude/ lockdown files; that is
-#     a security boundary, so exempting it is a human/CI decision upstream) -
-#     https://forgejo.coilysiren.me/coilyco-bridge/coily/issues/210
 #   - agentic-os-kai scripts/sweep-repo-pointer-skills.py (stamps
 #     .agents/skills/repo-<name>/) -
 #     https://forgejo.coilysiren.me/coilyco-bridge/agentic-os-kai/issues/656

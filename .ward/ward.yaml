@@ -1,5 +1,5 @@
 # Per-repo command allowlist for coilysiren (profile README repo). No dev
-# verbs - present so coily's repocfg loader recognizes the repo.
+# verbs - present so ward's repocfg loader recognizes the repo.
 
 commands: {}
 
