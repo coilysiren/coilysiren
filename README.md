@@ -3,246 +3,71 @@ $ ssh kai@kai-server
 
 ┌────────────────────────────────────┐
 │ kai-server · lights-out            │
-│ uptime: ten years counting         │
 │ operator: kai siren · east bay, ca │
+│ status: agents working the line    │
 └────────────────────────────────────┘
-
-● platform.target
-     Active: active (running)
-     Status: "27 devices · 48 pods
-              · 2 ✗ · agents on shift"
-
-⚙⚒ agents on the line ⚒⚙
 ```
+
+⚙⚒ lights out, platform's green, agents are working the line ⚒⚙
 
 ## `> whoami`
 
 <img src="https://github.com/coilysiren.png?size=200" width="88" align="right" alt="Kai Siren">
 
-**Hi! I'm Kai.** Platform engineer, 10+ years in. Day job: accelerating engineers as their work goes agentic, with observability for LLM consumers as the current bet. Off-hours I run a small lights-out factory: single-node k3s homelab, a herd of agents building and breaking my own services in the dark, a steady output of small tools. Wire it in, instrument it, push on it until it breaks.
+**Hi! I'm Kai.** I'm a platform engineer, ten-plus years in. I build tools that make engineering teams faster. The current edge of that work is agentic developer tooling and observability designed for LLM consumers.
 
-> Most excited about **Gauntlet**: a two-agent adversarial loop that infers software correctness under sustained, targeted attack. - [/now](https://coilysiren.me/now)
+Outside work, I run a two-site homelab and a public game server. They are practical testbeds for the same platform, reliability, and observability questions I work on professionally.
+
+> [/now](https://coilysiren.me/now) is the living snapshot of what I'm building, testing, and thinking about.
 
 ## `> lights_out`
 
-The factory framing is not a bit. The goal is a dark factory: code written by agents, verified by attack, shipped while I sleep. The pieces that make that safe instead of terrifying:
+The goal is unattended software work that stays bounded, inspectable, and recoverable. The current public stack covers four parts of that problem:
 
-- **A security boundary first.** Agents on this fleet route privileged operations through [ward](https://github.com/coilyco-flight-deck/ward), an escape-hatch-resistant CLI wrapper that grew out of the retiring [coily](https://github.com/coilyco-bridge/coily). Every privileged call lands in an audit log. The interesting design constraint is that the boundary must hold against the agent operating inside it, which rules out most of the obvious implementations.
-- **Verification by adversary, not by vibes.** [gauntlet](https://github.com/coilyco-flight-deck/gauntlet) runs a two-role loop, an attacker and an inspector, against a running service and infers correctness from how the service behaves under sustained attack. Built for the case where a human never reads the diff.
-- **Observability over the whole substrate.** [repo-recall](https://github.com/coilyco-flight-deck/repo-recall) joins OTel spans, git state, and Claude Code sessions into one queryable surface. [session-lattice](https://github.com/coilyco-flight-deck/session-lattice) maintains incremental views over it. Agent-to-agent traffic rides [otel-a2a-relay](https://github.com/coilyco-flight-deck/otel-a2a-relay), so even the agents talking to each other shows up as spans.
+* **[ward](https://github.com/coilyco-flight-deck/ward)** - governed execution - runs unattended coding agents in fresh clones and least-access containers, with durable issue, branch, review, and outcome trails.
+* **[cli-guard](https://github.com/coilyco-flight-deck/cli-guard)** - execution boundary - validates arguments, scopes filesystem access, gates repository state, controls egress, and records an append-only audit log.
+* **[agent-compose](https://github.com/coilyco-flight-deck/agent-compose)** - context assembly - selects and compiles the instructions an agent starts with while keeping executable authority outside the bundle.
+* **[agentic-os](https://github.com/coilyco-flight-deck/agentic-os)** - shared operating layer - carries cross-platform shell setup, public-safe agent skills, and the cross-repo validation catalog.
 
-When the line breaks, the agents file the issue. When it breaks badly, see the power strip in the `tailnet` section below.
+The observability work sits underneath that stack: local-first session data, materialized views over agent behavior, and model-facing query surfaces. The useful question is not whether an agent produced a diff. It is whether the system can explain what happened, recover from interruption, and prove the result.
 
 ## `> production_floor`
 
-The floor is organized into three bays. Two starting points if you're browsing: [gauntlet](https://github.com/coilyco-flight-deck/gauntlet) is the thesis in code, and [ward](https://github.com/coilyco-flight-deck/ward) is the hard design problem. If you want to click something that runs right now, the galaxy sim is live at [galaxy-gen.coilysiren.me](https://galaxy-gen.coilysiren.me).
+The work is split across four namespaces:
 
-<table>
-<tr>
-<td width="112" align="center"><a href="https://github.com/coilyco-flight-deck"><img src="https://github.com/coilyco-flight-deck.png?size=200" width="96" alt="coilyco-flight-deck logo"></a></td>
-<td><strong><a href="https://github.com/coilyco-flight-deck">coilyco-flight-deck</a></strong> - the flight deck, where the builds launch.<br><br>
-The flagship is <a href="https://github.com/coilyco-flight-deck/gauntlet">gauntlet</a> <code>RUNNING HOT</code>, the two-agent adversarial loop from the thesis above: point it at a running service and it infers correctness from how the service holds up under sustained, targeted attack. The boundary those agents operate inside is <a href="https://github.com/coilyco-flight-deck/ward">ward</a> <code>ACTIVE</code>, an escape-hatch-resistant CLI wrapper that privileged operations route through, audit-logging every call - the hard part is that it has to hold against the agent operating inside it. Feeding it context is the observability substrate: <a href="https://github.com/coilyco-flight-deck/repo-recall">repo-recall</a> <code>ACTIVE</code> indexes every Claude Code session on the fleet, and <a href="https://github.com/coilyco-flight-deck/session-lattice">session-lattice</a> <code>SCAFFOLDED</code> keeps incremental materialized views over that data (Feldera, DBSP) for <a href="https://github.com/coilyco-flight-deck/luca">luca</a> to answer questions with. <a href="https://github.com/coilyco-flight-deck/infrastructure">infrastructure</a> <code>OPERATIONAL</code> is the factory floor everything else stands on - the single-node k3s cluster, GH Actions deploys, SSM-backed secrets, Tailscale. And for something with no agents in it at all, <a href="https://github.com/coilyco-flight-deck/galaxy-gen">galaxy-gen</a> <code>LIVE</code> draws procedural galaxies in Rust-compiled-to-WASM at <a href="https://galaxy-gen.coilysiren.me">galaxy-gen.coilysiren.me</a>.</td>
-</tr>
-<tr>
-<td width="112" align="center"><a href="https://github.com/coilyco-bridge"><img src="https://github.com/coilyco-bridge.png?size=200" width="96" alt="coilyco-bridge logo"></a></td>
-<td><strong><a href="https://github.com/coilyco-bridge">coilyco-bridge</a></strong> - the bridge, where the controls live.<br><br>
-<a href="https://github.com/coilyco-bridge/coily">coily</a> <code>RETIRING</code> is the security boundary the lights-out bet was first built on: the escape-hatch-resistant CLI wrapper whose design coily proved and <a href="https://github.com/coilyco-flight-deck/ward">ward</a> now carries. It has not gone dark - coily still runs the game servers on kai-server until gaming ports over. Its neighbor <a href="https://github.com/coilyco-bridge/eco-cycle-prep">eco-cycle-prep</a> <code>ACTIVE</code> runs the automation that stands up each new Eco server cycle.</td>
-</tr>
-<tr>
-<td width="112" align="center"><a href="https://github.com/coilyco-gaming"><img src="https://github.com/coilyco-gaming.png?size=200" width="96" alt="coilyco-gaming logo"></a></td>
-<td><strong><a href="https://github.com/coilyco-gaming">coilyco-gaming</a></strong> - the gaming bay, newest on the floor.<br><br>
-Everything for the <a href="https://play.eco">Eco via Sirens</a> game server lives here. <a href="https://github.com/coilyco-gaming/eco-app">eco-app</a> is the companion-services monorepo - the MCP server Claude Desktop talks to, the player-professions dashboard, the replay browser, and the telemetry mod, four former repos fused into one deployable. <a href="https://github.com/coilyco-gaming/eco-mods">eco-mods</a> carries the C# gameplay mods that run inside the server itself.</td>
-</tr>
-<tr>
-<td width="112" align="center"><a href="https://github.com/coilysiren"><img src="assets/coily-siren.png" width="96" alt="coilysiren logo"></a></td>
-<td><strong><a href="https://github.com/coilysiren">coilysiren</a></strong> - the operator's own bay.<br><br>
-The personal namespace: this profile you're reading, and the site at <a href="https://coilysiren.me">coilysiren.me</a>, where the <a href="https://coilysiren.me/resume">resume</a> and the <a href="https://coilysiren.me/now">/now</a> page live.</td>
-</tr>
-</table>
+* **[coilyco-flight-deck](https://github.com/coilyco-flight-deck)** - public builds - the governed agent stack, shared developer environment, and fleet infrastructure.
+* **[coilyco-bridge](https://github.com/coilyco-bridge)** - control surfaces - operator-specific context and deployment machinery.
+* **[coilyco-gaming](https://github.com/coilyco-gaming)** - games and game tooling - [Eco services](https://github.com/coilyco-gaming/eco-app), [Eco mods](https://github.com/coilyco-gaming/eco-mods), [Steam operations](https://github.com/coilyco-gaming/steam-ops), and the [galaxy generator](https://github.com/coilyco-gaming/galaxy-gen).
+* **[coilysiren](https://github.com/coilysiren)** - personal work - this profile and [coilysiren.me](https://coilysiren.me).
 
 ## `> shift_report`
 
 ```yaml
 role:     Senior Platform Engineer
 employer: Kapwing
-shift:    lights-out
-fleet:    27 devices · 1 tailnet
 
-specialties:
-  - platform / SRE
-  - AI agents + MCP
+focus:
+  - developer platforms
+  - agentic tooling
   - observability
-  - adversarial testing
+  - infrastructure and SRE
 
-prior_art:
+background:
   - urfave/cli maintainer
-  - HHS gov site @ Nava
-  - DevOps EM @ EnergyHub
-  - BGP VPN @ Textio
-  - Crypto product @ Callisto
+  - government infrastructure
+  - multi-cloud platforms
+  - engineering management
 ```
 
 ## `> tailnet`
 
-Everything above is claims. From here down, receipts.
+The homelab spans two physical sites on one Tailscale mesh. An always-on x86 host carries k3s and the stateful services. A separate site provides the recovery boundary. GPU machines join on demand for local inference, while hosted frontier models handle work beyond the small local tier.
 
-"Homelab" undersells it. The fleet is joined by Tailscale into a single tailnet across two physical sites, and the device list is most of the story: the machines, the phones, the WSL guests, and every k3s service that publishes itself onto the mesh as its own node.
-
-```
-site 1 · east bay
-├─ kai-server         k3s · always-on
-├─ kai-tower-3026     3090 ti · llm
-├─ kai-desktop-tower  rtx 2080 · dark
-└─ kasa hs300         hard-reset path
-
-site 2
-└─ ser8               warm standby · DR
-
-roaming
-├─ kais-macbook-pro
-├─ kai-windows-laptop
-└─ pixel-9
-
-ephemeral
-└─ gha runners · wsl · k8s proxies
-```
-
-### `> fleet_inventory`
-
-| Node | Notes |
-|------|-------|
-| **kai-server** | Intel i7-14700, 32 GB, no dGPU. The always-on box: single-node k3s running every personal service, plus game servers (Eco, Factorio, Icarus, Core Keeper). The only machine allowed to hold state. |
-| **kai-tower-3026** | Brand new AM5 build: Ryzen 9 9950X3D, 64 GB DDR5, RTX 3090 Ti 24 GB. Daily driver and heavy LLM machine one of two. |
-| **kai-desktop-tower** | The previous tower, i7-8700 with an RTX 2080. Heavy LLM machine two of two, currently dark: the new build is borrowing its power cable. Showing `○ offline` above until a second cable arrives. |
-| **kai-windows-laptop** | i7-11800H, 16 GB, RTX 3060 mobile. Travel Windows host, burst inference when open. |
-| **kais-macbook-pro** | Apple Silicon. Travel default, where most Claude Code sessions originate. Runs a local Qwen 9B (MLX) through Ollama with OpenCode pointed at it, scoped to trivial tasks. |
-| **ser8** | Beelink SER8, Ryzen 7 PRO 8845HS, 64 GB. Cross-site warm standby for the k3s control plane. Separate power, ISP, and site, which is what makes the DR story real. |
-
-Footnotes: a worker-only Radxa Zero 3W appears in the standby topology but is unfit to hold state (WiFi plus SD card, no thanks), and a Kasa HS300 smart power strip feeds the site-1 fleet as the hard-power-cycle path of last resort. When software observability fails, there is always the physical layer.
-
-### `> tailscale_status`
-
-The live mesh, regenerated by [scripts/fleet-readout.sh](scripts/fleet-readout.sh). Hostnames real, everything opaque redacted, third-party devices excluded.
-
-```
-$ tailscale status
-  ● kais-macbook-pro             macos
-  ● api                          linux
-  ● backend-db                   linux
-  ○ coilysiren-backend-coilysir… linux
-  ● coilysiren-eco-mcp-app-coil… linux
-  ● coilysiren-eco-spec-tracker… linux
-  ○ coilysiren-galaxy-gen-coily… linux
-  ● forgejo-1                    linux
-  ○ forgejo                      linux
-  ● galaxy-gen                   linux
-  ○ kai-desktop-tower-wsl        linux
-  ○ kai-desktop-tower            windows
-  ○ kai-mac-kapwing              macos
-  ○ kai-macbook-pro-vm           linux
-  ● kai-server                   linux
-  ● kai-tower-3026-wsl           linux
-  ● kai-tower-3026               windows
-  ○ kai-windows-laptop           windows
-  ○ kais-macbook-pro-1           macos
-  ● ntfy                         linux
-  ○ observability-vmsingle-tail… linux
-  ● pixel-9                      android
-  ● repo-recall                  linux
-  ● ser8                         linux
-  ● signoz                       linux
-  ● tailscale-operator           linux
-  ● vmsingle                     linux
-  27 devices · 1 tailnet · 2 sites
-```
-
-Yes, the phone is a tailnet node. Yes, the Forgejo instance, the notification daemon, and the metrics store are each their own device. The Tailscale operator publishes k3s services onto the mesh, so the cluster's insides show up on the device list like roommates.
-
-### `> kubectl_get_pods`
-
-The same factory from the cluster's point of view, same redaction rules (hash suffixes are opaque ids, so they drop).
-
-```
-$ kubectl get pods -A
-  cert-manager/
-    ● cert-manager
-    ● cert-manager-cainjector
-    ● cert-manager-webhook
-  coilysiren-backend/
-    ● coilysiren-backend-app
-    ● coilysiren-backend-db
-  coilysiren-eco-mcp-app/
-    ● coilysiren-eco-mcp-app-app
-  coilysiren-eco-spec-tracker/
-    ● coilysiren-eco-spec-tracker-a…
-  coilysiren-galaxy-gen/
-    ● coilysiren-galaxy-gen-app
-  default/
-    ● null-db
-  external-secrets/
-    ● external-secrets
-    ● external-secrets-cert-control…
-    ● external-secrets-webhook
-  forgejo/
-    ● forgejo-db
-    ● forgejo
-    ◌ forgejo-runner
-    ✗ forgejo-runner-tap-writer
-    ● ts-forgejo
-  kube-system/
-    ● coredns
-    ✓ helm-install-traefik-crd
-    ✓ helm-install-traefik
-    ● local-path-provisioner
-    ● metrics-server
-    ● svclb-traefik ×3
-    ● traefik
-  lunch-money/
-    ● lunch-money-lunch-money-k8s
-  ntfy/
-    ● ntfy
-  observability/
-    ● chi-signoz-clickhouse-cluster
-    ● grafana
-    ✗ node-exporter-prometheus-node…
-    ● node-exporter-prometheus-node… ×2
-    ● signoz
-    ● signoz-clickhouse-operator
-    ● signoz-otel-collector
-    ✓ signoz-telemetrystore-migrator
-    ● signoz-zookeeper
-    ● ts-signoz
-    ● ts-vmsingle
-    ● victoria-metrics-victoria-met…
-    ● vmagent-victoria-metrics-agent
-  openclaw/
-    ◌ openclaw
-  registry/
-    ● registry
-  repo-recall/
-    ● repo-recall
-  tailscale/
-    ● operator
-    ● ts-coilysiren-eco-mcp-app-ser…
-    ● ts-coilysiren-eco-spec-tracke…
-  48 pods · 16 namespaces · 1/3 nodes
-```
-
-The ✗ marks are real. So is the `1/3 nodes`: two joined workers (the WSL guest and a Mac VM from the tailnet list above) sit NotReady while kai-server carries everything. A lights-out factory that only ever shows green is lying to you.
-
-### `> local_llm_modes`
-
-The fleet maps onto a three-mode local-model plan:
-
-- **Mode 1 (burst)** - the dGPU machines, when they happen to be on and plugged in. The new tower's 3090 Ti is the workhorse, the old tower's 2080 rejoins the line once it gets its power cable back, and the laptop's 3060 pitches in.
-- **Mode 2 (always-on)** - kai-server orchestrates, calls into a tower GPU over the tailnet when reachable, falls back to CPU-only inference or an API otherwise. CPU-only on the i7-14700 is real but humble.
-- **Mode 3 (api)** - frontier models over the wire for everything that deserves them.
-
-And one edge case: the Mac keeps a Qwen 9B warm through Ollama + OpenCode, scoped to trivial tasks only. Everything bigger escalates up the modes.
+The durable choices are simple: isolate state, keep recovery on a different power and network path, make services observable, and assume every compute node except the primary can disappear. This profile keeps the architecture, not point-in-time device and pod dumps.
 
 ## `> stack`
 
-Python, Go, TypeScript, Bash, C#. AWS, Kubernetes (k3s), Terraform, Docker, Tailscale. Prometheus, Grafana, Sentry, OpenTelemetry. Claude Code, MCP.
+Go, Python, TypeScript, Bash, C#. AWS, Kubernetes, Terraform, Docker, Tailscale. Prometheus, Grafana, Sentry, OpenTelemetry. Codex, Claude Code, MCP.
 
 ## `> service_history`
 
@@ -256,13 +81,7 @@ Python, Go, TypeScript, Bash, C#. AWS, Kubernetes (k3s), Terraform, Docker, Tail
 2016-2018  Callisto   Senior SWE
 ```
 
-Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/resume](https://coilysiren.me/resume). What I'm doing right now: [coilysiren.me/now](https://coilysiren.me/now).
-
-## `> faq`
-
-**Why does a profile README have a network diagram and a pod listing?** Because this repo is the one place in the fleet with no size cap, no managed hooks, and no validators. Every other repo I own answers to a pre-commit suite rolled out from a central baseline. This one carries an exemption marker and does what it wants. Naturally it became the long-form surface.
-
-**Are the readouts real?** Yes. They're generated by [scripts/fleet-readout.sh](scripts/fleet-readout.sh) against the live tailnet and cluster, then pasted in. The redaction is the interesting part: tailnet IPs, FQDNs, account labels, pod hash suffixes, and other people's devices are all stripped before anything lands in git, because opaque identifiers stay out of tracked files on principle. The systemd unit in the banner is aspirational - the numbers in its status line are not.
+Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/resume](https://coilysiren.me/resume).
 
 ## `> comms`
 
@@ -270,6 +89,6 @@ Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/re
 
 ## See also
 
-- [AGENTS.md](AGENTS.md) - agent bootstrap guide and operating rules.
-- [docs/FEATURES.md](docs/FEATURES.md) - inventory of what ships today.
-- [.ward/ward.yaml](.ward/ward.yaml) - allowlisted commands.
+* [AGENTS.md](AGENTS.md) - agent bootstrap guide and operating rules.
+* [docs/FEATURES.md](docs/FEATURES.md) - inventory of what ships today.
+* [.ward/ward.yaml](.ward/ward.yaml) - repository command policy.

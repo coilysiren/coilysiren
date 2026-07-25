@@ -7,9 +7,4 @@
 #   - infrastructure ansible precommit-hooks role (the fleet rollout of same)
 #   - agentic-os-kai scripts/up-to-date.py step 4 (ward / pre-commit wiring)
 #
-# Not yet honored (issues filed):
-#   - agentic-os-kai scripts/sweep-repo-pointer-skills.py (stamps
-#     .agents/skills/repo-<name>/) -
-#     https://forgejo.coilysiren.me/coilyco-bridge/agentic-os-kai/issues/656
-#
 # See agentic-os-kai .agents/skills/tooling-repo-baseline.
