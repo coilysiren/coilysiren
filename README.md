@@ -40,6 +40,29 @@ The work is split across four namespaces:
 * **[coilyco-gaming](https://github.com/coilyco-gaming)** - games and game tooling - [Eco services](https://github.com/coilyco-gaming/eco-app), [Eco mods](https://github.com/coilyco-gaming/eco-mods), [Steam operations](https://github.com/coilyco-gaming/steam-ops), and the [galaxy generator](https://github.com/coilyco-gaming/galaxy-gen).
 * **[coilysiren](https://github.com/coilysiren)** - personal work - this profile and [coilysiren.me](https://coilysiren.me).
 
+## `> k3s`
+
+The fleet has two small k3s clusters. The primary site is the application and state plane. The second site is the operations and recovery plane. This is the deployment-declaration view, grouped by namespace rather than pod count.
+
+### Application namespaces
+
+* **`coilysiren-backend`** - the personal API and its database.
+* **`coilysiren-eco-*`** - the Eco companion stack, including the main service, Discord worker, and price calculator.
+* **`atlas`, `factory-game`, `galaxy-gen`, `website`** - public and staging web surfaces.
+* **`comfyui`, `open-webui`, `reference-media`** - private AI and media interfaces. ComfyUI keeps the GPU runtime on a tower and puts only its front door in k3s.
+* **`forgejo-issues`** - the local issue mirror, synchronization workers, and query surfaces.
+* **`*-mcp`** - narrowly scoped MCP services for node health, browsers, telemetry, project trackers, social sources, games, and infrastructure.
+
+### Meta components
+
+* **`authelia`** - OAuth 2.1 and OpenID Connect for hosted MCP clients. Per-service oauth2-proxy gates validate Authelia-signed access tokens.
+* **`kube-system`, `cert-manager`, `external-dns`** - Traefik ingress, cluster DNS, Route 53 records, and DNS-01 certificates.
+* **`external-secrets`** - cluster-side synchronization from AWS Systems Manager Parameter Store.
+* **`tailscale`** - the operator and per-service proxies that publish private services onto the tailnet.
+* **`forgejo`, `registry`, `flux-system`** - source hosting, the internal OCI registry, build and deploy runners, and staged GitOps reconciliation.
+* **`observability`, `fleet-reachability`** - metrics, errors, traces, logs, and cross-site Gatus checks.
+* **`agent-proxy`, `litellm`** - the ser8 inference control plane, kept separate from the application cluster.
+
 ## `> shift_report`
 
 ```yaml
@@ -61,7 +84,7 @@ background:
 
 ## `> tailnet`
 
-The homelab spans two physical sites on one Tailscale mesh. An always-on x86 host carries k3s and the stateful services. A separate site provides the recovery boundary. GPU machines join on demand for local inference, while hosted frontier models handle work beyond the small local tier.
+The homelab spans two physical sites on one Tailscale mesh. Each site runs a small k3s cluster: the application and state plane at the primary site, then the operations and recovery plane at the second. GPU machines join on demand for local inference, while hosted frontier models handle work beyond the small local tier.
 
 The durable choices are simple: isolate state, keep recovery on a different power and network path, make services observable, and assume every compute node except the primary can disappear. This profile keeps the architecture, not point-in-time device and pod dumps.
 
