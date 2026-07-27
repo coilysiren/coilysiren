@@ -46,7 +46,6 @@ The fleet has two small k3s clusters. The primary site is the application and st
 
 ### Application namespaces
 
-* **`coilysiren-backend`** - the personal API and its database.
 * **`coilysiren-eco-*`** - the Eco companion stack, including the main service, Discord worker, and price calculator.
 * **`atlas`, `factory-game`, `galaxy-gen`, `website`** - public and staging web surfaces.
 * **`comfyui`, `open-webui`, `reference-media`** - private AI and media interfaces. ComfyUI keeps the GPU runtime on a tower and puts only its front door in k3s.
