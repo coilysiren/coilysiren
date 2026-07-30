@@ -11,7 +11,11 @@ Last full sweep: 2026-07-25.
 * **Hero block** - a narrow faux SSH banner, the canonical lights-out tagline, and Kai's avatar.
 * **`whoami` section** - the platform-engineering introduction aligns with the resume surface and points to [/now](https://coilysiren.me/now) for current work.
 * **`lights_out` section** - the current public stack: ward for governed execution, cli-guard for the command boundary, agent-compose for context assembly, and agentic-os for the shared operating layer. Archived experiments are not presented as active systems.
-* **`production_floor` section** - flat bullets map the four namespaces: `coilyco-flight-deck`, `coilyco-bridge`, `coilyco-gaming`, and `coilysiren`. The gaming entry points at the current Eco, Steam, and galaxy-generator repositories.
+* **`production_floor` section** - flat bullets map the four namespaces:
+  `coilyco-flight-deck`, `coilyco-bridge`, `coilyco-gaming`, and `coilysiren`.
+  Each entry shows its aggregate unique-tag count without enumerating
+  repositories, and the three organization entries link to their native
+  coilysiren.me profiles.
 * **`k3s` section** - declaration-backed overview of the two k3s planes. Application namespaces are grouped by purpose, followed by shared components for authentication, ingress, DNS, certificates, secrets, tailnet exposure, delivery, observability, reachability, and inference routing. It describes deployed shape without claiming live health.
 * **`shift_report` section** - compact role, employer, focus, and background context without duplicating the full career timeline.
 * **`tailnet` section** - stable architecture only: a two-site Tailscale mesh, an application and state k3s plane, a separate operations and recovery k3s plane, and on-demand inference machines. Device inventories, pod dumps, and live counts are intentionally omitted.

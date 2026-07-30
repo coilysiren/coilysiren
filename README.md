@@ -35,10 +35,10 @@ The observability work sits underneath that stack: local-first session data, mat
 
 The work is split across four namespaces:
 
-* **[coilyco-flight-deck](https://github.com/coilyco-flight-deck)** - public builds - the governed agent stack, shared developer environment, and fleet infrastructure.
-* **[coilyco-bridge](https://github.com/coilyco-bridge)** - control surfaces - operator-specific context and deployment machinery.
-* **[coilyco-gaming](https://github.com/coilyco-gaming)** - games and game tooling - [Eco services](https://github.com/coilyco-gaming/eco-app), [Eco mods](https://github.com/coilyco-gaming/eco-mods), [Steam operations](https://github.com/coilyco-gaming/steam-ops), and the [galaxy generator](https://github.com/coilyco-gaming/galaxy-gen).
-* **[coilysiren](https://github.com/coilysiren)** - personal work - this profile and [coilysiren.me](https://coilysiren.me).
+* **[coilyco-flight-deck](https://github.com/coilyco-flight-deck)** - public builds - **23 aggregate tags** across the governed agent stack, shared developer environment, and fleet infrastructure. [Organization profile](https://coilysiren.me/orgs/coilyco-flight-deck/).
+* **[coilyco-bridge](https://github.com/coilyco-bridge)** - control surfaces - **16 aggregate tags** across operator-specific context and deployment machinery. [Organization profile](https://coilysiren.me/orgs/coilyco-bridge/).
+* **[coilyco-gaming](https://github.com/coilyco-gaming)** - games and game tooling - **22 aggregate tags** across games, simulations, mods, and game-service tooling. [Organization profile](https://coilysiren.me/orgs/coilyco-gaming/).
+* **[coilysiren](https://github.com/coilysiren)** - personal work - **15 aggregate tags** across the profile, website, and private coordination surfaces.
 
 ## `> k3s`
 
