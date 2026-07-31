@@ -24,7 +24,7 @@ A search map, not a setup script:
 - **Shape** - `README.md` is the product: the rendered profile. `docs/` holds `FEATURES.md` (the living inventory - update it in the same commit as any feature-shaped change) plus pointer stubs for content folded back into the README.
 - **Sync contract** - the README's intro paragraphs are a sync target for `Resume.md` (sync list in the `writing-bio-surface` skill). Edits to the `whoami` prose may be overwritten or propagated by that sync.
 - **Validation** - none. `.agentic-os-ignore` opts the repo out of fleet baseline management and `.pre-commit-config.yaml` is intentionally empty. Proofread by hand.
-- **Writing rules** - mobile first: no prose tables, no layout wider than 2 columns, code blocks under ~44 chars. Voice: she/her, no em-dashes, no semicolons in prose. Prefer durable architecture and current public work over point-in-time status snapshots.
+- **Writing rules** - mobile first: no wide data tables and no layout wider than 2 columns. The established two-column `production_floor` logo-and-summary table is the narrow exception. Keep code blocks under ~44 chars. Voice: she/her, no em-dashes, no semicolons in prose. Prefer durable architecture and current public work over point-in-time status snapshots.
 - **Safety** - never `--no-verify`. Opaque identifiers (tokens, tailnet IPs/FQDNs, hash suffixes) never land in tracked files. On the fleet they belong in AWS SSM.
 
 ## Landing work

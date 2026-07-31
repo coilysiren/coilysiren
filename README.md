@@ -35,10 +35,30 @@ The observability work sits underneath that stack: local-first session data, mat
 
 The work is split across four namespaces:
 
-* **[coilyco-flight-deck](https://github.com/coilyco-flight-deck)** - public builds - **23 aggregate tags** across the governed agent stack, shared developer environment, and fleet infrastructure. [Organization profile](https://coilysiren.me/orgs/coilyco-flight-deck/).
-* **[coilyco-bridge](https://github.com/coilyco-bridge)** - control surfaces - **16 aggregate tags** across operator-specific context and deployment machinery. [Organization profile](https://coilysiren.me/orgs/coilyco-bridge/).
-* **[coilyco-gaming](https://github.com/coilyco-gaming)** - games and game tooling - **22 aggregate tags** across games, simulations, mods, and game-service tooling. [Organization profile](https://coilysiren.me/orgs/coilyco-gaming/).
-* **[coilysiren](https://github.com/coilysiren)** - personal work - **15 aggregate tags** across the profile, website, and private coordination surfaces.
+Each tag shows how many repositories in that namespace carry it. Repository names stay on the organization profile pages.
+
+<table>
+<tr>
+<td width="112" align="center"><a href="https://github.com/coilyco-flight-deck"><img src="https://github.com/coilyco-flight-deck.png?size=200" width="96" alt="coilyco-flight-deck logo"></a></td>
+<td><strong><a href="https://github.com/coilyco-flight-deck">coilyco-flight-deck</a></strong> - public builds: the governed agent stack, shared developer environment, and fleet infrastructure. <a href="https://coilysiren.me/orgs/coilyco-flight-deck/">Organization profile</a>.<br><br>
+<code>ai-agents (5)</code> · <code>ansible (1)</code> · <code>automation (7)</code> · <code>bluesky (1)</code> · <code>command-line (1)</code> · <code>devops (5)</code> · <code>dotfiles (1)</code> · <code>github-profile (1)</code> · <code>helm (1)</code> · <code>homelab (1)</code> · <code>homebrew (1)</code> · <code>infrastructure-as-code (1)</code> · <code>kubernetes (2)</code> · <code>llm (2)</code> · <code>mcp (6)</code> · <code>model-context-protocol (4)</code> · <code>observability (3)</code> · <code>opentelemetry (2)</code> · <code>personal-finance (1)</code> · <code>reddit (1)</code> · <code>rss (1)</code> · <code>scoop (1)</code> · <code>security (5)</code></td>
+</tr>
+<tr>
+<td width="112" align="center"><a href="https://github.com/coilyco-bridge"><img src="https://github.com/coilyco-bridge.png?size=200" width="96" alt="coilyco-bridge logo"></a></td>
+<td><strong><a href="https://github.com/coilyco-bridge">coilyco-bridge</a></strong> - control surfaces: operator-specific context and deployment machinery. <a href="https://coilysiren.me/orgs/coilyco-bridge/">Organization profile</a>.<br><br>
+<code>ai-agents (2)</code> · <code>automation (1)</code> · <code>benchmark (1)</code> · <code>comfyui (1)</code> · <code>data-visualization (1)</code> · <code>devops (4)</code> · <code>documentation (1)</code> · <code>generative-ai (1)</code> · <code>github-profile (1)</code> · <code>helm (1)</code> · <code>homelab (2)</code> · <code>kubernetes (1)</code> · <code>llm (1)</code> · <code>machine-learning (2)</code> · <code>mcp (1)</code> · <code>static-site (1)</code></td>
+</tr>
+<tr>
+<td width="112" align="center"><a href="https://github.com/coilyco-gaming"><img src="https://github.com/coilyco-gaming.png?size=200" width="96" alt="coilyco-gaming logo"></a></td>
+<td><strong><a href="https://github.com/coilyco-gaming">coilyco-gaming</a></strong> - games and game tooling: games, simulations, mods, and game-service tooling. <a href="https://coilysiren.me/orgs/coilyco-gaming/">Organization profile</a>.<br><br>
+<code>bevy (1)</code> · <code>discord (1)</code> · <code>eco-community-discord (1)</code> · <code>eco-game (4)</code> · <code>factorio (1)</code> · <code>game-development (1)</code> · <code>game-modding (3)</code> · <code>game-operations (1)</code> · <code>gaming (1)</code> · <code>github-profile (1)</code> · <code>go (1)</code> · <code>go-ops-tooling (1)</code> · <code>mcp (2)</code> · <code>message-dumps (1)</code> · <code>model-context-protocol (2)</code> · <code>procedural-galaxy-simulation (1)</code> · <code>rust (2)</code> · <code>rust-wasm (1)</code> · <code>steam (1)</code> · <code>telemetry (1)</code> · <code>unity (1)</code> · <code>webassembly (2)</code></td>
+</tr>
+<tr>
+<td width="112" align="center"><a href="https://github.com/coilysiren"><img src="assets/coily-siren.png" width="96" alt="coilysiren logo"></a></td>
+<td><strong><a href="https://github.com/coilysiren">coilysiren</a></strong> - personal work: this profile, <a href="https://coilysiren.me">coilysiren.me</a>, and private coordination surfaces.<br><br>
+<code>ai-agents (2)</code> · <code>automation (1)</code> · <code>blog (1)</code> · <code>dataset (1)</code> · <code>devops (2)</code> · <code>documentation (1)</code> · <code>github-profile (1)</code> · <code>issue-tracker (1)</code> · <code>knowledge-base (1)</code> · <code>linkedin (1)</code> · <code>nlp (1)</code> · <code>observability (2)</code> · <code>personal-website (1)</code> · <code>project-management (1)</code> · <code>writing (1)</code></td>
+</tr>
+</table>
 
 ## `> k3s`
 

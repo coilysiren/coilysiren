@@ -7,14 +7,17 @@ Last full sweep: 2026-07-25.
 ## Profile landing page
 
 * **Compact, story-first README** - the page moves from identity to the lights-out thesis, current public work, career context, durable homelab architecture, and contact links. It avoids point-in-time operational snapshots that become stale between updates.
-* **Mobile-first layout** - no prose tables, no layout wider than two columns, and code blocks stay under about 44 characters.
+* **Mobile-first layout** - no wide data tables, no layout wider than two
+  columns, and code blocks stay under about 44 characters. The
+  `production_floor` organization index deliberately uses the established
+  two-column logo-and-summary table.
 * **Hero block** - a narrow faux SSH banner, the canonical lights-out tagline, and Kai's avatar.
 * **`whoami` section** - the platform-engineering introduction aligns with the resume surface and points to [/now](https://coilysiren.me/now) for current work.
 * **`lights_out` section** - the current public stack: ward for governed execution, cli-guard for the command boundary, agent-compose for context assembly, and agentic-os for the shared operating layer. Archived experiments are not presented as active systems.
-* **`production_floor` section** - flat bullets map the four namespaces:
+* **`production_floor` section** - an image-backed, two-column table maps
   `coilyco-flight-deck`, `coilyco-bridge`, `coilyco-gaming`, and `coilysiren`.
-  Each entry shows its aggregate unique-tag count without enumerating
-  repositories, and the three organization entries link to their native
+  Each row lists the repository count for every tag without enumerating
+  repositories, and the three organization rows link to their native
   coilysiren.me profiles.
 * **`k3s` section** - declaration-backed overview of the two k3s planes. Application namespaces are grouped by purpose, followed by shared components for authentication, ingress, DNS, certificates, secrets, tailnet exposure, delivery, observability, reachability, and inference routing. It describes deployed shape without claiming live health.
 * **`shift_report` section** - compact role, employer, focus, and background context without duplicating the full career timeline.
