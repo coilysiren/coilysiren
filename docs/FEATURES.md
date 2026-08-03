@@ -6,28 +6,39 @@ Last full sweep: 2026-07-25.
 
 ## Profile landing page
 
-* **Compact, story-first README** - the page moves from identity to the lights-out thesis, current public work, career context, durable homelab architecture, and contact links. It avoids point-in-time operational snapshots that become stale between updates.
+* **Project-first README** - the page mirrors the coilysiren.me homepage: Kai's
+  agentic-engineering-platform thesis leads directly into the active portfolio,
+  followed by the deeper namespace, platform, career, and contact context that
+  fits a GitHub profile.
 * **Mobile-first layout** - no wide data tables, no layout wider than two
   columns, and code blocks stay under about 44 characters. The
   `production_floor` organization index deliberately uses the established
   two-column logo-and-summary table.
-* **Hero block** - a narrow faux SSH banner, the canonical lights-out tagline, and Kai's avatar.
-* **`whoami` section** - the platform-engineering introduction aligns with the resume surface and points to [/now](https://coilysiren.me/now) for current work.
-* **`lights_out` section** - the current public stack: ward for governed execution, cli-guard for the command boundary, agent-compose for context assembly, and agentic-os for the shared operating layer. Archived experiments are not presented as active systems.
-* **`production_floor` section** - an image-backed, two-column table maps
+* **Hero block** - the website's "I build agentic engineering platforms"
+  opening, lights-out status line, Kai's avatar, career throughline, and a link
+  to the shorter visual project map.
+* **Active portfolio** - three ordered groups, Infrastructure, Agent platform,
+  and Product, carry the same current project names, descriptions, and public
+  GitHub links as the website catalogue. Private work is described by function
+  without exposing repository names.
+* **Production floor** - an image-backed, two-column table maps
   `coilyco-flight-deck`, `coilyco-bridge`, `coilyco-gaming`, and `coilysiren`.
   Each row lists the repository count for every tag without enumerating
-  repositories, and the three organization rows link to their native
+  repositories, and the three organization rows link to the corresponding
   coilysiren.me profiles.
-* **`k3s` section** - declaration-backed overview of the two k3s planes. Application namespaces are grouped by purpose, followed by shared components for authentication, ingress, DNS, certificates, secrets, tailnet exposure, delivery, observability, reachability, and inference routing. It describes deployed shape without claiming live health.
-* **`shift_report` section** - compact role, employer, focus, and background context without duplicating the full career timeline.
-* **`tailnet` section** - stable architecture only: a two-site Tailscale mesh, an application and state k3s plane, a separate operations and recovery k3s plane, and on-demand inference machines. Device inventories, pod dumps, and live counts are intentionally omitted.
-* **`service_history` section** - mobile-width career timeline pointing at the full resume.
-* **`comms` section** - site, Bluesky, X, and LinkedIn.
+* **Platform notes** - one durable architecture section replaces the separate
+  k3s, tailnet, and stack inventories. It describes the two-site planes,
+  operating boundaries, observability posture, failure assumptions, and core
+  tools without point-in-time device or pod counts.
+* **Career** - mobile-width role history and background context pointing at the
+  full resume.
+* **Elsewhere** - site, Bluesky, X, and LinkedIn.
 
 ## Resume sync target
 
-* **`README.md` is a sync target** for the canonical bio introduction. The sync list lives in the `writing-bio-surface` skill from `coilyco-bridge/agentic-os-kai`.
+* **`README.md` is a sync target** for the canonical bio introduction. The
+  sync list lives in the `writing-bio-surface` skill from Kai's private agent
+  context.
 
 ## Repo baseline
 

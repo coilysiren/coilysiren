@@ -1,37 +1,45 @@
-```
-$ ssh kai@kai-server
-
-┌────────────────────────────────────┐
-│ kai-server · lights-out            │
-│ operator: kai siren · east bay, ca │
-│ status: agents working the line    │
-└────────────────────────────────────┘
-```
-
-⚙⚒ lights out, platform's green, agents are working the line ⚒⚙
-
-## `> whoami`
+# I build agentic engineering platforms
 
 <img src="https://github.com/coilysiren.png?size=200" width="88" align="right" alt="Kai Siren">
 
-**Hi! I'm Kai.** I'm a Staff-level platform engineer, ten-plus years in. I build the governed platform layer that lets engineering teams develop, ship, and operate agentic systems safely. The work spans context composition, bounded execution, MCP delivery, model routing, observability, and the Kubernetes systems underneath.
+🌑 lights out, 🟢 flight deck green, 🛡️ agents warded for an 8h+ run
 
-Outside work, I run a two-site homelab and a public game server. They are practical testbeds for the same platform, reliability, and observability questions I work on professionally.
+I'm **Kai Siren**, a staff-level platform engineer, ten-plus years in. I build the governed platform layer that lets engineering teams develop, ship, and operate agentic systems safely. The work spans infrastructure, context composition, bounded execution, MCP delivery, model routing, observability, and the Kubernetes systems underneath.
 
-> [/work](https://coilysiren.me/work/) is the project-first map of what I'm building and how the systems fit together.
+The throughline is developer infrastructure. That has meant language-ecosystem tooling at Ruby Together, multi-cloud platforms at Textio, government infrastructure at Nava, and agentic debugging workflows at Kapwing.
 
-## `> lights_out`
+Outside work, I run a two-site homelab and a public game server. Both are practical testbeds for the same platform, reliability, and observability questions I work on professionally.
 
-The goal is unattended software work that stays bounded, inspectable, and recoverable. The current public stack covers four parts of that problem:
+[coilysiren.me](https://coilysiren.me) is the shorter, visual version of this project map.
 
-* **[ward](https://github.com/coilyco-flight-deck/ward)** - governed execution - runs unattended coding agents in fresh clones and least-access containers, with durable issue, branch, review, and outcome trails.
-* **[cli-guard](https://github.com/coilyco-flight-deck/cli-guard)** - execution boundary - validates arguments, scopes filesystem access, gates repository state, controls egress, and records an append-only audit log.
-* **[agent-compose](https://github.com/coilyco-flight-deck/agent-compose)** - context assembly - selects and compiles the instructions an agent starts with while keeping executable authority outside the bundle.
-* **[agentic-os](https://github.com/coilyco-flight-deck/agentic-os)** - shared operating layer - carries cross-platform shell setup, public-safe agent skills, and the cross-repo validation catalog.
+## Active portfolio
 
-The observability work sits underneath that stack: local-first session data, materialized views over agent behavior, and model-facing query surfaces. The useful question is not whether an agent produced a diff. It is whether the system can explain what happened, recover from interruption, and prove the result.
+The order is intentional: infrastructure first, then the agent platform, then products where the whole system gets used.
 
-## `> production_floor`
+### Infrastructure
+
+* **[agentic-os](https://github.com/coilyco-flight-deck/agentic-os)** - cross-platform agent operating layer with dotfiles, skills, guarded tooling, and repository validators.
+* **[infrastructure](https://github.com/coilyco-flight-deck/infrastructure)** - infrastructure as code for my hosts and Kubernetes homelab, including Ansible convergence and observability.
+* **Operator context and automation** - the private skill catalogue, fleet inventory, and cross-repository coordination behind my agent environments.
+* **Deployment control plane** - the private Kubernetes declarations for always-on services across the homelab.
+
+### Agent platform
+
+* **[agent-compose](https://github.com/coilyco-flight-deck/agent-compose)** - context compiler that composes roles, personalities, skills, and tool inventories for agent harnesses.
+* **[Ward](https://github.com/coilyco-flight-deck/ward)** - governed execution layer for unattended coding agents in isolated repository workflows.
+* **[Ward MCP](https://github.com/coilyco-flight-deck/ward-mcp)** - MCP runtime that turns cli-guard policy files into guarded Streamable HTTP services and container images.
+* **[Agent Proxy](https://github.com/coilyco-flight-deck/agent-proxy)** - observability and trajectory data plane with OpenAI-compatible proxying and LiteLLM.
+
+### Product
+
+* **[Eco App](https://github.com/coilyco-gaming/eco-app)** 🌎 - server, jobs, replay, and telemetry for the Eco community.
+* **[Galaxy Gen](https://github.com/coilyco-gaming/galaxy-gen)** 🌌 - procedural galaxy simulation in Rust and WebAssembly, rendered in the browser at [galaxy-gen.coilysiren.me](https://galaxy-gen.coilysiren.me).
+* **Community operations** 🤖 - private Discord tooling and agent workflows for the Sirens community.
+* **Many MCPs** - narrow agent interfaces for personal finance, private feeds, games, browsers, project work, and adjacent systems.
+
+Across those groups, the useful question is not whether an agent produced a diff. It is whether the system can explain what happened, recover from interruption, and prove the result.
+
+## Production floor
 
 The work is split across four namespaces:
 
@@ -60,72 +68,34 @@ Each tag shows how many repositories in that namespace carry it. Repository name
 </tr>
 </table>
 
-## `> k3s`
+## Platform notes
 
-The fleet has two small k3s clusters. The primary site is the application and state plane. The second site is the operations and recovery plane. This is the deployment-declaration view, grouped by namespace rather than pod count.
+The homelab spans two physical sites on one Tailscale mesh. The primary k3s cluster is the application and state plane. The second is the operations and recovery plane. GPU machines join on demand for local inference, while hosted frontier models handle work beyond the small local tier.
 
-### Application namespaces
+The durable choices are simple:
 
-* **`coilysiren-eco-*`** - the Eco companion stack, including the main service, Discord worker, and price calculator.
-* **`atlas`, `factory-game`, `galaxy-gen`, `website`** - public and staging web surfaces.
-* **`comfyui`, `open-webui`, `reference-media`** - private AI and media interfaces. ComfyUI keeps the GPU runtime on a tower and puts only its front door in k3s.
-* **`forgejo-issues`** - the local issue mirror, synchronization workers, and query surfaces.
-* **`*-mcp`** - narrowly scoped MCP services for node health, browsers, telemetry, project trackers, social sources, games, and infrastructure.
+* Isolate state and keep recovery on a different power and network path.
+* Put authentication, ingress, DNS, certificates, and secrets at explicit boundaries.
+* Make agent sessions, model traffic, services, and cross-site reachability observable.
+* Assume every compute node except the primary can disappear.
 
-### Meta components
+Core stack: Go, Python, TypeScript, Bash, and C#. AWS, Kubernetes, Terraform, Docker, and Tailscale. Prometheus, Grafana, Sentry, and OpenTelemetry. Codex, Claude Code, and MCP.
 
-* **`authelia`** - OAuth 2.1 and OpenID Connect for hosted MCP clients. Per-service oauth2-proxy gates validate Authelia-signed access tokens.
-* **`kube-system`, `cert-manager`, `external-dns`** - Traefik ingress, cluster DNS, Route 53 records, and DNS-01 certificates.
-* **`external-secrets`** - cluster-side synchronization from AWS Systems Manager Parameter Store.
-* **`tailscale`** - the operator and per-service proxies that publish private services onto the tailnet.
-* **`forgejo`, `registry`, `flux-system`** - source hosting, the internal OCI registry, build and deploy runners, and staged GitOps reconciliation.
-* **`observability`, `fleet-reachability`** - metrics, errors, traces, logs, and cross-site Gatus checks.
-* **`agent-proxy`, `litellm`** - the ser8 inference control plane, kept separate from the application cluster.
+## Career
 
-## `> shift_report`
+My current role is Senior Software Engineer at Kapwing. My background also includes urfave/cli maintainership, government infrastructure, multi-cloud platforms, and engineering management.
 
-```yaml
-role:     Senior Platform Engineer
-employer: Kapwing
-
-focus:
-  - developer platforms
-  - agentic tooling
-  - observability
-  - infrastructure and SRE
-
-background:
-  - urfave/cli maintainer
-  - government infrastructure
-  - multi-cloud platforms
-  - engineering management
-```
-
-## `> tailnet`
-
-The homelab spans two physical sites on one Tailscale mesh. Each site runs a small k3s cluster: the application and state plane at the primary site, then the operations and recovery plane at the second. GPU machines join on demand for local inference, while hosted frontier models handle work beyond the small local tier.
-
-The durable choices are simple: isolate state, keep recovery on a different power and network path, make services observable, and assume every compute node except the primary can disappear. This profile keeps the architecture, not point-in-time device and pod dumps.
-
-## `> stack`
-
-Go, Python, TypeScript, Bash, C#. AWS, Kubernetes, Terraform, Docker, Tailscale. Prometheus, Grafana, Sentry, OpenTelemetry. Codex, Claude Code, MCP.
-
-## `> service_history`
-
-```
-2025-now   Kapwing    Senior SWE
-2023-2025  Nava       Principal Infra
-2022-2023  Textio     Staff Infra
-2021-2022  EnergyHub  DevOps EM
-2020-2021  Bluelink   Senior Backend
-2018-2020  Textio     Senior Infra
-2016-2018  Callisto   Senior SWE
-```
+* **2025-now** - Kapwing, Senior Software Engineer
+* **2023-2025** - Nava, Principal Infrastructure Engineer
+* **2022-2023** - Textio, Staff Infrastructure Engineer
+* **2021-2022** - EnergyHub, DevOps Engineering Manager
+* **2020-2021** - Bluelink, Senior Backend Engineer
+* **2018-2020** - Textio, Senior Infrastructure Engineer
+* **2016-2018** - Callisto, Senior Software Engineer
 
 Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/resume](https://coilysiren.me/resume).
 
-## `> comms`
+## Elsewhere
 
 [coilysiren.me](https://coilysiren.me) · [Bluesky](https://bsky.app/profile/coilysiren.me) · [X](https://x.com/coilysiren) · [LinkedIn](https://linkedin.com/in/coilysiren)
 
