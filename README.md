@@ -14,11 +14,11 @@ $ ssh kai@kai-server
 
 <img src="https://github.com/coilysiren.png?size=200" width="88" align="right" alt="Kai Siren">
 
-**Hi! I'm Kai.** I'm a platform engineer, ten-plus years in. I build tools that make engineering teams faster. The current edge of that work is agentic developer tooling and observability designed for LLM consumers.
+**Hi! I'm Kai.** I'm a Staff-level platform engineer, ten-plus years in. I build the governed platform layer that lets engineering teams develop, ship, and operate agentic systems safely. The work spans context composition, bounded execution, MCP delivery, model routing, observability, and the Kubernetes systems underneath.
 
 Outside work, I run a two-site homelab and a public game server. They are practical testbeds for the same platform, reliability, and observability questions I work on professionally.
 
-> [/now](https://coilysiren.me/now) is the living snapshot of what I'm building, testing, and thinking about.
+> [/work](https://coilysiren.me/work/) is the project-first map of what I'm building and how the systems fit together.
 
 ## `> lights_out`
 
