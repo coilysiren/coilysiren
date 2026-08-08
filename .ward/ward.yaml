@@ -3,6 +3,9 @@
 
 commands: {}
 
+agent:
+  workflow: merge-remote-main
+
 # Catalog metadata for the cross-repo knowledge graph. Schema: relaxed
 # in agentic-os v0.19.0 (description + dependsOn required; kind / type /
 # system / owner / lifecycle deprecated, pending fleet strip). Tracker:
