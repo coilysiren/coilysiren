@@ -1,3 +1,7 @@
+---
+ward:
+  workflow: merge-remote-main
+---
 # Agent instructions
 
 You have landed in `coilysiren/coilysiren`, the GitHub profile repo: `README.md` renders as the landing page on <https://github.com/coilysiren>. This file is the bootstrap guide for an agent starting here with no other context. It points at where the rest of the world lives and how to find things, rather than prescribing steps.
