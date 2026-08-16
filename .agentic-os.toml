@@ -1,0 +1,5 @@
+# Per-repo config for the agentic-os hook suite. No pyproject.toml here,
+# so the key path is the bare hook id rather than [tool.agentic-os.*].
+
+[documentation-layout]
+band = "small"
