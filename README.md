@@ -103,4 +103,4 @@ Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/re
 
 * [AGENTS.md](AGENTS.md) - agent bootstrap guide and operating rules.
 * [docs/FEATURES.md](docs/FEATURES.md) - inventory of what ships today.
-* [.ward/ward.yaml](.ward/ward.yaml) - repository command policy.
+* [.ward/ward.yaml](.ward/ward.yaml) - catalog metadata only.

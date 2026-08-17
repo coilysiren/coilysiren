@@ -37,4 +37,4 @@ baseline normalization, so the profile is proofread directly.
 
 * [README.md](../README.md) - human-facing profile.
 * [AGENTS.md](../AGENTS.md) - agent bootstrap guide and repository rules.
-* [.ward/ward.yaml](../.ward/ward.yaml) - repository command policy.
+* [.ward/ward.yaml](../.ward/ward.yaml) - catalog metadata only.
