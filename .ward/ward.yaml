@@ -1,10 +1,9 @@
 # Catalog metadata for the cross-repo knowledge graph.
 #
 # Dev verbs used to live here as a `commands:` block. They are recipes in the
-# repo-root justfile now, per coilysiren/inbox#366. This file survives only
-# because check_catalog_block pins this exact path and catalog-trifecta wants
-# README, AGENTS, and FEATURES to link it, both upstream in agentic-os. See
-# agentic-os#1101.
+# justfile now. This file survives only because check_catalog_block pins this
+# exact path and catalog-trifecta wants README, AGENTS, and FEATURES to link
+# it, both upstream in agentic-os.
 
 # Schema: relaxed in agentic-os v0.19.0 (description + dependsOn required;
 # kind / type / system / owner / lifecycle deprecated, pending fleet strip).
