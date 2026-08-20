@@ -1,0 +1,5 @@
+# core.autocrlf=true would otherwise give this checkout CRLF, which agent-compose
+# reads as a different skill copy from the same file in another repo.
+* text=auto eol=lf
+
+*.sh text eol=lf
