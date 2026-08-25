@@ -76,23 +76,9 @@ The durable choices are simple:
 
 Core stack: Go, Python, TypeScript, Bash, and C#. AWS, Kubernetes, Terraform, Docker, and Tailscale. Prometheus, Grafana, Sentry, and OpenTelemetry. Codex, Claude Code, and MCP.
 
-## Career
-
-My current role is Senior Software Engineer at Kapwing. My background also includes urfave/cli maintainership, government infrastructure, multi-cloud platforms, and engineering management.
-
-* **2025-now** - Kapwing, Senior Software Engineer
-* **2023-2025** - Nava, Principal Infrastructure Engineer
-* **2022-2023** - Textio, Staff Infrastructure Engineer
-* **2021-2022** - EnergyHub, DevOps Engineering Manager
-* **2020-2021** - Bluelink, Senior Backend Engineer
-* **2018-2020** - Textio, Senior Infrastructure Engineer
-* **2016-2018** - Callisto, Senior Software Engineer
-
-Older: Harlot, Quirell/CollectQT, NASA Goddard. Full résumé: [coilysiren.me/resume](https://coilysiren.me/resume).
-
 ## Elsewhere
 
-[coilysiren.me](https://coilysiren.me) · [Bluesky](https://bsky.app/profile/coilysiren.me) · [X](https://x.com/coilysiren) · [LinkedIn](https://linkedin.com/in/coilysiren)
+[coilysiren.me](https://coilysiren.me) · [Resume](https://coilysiren.me/resume) · [Bluesky](https://bsky.app/profile/coilysiren.me) · [X](https://x.com/coilysiren) · [LinkedIn](https://linkedin.com/in/coilysiren)
 
 ## See also
 
