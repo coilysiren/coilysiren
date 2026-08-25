@@ -6,27 +6,26 @@ renders as the profile landing page at <https://github.com/coilysiren>.
 ## Profile landing page
 
 * **Project-first README** - the page mirrors the coilysiren.me homepage:
-  Kai's agentic-engineering-platform thesis leads into the active portfolio,
-  then the deeper namespace, platform, career, and contact context.
+  Kai's agentic-engineering-platform thesis leads into the four showcase
+  projects, then the wider portfolio, platform, and contact context.
 * **Mobile-first layout** - no wide data tables, nothing wider than two
-  columns, code blocks under about 44 characters. The `production_floor`
-  index is the one deliberate exception, using the established two-column
-  logo-and-summary table.
-* **Hero block** - the "I build agentic engineering platforms" opening, the
-  lights-out status line, Kai's avatar, the career throughline, and a link to
-  the visual project map.
-* **Active portfolio** - three ordered groups (Infrastructure, Agent platform,
-  Product) carrying the same names, descriptions, and public links as the
+  columns, code blocks under about 44 characters. The two-column `What I ship`
+  banner grid is the one deliberate exception.
+* **Hero block** - the "I build agentic engineering platforms" opening, Kai's
+  avatar, the career throughline, and a link to the visual project map.
+* **What I ship** - the four showcase projects as their published banners in a
+  two-column grid, each linking to its repository and carrying its proof line.
+  Images are served from coilysiren.me, so a repository rename cannot break
+  them.
+* **Also active** - the rest of the portfolio in two groups, Infrastructure and
+  Product, carrying the same names, descriptions, and public links as the
   website catalogue. Private work is described by function, never by
   repository name.
-* **Production floor** - an image-backed table mapping the four organizations,
-  each row listing per-tag counts without enumerating repositories, linking to
-  the matching coilysiren.me profile.
 * **Platform notes** - one durable architecture section covering the two-site
   planes, operating boundaries, observability posture, failure assumptions,
   and core tools, with no point-in-time device or pod counts.
-* **Career and elsewhere** - mobile-width role history pointing at the resume,
-  plus site, Bluesky, X, and LinkedIn.
+* **Elsewhere** - site, resume, Bluesky, X, and LinkedIn. The page carries no
+  employment list: the resume is canonical and one click away.
 
 `README.md` is a sync target for the canonical bio introduction, with the sync
 list in the `writing-bio-surface` skill in Kai's private agent context.
