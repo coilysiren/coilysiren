@@ -38,36 +38,30 @@ products where the whole system gets exercised.
 
 ### Infrastructure
 
-* **agentic-os** - cross-platform agent operating layer with dotfiles, skills, guarded tooling, and repository validators. <https://github.com/coilyco-flight-deck/agentic-os>
+* **agentic-os** - cross-platform agentic operating layer with dotfiles, skills, guarded tooling, and repository validators. <https://github.com/coilyco-flight-deck/agentic-os>
 * **infrastructure** - infrastructure as code for the hosts and Kubernetes homelab, including Ansible convergence and observability. <https://github.com/coilyco-flight-deck/infrastructure>
 * **Operator context and automation** - the private skill catalogue, fleet inventory, and cross-repository coordination behind her agent environments.
 * **Deployment control plane** - the private Kubernetes declarations for always-on services across the homelab.
 
 ### Agent platform
 
-* **agent-compose** - context compiler that composes roles, personalities, skills, and tool inventories for agent harnesses. <https://github.com/coilyco-flight-deck/agent-compose>
-* **Ward** - governed execution layer for unattended coding agents in isolated repository workflows. <https://github.com/coilyco-flight-deck/ward>
-* **umbra** - config driven occlusion framework. Declares what a tool may run, validates arguments before the process starts, and lands every call in an append-only audit log. The generic engine the layers above build on. <https://github.com/coilyco-flight-deck/umbra>
-* **mcp-beaver** - guarded MCP server generator, turning an umbra guardfile into guarded Streamable HTTP services and container images. <https://github.com/coilyco-flight-deck/mcp-beaver>
-* **Agent Proxy** - observability and trajectory data plane with OpenAI-compatible proxying and LiteLLM. <https://github.com/coilyco-flight-deck/agent-proxy>
+* **agent-compose** - eval driven agent roles and personas, composed into plain files you can read and diff before a run. <https://github.com/coilyco-flight-deck/agent-compose>
+* **umbra** - config driven occlusion framework. Arguments validated before a process starts, and every call in an append-only audit log. <https://github.com/coilyco-flight-deck/umbra>
+* **mcp-beaver** - a MCP server generator with a natural flow, where an operation you did not declare has no tool and no endpoint. Renders an umbra guardfile into a guarded MCP server. <https://github.com/coilyco-flight-deck/mcp-beaver>
 
-### Games and game tooling
+### Product
 
-Where the whole platform gets exercised against something that has to be fun as
-well as correct.
+Where the platform gets exercised against something that has to work for real
+people, and in the games, be fun as well as correct.
 
-* **factory-game-v3** - factory and logistics simulation in Rust on Bevy, playable in the browser through WebAssembly. Trucks run road networks between deposits and factories under a tick-driven economy of demand, sales, and revenue. Three things make it unusual. It ships a **headless play protocol** over stdin and stdout, one JSON request per line and exactly one response per line, so an agent can play a full game without pixels. Long runs are asserted **exactly**, down to units sold and revenue over hundreds of ticks, which is what makes the simulation a determinism proof rather than a demo. And the browser build carries a real **accessible control surface**: Bevy renders everything into one canvas, which exposes no structure to a screen reader and nothing to focus, and AccessKit has no web adapter, so the shell builds a DOM panel of live regions and labeled controls beside the canvas instead. <https://github.com/coilyco-gaming/factory-game-v3>
-* **Galaxy Gen** - procedural galaxy simulation in Rust and WebAssembly, rendered in the browser. Live at <https://galaxy-gen.coilysiren.me>. <https://github.com/coilyco-gaming/galaxy-gen>
-* **Sirens Echo** - Discord community agent harness in Go, home of the Sirens Echo and Sirens Deep agents. <https://github.com/coilyco-gaming/sirens-echo>
+* **sirens-echo** - a discord community agent harness, answering only when summoned in a channel it was granted. Home of the Sirens Echo and Sirens Deep agents, in Go. <https://github.com/coilyco-gaming/sirens-echo>
 * **Eco App** - server, jobs, replay, and telemetry for the public Eco community server Kai runs. <https://github.com/coilyco-gaming/eco-app>
+* **Galaxy Gen** - procedural galaxy simulation in Rust and WebAssembly, rendered in the browser. Live at <https://galaxy-gen.coilysiren.me>. <https://github.com/coilyco-gaming/galaxy-gen>
+* **factory-game-v3** - factory and logistics simulation in Rust on Bevy, playable in the browser through WebAssembly. <https://github.com/coilyco-gaming/factory-game-v3>
 * **Eco mods** - game mods and Unity assets for Eco, in C#. <https://github.com/coilyco-gaming/eco-mods>
 * **steam-ops** - Steam MCP and the surrounding mundane Steam tooling, in Python. <https://github.com/coilyco-gaming/steam-ops>
-* **Eco operations** - private operational inputs behind the community server: cycle prep, configuration, and private mods.
-* **Factorio mods** - private.
-
-### Other product
-
 * **Many MCPs** - narrow agent interfaces for personal finance, private feeds, games, browsers, project work, and adjacent systems.
+* **Eco operations and Factorio mods** - private operational inputs behind the community server: cycle prep, configuration, and private mods.
 
 The framing question across all of it is not whether an agent produced a diff.
 It is whether the system can explain what happened, recover from interruption,
