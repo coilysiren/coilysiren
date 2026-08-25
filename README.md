@@ -25,16 +25,15 @@ The order is intentional: infrastructure first, then the agent platform, then pr
 
 ### Agent platform
 
-* **[agent-compose](https://github.com/coilyco-flight-deck/agent-compose)** - context compiler that composes roles, personalities, skills, and tool inventories for agent harnesses.
-* **[Ward](https://github.com/coilyco-flight-deck/ward)** - governed execution layer for unattended coding agents in isolated repository workflows.
-* **[Ward MCP](https://github.com/coilyco-flight-deck/ward-mcp)** - MCP runtime that turns cli-guard policy files into guarded Streamable HTTP services and container images.
-* **[Agent Proxy](https://github.com/coilyco-flight-deck/agent-proxy)** - observability and trajectory data plane with OpenAI-compatible proxying and LiteLLM.
+* **[agent-compose](https://github.com/coilyco-flight-deck/agent-compose)** - eval driven agent roles and personas, composed into plain files you can read and diff before a run.
+* **[umbra](https://github.com/coilyco-flight-deck/umbra)** - config driven occlusion framework: arguments validated before a process starts, and every call in an append-only audit log.
+* **[mcp-beaver](https://github.com/coilyco-flight-deck/mcp-beaver)** - a MCP server generator with a natural flow, where an operation you did not declare has no tool and no endpoint.
 
 ### Product
 
 * **[Eco App](https://github.com/coilyco-gaming/eco-app)** 🌎 - server, jobs, replay, and telemetry for the Eco community.
 * **[Galaxy Gen](https://github.com/coilyco-gaming/galaxy-gen)** 🌌 - procedural galaxy simulation in Rust and WebAssembly, rendered in the browser at [galaxy-gen.coilysiren.me](https://galaxy-gen.coilysiren.me).
-* **Community operations** 🤖 - private Discord tooling and agent workflows for the Sirens community.
+* **[sirens-echo](https://github.com/coilyco-gaming/sirens-echo)** 🤖 - a discord community agent harness, answering only when mentioned in a channel it was granted.
 * **Many MCPs** - narrow agent interfaces for personal finance, private feeds, games, browsers, project work, and adjacent systems.
 
 Across those groups, the useful question is not whether an agent produced a diff. It is whether the system can explain what happened, recover from interruption, and prove the result.
