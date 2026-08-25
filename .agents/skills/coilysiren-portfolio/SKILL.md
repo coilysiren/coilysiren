@@ -47,8 +47,8 @@ products where the whole system gets exercised.
 
 * **agent-compose** - context compiler that composes roles, personalities, skills, and tool inventories for agent harnesses. <https://github.com/coilyco-flight-deck/agent-compose>
 * **Ward** - governed execution layer for unattended coding agents in isolated repository workflows. <https://github.com/coilyco-flight-deck/ward>
-* **cli-guard** - security framework for guarded command-line tools with scoped authority, validation, and audit logs. The generic engine the layers above build on. <https://github.com/coilyco-flight-deck/cli-guard>
-* **mcp-beaver** - guarded MCP server generator, turning cli-guard policy files into guarded Streamable HTTP services and container images. <https://github.com/coilyco-flight-deck/mcp-beaver>
+* **umbra** - config driven occlusion framework. Declares what a tool may run, validates arguments before the process starts, and lands every call in an append-only audit log. The generic engine the layers above build on. <https://github.com/coilyco-flight-deck/umbra>
+* **mcp-beaver** - guarded MCP server generator, turning an umbra guardfile into guarded Streamable HTTP services and container images. <https://github.com/coilyco-flight-deck/mcp-beaver>
 * **Agent Proxy** - observability and trajectory data plane with OpenAI-compatible proxying and LiteLLM. <https://github.com/coilyco-flight-deck/agent-proxy>
 
 ### Games and game tooling
