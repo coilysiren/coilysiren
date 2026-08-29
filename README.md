@@ -1,8 +1,8 @@
 # I build agentic engineering platforms
 
-<img src="https://github.com/coilysiren.png?size=200" width="88" align="right" alt="Kai Siren">
+<img src="https://github.com/coilysiren.png?size=200" width="88" align="right" alt="Kai Ase Siren">
 
-I'm **Kai Siren**, a staff-level platform engineer, ten-plus years in. I build the governed platform layer that lets engineering teams develop, ship, and operate agentic systems safely. The work spans infrastructure, context composition, bounded execution, MCP delivery, model routing, observability, and the Kubernetes systems underneath.
+I'm **Kai Ase Siren**, a staff-level platform engineer, ten-plus years in. I build the governed platform layer that lets engineering teams develop, ship, and operate agentic systems safely. The work spans infrastructure, context composition, bounded execution, MCP delivery, model routing, observability, and the Kubernetes systems underneath.
 
 The throughline is developer infrastructure. That has meant language-ecosystem tooling at Ruby Together, multi-cloud platforms at Textio, government infrastructure at Nava, and agentic debugging workflows at Kapwing.
 

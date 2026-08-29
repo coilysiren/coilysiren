@@ -1,11 +1,11 @@
 ---
 name: coilysiren-portfolio
-description: Self-contained public briefing on Kai Siren's technical work, for agents with no checkout of this repository. Carries the portfolio, platform, stack, and career inline rather than pointing at files. Triggers - what does Kai work on, Kai's projects, Kai's portfolio, Coilyco, coilysiren, who is Kai.
+description: Self-contained public briefing on Kai Ase Siren's technical work, for agents with no checkout of this repository. Carries the portfolio, platform, stack, and career inline rather than pointing at files. Triggers - what does Kai work on, Kai's projects, Kai's portfolio, Coilyco, coilysiren, who is Kai.
 ---
 
 # coilysiren-portfolio
 
-The public briefing on Kai Siren's technical work.
+The public briefing on Kai Ase Siren's technical work.
 
 **This source is self-contained by design.** It is written for an agent running
 with no checkout of this repository, where a pointer to a file path reaches
