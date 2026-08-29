@@ -1,6 +1,6 @@
 ---
 name: repo-coilysiren
-description: GitHub profile for Kai Siren, a platform engineer building governed AI-agent systems and observability. Triggers - coilysiren, ai-agents, devops, github-profile, observability
+description: GitHub profile for Kai Ase Siren, a platform engineer. Triggers - coilysiren, ai-agents, devops, github-profile, observability
 ---
 
 # repo-coilysiren
