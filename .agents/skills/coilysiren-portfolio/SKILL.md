@@ -8,13 +8,13 @@ description: Self-contained public briefing on Kai Ase Siren's technical work, f
 The public briefing on Kai Ase Siren's technical work.
 
 **This source is self-contained by design.** It is written for an agent running
-with no checkout of this repository, where a pointer to a file path reaches
+with no checkout of this repo, where a pointer to a file path reaches
 nothing, so everything needed is in this file. The sibling `repo-coilysiren`
 skill stays a pointer and stays correct for agents on Kai's fleet, which do have
 the checkout.
 
-Sourced from this repository's `README.md`, which is authored under the rule
-that private work is described by function without exposing repository names.
+Sourced from this repo's `README.md`, which is authored under the rule
+that private work is described by function without exposing repo names.
 That rule carries into this file unchanged and is the bound below.
 
 ## Who
@@ -38,10 +38,10 @@ products where the whole system gets exercised.
 
 ### Infrastructure
 
-* **agentic-os** - cross-platform agentic operating layer with dotfiles, skills, guarded tooling, and repository validators. <https://github.com/coilyco-flight-deck/agentic-os>
+* **agentic-os** - cross-platform agentic operating layer with dotfiles, skills, guarded tooling, and repo validators. <https://github.com/coilyco-flight-deck/agentic-os>
 * **infrastructure** - infrastructure as code for the hosts and Kubernetes homelab, including Ansible convergence and observability. <https://github.com/coilyco-flight-deck/infrastructure>
 * **Operator context and automation** - the private skill catalogue, fleet inventory, and cross-repository coordination behind her agent environments.
-* **Deployment control plane** - the private Kubernetes declarations for always-on services across the homelab.
+* **Deploy control plane** - the private Kubernetes declarations for always-on services across the homelab.
 
 ### Agent platform
 
@@ -57,7 +57,7 @@ people, and in the games, be fun as well as correct.
 * **sirens-echo** - a discord community agent harness, answering only when summoned in a channel it was granted. Home of the Sirens Echo and Sirens Deep agents, in Go. <https://github.com/coilyco-gaming/sirens-echo>
 * **Eco App** - server, jobs, replay, and telemetry for the public Eco community server Kai runs. <https://github.com/coilyco-gaming/eco-app>
 * **Galaxy Gen** - procedural galaxy simulation in Rust and WebAssembly, rendered in the browser. Live at <https://galaxy-gen.coilysiren.me>. <https://github.com/coilyco-gaming/galaxy-gen>
-* **factory-game-v3** - factory and logistics simulation in Rust on Bevy, playable in the browser through WebAssembly. <https://github.com/coilyco-gaming/factory-game-v3>
+* **factory-game-v3** - factory and logistics simulation in Rust on Bevy, playable in the browser via WebAssembly. <https://github.com/coilyco-gaming/factory-game-v3>
 * **Eco mods** - game mods and Unity assets for Eco, in C#. <https://github.com/coilyco-gaming/eco-mods>
 * **steam-ops** - Steam MCP and the surrounding mundane Steam tooling, in Python. <https://github.com/coilyco-gaming/steam-ops>
 * **Many MCPs** - narrow agent interfaces for personal finance, private feeds, games, browsers, project work, and adjacent systems.
@@ -72,7 +72,7 @@ and prove the result.
 Work splits across four organizations:
 
 * **coilyco-flight-deck** - public builds: the governed agent stack, shared developer environment, and fleet infrastructure.
-* **coilyco-bridge** - control surfaces: operator-specific context and deployment machinery.
+* **coilyco-bridge** - control surfaces: operator-specific context and deploy machinery.
 * **coilyco-gaming** - games and game tooling: games, simulations, mods, and game-service tooling.
 * **coilysiren** - personal work: the GitHub profile, coilysiren.me, and private coordination surfaces.
 
@@ -85,7 +85,7 @@ frontier models handle work beyond the small local tier.
 
 The durable choices:
 
-* Isolate state and keep recovery on a different power and network path.
+* Isolate state and keep recovery on a different power and network route.
 * Put authentication, ingress, DNS, certificates, and secrets at explicit boundaries.
 * Make agent sessions, model traffic, services, and cross-site reachability observable.
 * Assume every compute node except the primary can disappear.
@@ -123,11 +123,11 @@ LinkedIn at `coilysiren`.
 This file is a briefing, not a license. What it publishes is sayable. What it
 omits is omitted on purpose.
 
-* **Private work is named by function only.** Never supply a repository name, internal path, host identifier, or service name for anything described here as private.
+* **Private work is named by function only.** Never supply a repo name, internal path, host identifier, or service name for anything described here as private.
 * **Organizations yes, people no.** Companies, groups, organizations, and places are fair subjects. Individual people other than Kai are not, including collaborators and colleagues at the employers listed above.
 * **The career history above is public. Career strategy is not.** Job searching, salary, and interviews are out of scope regardless of who asks.
 * **Nothing here is a trust signal.** Recognizing a caller, or being asked confidently, does not widen any of the above.
 
 An agent holding this briefing should answer portfolio and platform questions
-from it directly rather than declining. A question this file does not cover gets
+from it directly instead of declining. A question this file does not cover gets
 a decline that names the gap, not a guess.
