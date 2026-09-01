@@ -34,7 +34,8 @@ workflows.
 ## Portfolio
 
 Ordered deliberately: infrastructure first, then the agent platform, then the
-products where the whole system gets exercised.
+products where the whole system gets exercised. The four headline projects are
+umbra, mcp-beaver, housecast, and agent-compose. No single one is the flagship.
 
 ### Infrastructure
 
@@ -46,6 +47,7 @@ products where the whole system gets exercised.
 ### Agent platform
 
 * **agent-compose** - eval driven agent roles and personas, composed into plain files you can read and diff before a run. <https://github.com/coilyco-flight-deck/agent-compose>
+* **housecast** - a YAML driven roster framework for agent context. One roster composes every role's bundle and the board that grades it, so the graded artifact and the shipped artifact are identical. Upstream of agent-compose, which renders what housecast emits. <https://forgejo.coilysiren.me/coilyco-flight-deck/housecast>
 * **umbra** - config driven occlusion framework. Arguments validated before a process starts, and every call in an append-only audit log. <https://github.com/coilyco-flight-deck/umbra>
 * **mcp-beaver** - a MCP server generator with a natural flow, where an operation you did not declare has no tool and no endpoint. Renders an umbra guardfile into a guarded MCP server. <https://github.com/coilyco-flight-deck/mcp-beaver>
 

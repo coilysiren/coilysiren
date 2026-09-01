@@ -15,7 +15,7 @@ Outside work, I run a two-site homelab and a public game server. Both are practi
 <table>
 <tr>
 <td width="50%"><a href="https://github.com/coilyco-flight-deck/agent-compose"><img src="https://coilysiren.me/images/banners/agent-compose.jpg" alt="agent-compose // $ acompose - Eval driven agent roles and personas"></a><br><br>A role is context, never permission. The bundle is plain files you can read and diff before a run, carrying no credential, no mount, and no command.</td>
-<td width="50%"><a href="https://github.com/coilyco-gaming/sirens-echo"><img src="https://coilysiren.me/images/banners/sirens-echo.jpg" alt="sirens-echo // sirens-deep - a discord community agent harness"></a><br><br>It answers only when a person mentions it in a channel it was granted, and a validator strips the greeting, the emoji, and the sign-off before anything posts.</td>
+<td width="50%"><a href="https://forgejo.coilysiren.me/coilyco-flight-deck/housecast"><b>housecast</b></a> // <code>roster.yaml</code> - A YAML driven roster framework for agent context<br><br>One roster file is the source. Every role's bundle and the board that grades it are composed from that file, so the graded artifact and the shipped artifact are identical.</td>
 </tr>
 <tr>
 <td width="50%"><a href="https://github.com/coilyco-flight-deck/mcp-beaver"><img src="https://coilysiren.me/images/banners/mcp-beaver.jpg" alt="mcp-beaver // .mcp.kdl - A MCP server generator with a natural flow"></a><br><br>An operation you did not declare has no tool and no endpoint, so the blast radius of a write-capable MCP is one small file you can read end to end.</td>
@@ -34,6 +34,7 @@ Outside work, I run a two-site homelab and a public game server. Both are practi
 
 ### Product
 
+* **[sirens-echo](https://github.com/coilyco-gaming/sirens-echo)** - a Discord community agent harness. It answers only when a person mentions it in a channel it was granted, and a validator strips the greeting, the emoji, and the sign-off before anything posts.
 * **[Eco App](https://github.com/coilyco-gaming/eco-app)** 🌎 - server, jobs, replay, and telemetry for the Eco community.
 * **[Galaxy Gen](https://github.com/coilyco-gaming/galaxy-gen)** 🌌 - procedural galaxy simulation in Rust and WebAssembly, rendered in the browser at [galaxy-gen.coilysiren.me](https://galaxy-gen.coilysiren.me).
 * **Many MCPs** - narrow agent interfaces for personal finance, private feeds, games, browsers, project work, and adjacent systems.
