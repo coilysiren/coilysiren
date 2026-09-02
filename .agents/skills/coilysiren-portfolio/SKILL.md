@@ -40,7 +40,7 @@ umbra, mcp-beaver, housecast, and agent-compose. No single one is the flagship.
 ### Infrastructure
 
 * **agentic-os** - cross-platform agentic operating layer with dotfiles, skills, guarded tooling, and repo validators. <https://github.com/coilyco-flight-deck/agentic-os>
-* **infrastructure** - infrastructure as code for the hosts and Kubernetes homelab, including Ansible convergence and observability. <https://github.com/coilyco-flight-deck/infrastructure>
+* **infrastructure** - infrastructure as code for the hosts and Kubernetes homelab, including Ansible convergence and observability. <https://github.com/coilyco-bridge/infrastructure>
 * **Operator context and automation** - the private skill catalogue, fleet inventory, and cross-repository coordination behind her agent environments.
 * **Deploy control plane** - the private Kubernetes declarations for always-on services across the homelab.
 

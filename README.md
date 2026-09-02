@@ -28,7 +28,7 @@ Outside work, I run a two-site homelab and a public game server. Both are practi
 ### Infrastructure
 
 * **[agentic-os](https://github.com/coilyco-flight-deck/agentic-os)** - cross-platform agent operating layer with dotfiles, skills, guarded tooling, and repository validators.
-* **[infrastructure](https://github.com/coilyco-flight-deck/infrastructure)** - infrastructure as code for my hosts and Kubernetes homelab, including Ansible convergence and observability.
+* **[infrastructure](https://github.com/coilyco-bridge/infrastructure)** - infrastructure as code for my hosts and Kubernetes homelab, including Ansible convergence and observability.
 * **Operator context and automation** - the private skill catalogue, fleet inventory, and cross-repository coordination behind my agent environments.
 * **Deployment control plane** - the private Kubernetes declarations for always-on services across the homelab.
 
