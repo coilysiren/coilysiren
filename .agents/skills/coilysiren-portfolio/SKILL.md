@@ -71,12 +71,12 @@ and prove the result.
 
 ## Namespaces
 
-Work splits across four organizations:
+Work splits across three organizations and one personal namespace:
 
-* **coilyco-flight-deck** - public builds: the governed agent stack, shared developer environment, and fleet infrastructure.
-* **coilyco-bridge** - control surfaces: operator-specific context and deploy machinery.
+* **coilyco-flight-deck** - public builds: the governed agent stack, the shared developer environment, and coilysiren.me.
+* **coilyco-bridge** - control surfaces: operator-specific context, fleet infrastructure, deploy machinery, and the private coordination surfaces.
 * **coilyco-gaming** - games and game tooling: games, simulations, mods, and game-service tooling.
-* **coilysiren** - personal work: the GitHub profile, coilysiren.me, and private coordination surfaces.
+* **coilysiren** - a personal namespace rather than an organization, holding the GitHub profile repository.
 
 ## Platform
 
