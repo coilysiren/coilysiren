@@ -2,9 +2,9 @@
 
 <img src="https://github.com/coilysiren.png?size=200" width="88" align="right" alt="Kai Ase Siren">
 
-I'm **Kai Ase Siren**, a staff-level platform engineer, ten-plus years in. I build the governed platform layer that lets engineering teams develop, ship, and operate agentic systems safely. The work spans infrastructure, context composition, bounded execution, MCP delivery, model routing, observability, and the Kubernetes systems underneath.
+I'm **Kai Ase Siren**, a senior platform engineer, ten-plus years in. I build the policy-bound platform layer that lets engineering teams develop, ship, and operate agentic systems safely. The work spans infrastructure, context composition, bounded execution, MCP delivery, model routing, observability, and the Kubernetes systems underneath.
 
-The throughline is developer infrastructure. That has meant language-ecosystem tooling at Ruby Together, multi-cloud platforms at Textio, government infrastructure at Nava, and agentic debugging workflows at Kapwing.
+The throughline is developer infrastructure, and agents are its newest consumer. That has meant language-ecosystem tooling at Ruby Together, multi-cloud platforms at Textio, government infrastructure at Nava, and agent-facing observability and MCP surfaces at Kapwing.
 
 Outside work, I run a two-site homelab and a public game server. Both are practical testbeds for the same platform, reliability, and observability questions I work on professionally.
 
@@ -14,12 +14,12 @@ Outside work, I run a two-site homelab and a public game server. Both are practi
 
 <table>
 <tr>
-<td width="50%"><a href="https://github.com/coilyco-flight-deck/agent-compose"><img src="https://coilysiren.me/images/banners/agent-compose.jpg" alt="agent-compose // $ acompose - Eval driven agent roles and personas"></a><br><br>A role is context, never permission. The bundle is plain files you can read and diff before a run, carrying no credential, no mount, and no command.</td>
-<td width="50%"><a href="https://forgejo.coilysiren.me/coilyco-flight-deck/housecast"><b>housecast</b></a> // <code>roster.yaml</code> - A YAML driven roster framework for agent context<br><br>One roster file is the source. Every role's bundle and the board that grades it are composed from that file, so the graded artifact and the shipped artifact are identical.</td>
+<td width="50%"><a href="https://github.com/coilyco-flight-deck/agent-compose"><img src="https://coilysiren.me/images/banners/agent-compose.jpg" alt="agent-compose // $ acompose - Eval driven agent roles and personas"></a><br><br>Picks the role an agent runs as and delivers the composed bundle into the harness. It changes what the agent knows and how it is framed, never what it is allowed to do: the bundle is plain files you can read and diff before a run, carrying no credential, no mount, and no command.</td>
+<td width="50%"><a href="https://forgejo.coilysiren.me/coilyco-flight-deck/housecast"><b>housecast</b></a> // <code>roster.yaml</code> - A YAML driven roster framework for agent context<br><br>One YAML file declares every role. The bundle an agent gets and the scorecard that grades it are both composed from that file, so what gets tested and what ships are the same bundle.</td>
 </tr>
 <tr>
-<td width="50%"><a href="https://github.com/coilyco-flight-deck/mcp-beaver"><img src="https://coilysiren.me/images/banners/mcp-beaver.jpg" alt="mcp-beaver // .mcp.kdl - A MCP server generator with a natural flow"></a><br><br>An operation you did not declare has no tool and no endpoint, so the blast radius of a write-capable MCP is one small file you can read end to end.</td>
-<td width="50%"><a href="https://github.com/coilyco-flight-deck/umbra"><img src="https://coilysiren.me/images/banners/umbra.jpg" alt="umbra - a config driven occlusion framework"></a><br><br>Declare what a tool may run. Arguments are validated before the process starts, each verb needs its own scope token, and every call lands in an append-only audit log.</td>
+<td width="50%"><a href="https://github.com/coilyco-flight-deck/mcp-beaver"><img src="https://coilysiren.me/images/banners/mcp-beaver.jpg" alt="mcp-beaver // .mcp.kdl - A MCP server generator with a natural flow"></a><br><br>One guardfile in, one guarded MCP server out, which is the natural flow the name points at. An operation nobody declared has no tool and no endpoint, so a write-capable MCP server is only ever as wide as one small file you can read end to end.</td>
+<td width="50%"><a href="https://github.com/coilyco-flight-deck/umbra"><img src="https://coilysiren.me/images/banners/umbra.jpg" alt="umbra - a config driven occlusion framework"></a><br><br>A permission layer for command-line tools and HTTP requests, which stay occluded until a policy file grants them. Arguments are checked before the process starts, each command needs its own scope token, and every call lands in an append-only audit log.</td>
 </tr>
 </table>
 
