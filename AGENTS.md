@@ -11,14 +11,14 @@ You have landed in `coilysiren/coilysiren`, the GitHub profile repo: `README.md`
 How much context you have depends on where you are running:
 
 - **On Kai's fleet**, the global conventions are already loaded: `~/.claude/CLAUDE.md` chains to `agentic-os-kai/AGENTS.md` (the private operating context, `coilyco-bridge/agentic-os-kai` on Forgejo), which layers on the public base from `agentic-os`. If a term in this repo confuses you, search those two files and their skills before searching the web.
-- **On a standalone clone**, there is no global context and no `../AGENTS.md` to resolve. Everything this repo itself requires is in this file. The public half of the wider system is browsable at [coilyco-flight-deck/agentic-os](https://github.com/coilyco-flight-deck/agentic-os); the private half lives on a Forgejo you cannot reach, and nothing in this repo depends on it.
+- **On a standalone clone**, there is no global context and no `../AGENTS.md` to resolve. Everything this repo itself requires is in this file. The public half of the wider system is browsable at [coilyco-flight-deck/agentic-os](https://github.com/coilyco-flight-deck/agentic-os). The private half lives on a Forgejo you cannot reach, and nothing in this repo depends on it.
 
 ## The world this repo sits in
 
 A search map, not a setup script:
 
 - **Workspace layout** - repos on Kai's fleet check out to `~/projects/<owner>/<repo>`, so this repo's canonical home is `~/projects/coilysiren/coilysiren/`. Owner directories (`~/projects/coilysiren/`) are not repos - never clone into one directly.
-- **Two hosts, split canonicality** - the fleet's source of truth is Forgejo (`forgejo.coilysiren.me`), with GitHub as a PR-gated mirror. This repo is the one inversion: **GitHub is canonical** because the profile renders from GitHub `main`, and Forgejo is the mirror (fleet-tooling encoding: [infrastructure#299](https://forgejo.coilysiren.me/coilyco-bridge/infrastructure/issues/299)). Cross-repo issue refs in this repo are full URLs so the host is never ambiguous; a bare `#N` means this repo's tracker.
+- **Two hosts, split canonicality** - the fleet's source of truth is Forgejo (`forgejo.coilysiren.me`), with GitHub as a PR-gated mirror. This repo is the one inversion: **GitHub is canonical** because the profile renders from GitHub `main`, and Forgejo is the mirror (fleet-tooling encoding: [infrastructure#299](https://forgejo.coilysiren.me/coilyco-bridge/infrastructure/issues/299)). Cross-repo issue refs in this repo are full URLs so the host is never ambiguous. A bare `#N` means this repo's tracker.
 - **Three org bays and a personal namespace** - `coilyco-flight-deck` (public builds, and the website since the org migration), `coilyco-bridge` (operator-specific control surfaces and fleet infrastructure), `coilyco-gaming` (games and game tooling), and `coilysiren`, a user account rather than an organization, holding this repo alone.
 - **Commands route through each repo's `justfile` on the fleet.** This repo declares no dev verbs, so it ships no justfile and there is nothing to build or run here. On a standalone clone, plain git and a Markdown preview are the whole toolchain.
 - **Deeper context ships as skills** - on the fleet, search `agentic-os-kai/.agents/skills/` by topic (`writing-bio-surface` holds the Resume sync list, `kai-git-workflow` the git exceptions, `tooling-repo-baseline` the fleet-management machinery behind `.agentic-os-ignore`).
@@ -33,7 +33,7 @@ A search map, not a setup script:
 
 ## Landing work
 
-Commit straight to `main`, no branches, no PRs, push after each commit. Close issues with a `closes #<N>` trailer. The canonical checkout pushes GitHub and the Forgejo mirror in one command: `origin` fetches from GitHub and carries both pushurls, and a `forgejo` remote fetches the mirror - run `git remote -v` on a fleet checkout to see the wiring if a fresh clone needs it recreated. If the mirror push fails for lack of Forgejo credentials, the GitHub push already landed and the fleet git sweep will flag the mirror as behind - nothing is lost.
+Branch, push, and open a pull request, then merge it yourself once it is green. This repo runs the fleet `pull-request-and-merge` lane like every other one, and the direct-push workflow it used to declare here is retired: the global agent base holds that no repo can declare its way back to pushing straight to `main`. Open the pull request on GitHub, where this repo is canonical. If the credential in hand cannot create one there, open it on the Forgejo mirror instead and push `main` to GitHub after it merges, because a merge on the mirror leaves the canonical host behind. Close issues with a `closes #<N>` trailer. The canonical checkout pushes GitHub and the Forgejo mirror in one command: `origin` fetches from GitHub and carries both pushurls, and a `forgejo` remote fetches the mirror - run `git remote -v` on a fleet checkout to see the wiring if a fresh clone needs it recreated. If the mirror push fails for lack of Forgejo credentials, the GitHub push already landed and the fleet git sweep will flag the mirror as behind - nothing is lost.
 
 ## See also
 
