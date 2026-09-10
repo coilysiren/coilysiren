@@ -46,10 +46,10 @@ umbra, mcp-beaver, housecast, and agent-compose. No single one is the flagship.
 
 ### Agent platform
 
-* **agent-compose** - composes agent personas and context into plain files you can read and diff before a run. <https://github.com/coilyco-flight-deck/agent-compose>
-* **housecast** - agent context, cast from one roster. One roster casts every role's bundle and the board that grades it, so the graded artifact and the shipped artifact are identical. Upstream of agent-compose, which renders what housecast emits. <https://forgejo.coilysiren.me/coilyco-flight-deck/housecast>
-* **umbra** - occlusion for agent CLIs and APIs. Arguments validated before a process starts, and every call in an append-only audit log. <https://github.com/coilyco-flight-deck/umbra>
-* **mcp-beaver** - a MCP server generator with a natural flow, where an operation you did not declare has no tool and no endpoint. Renders an umbra guardfile into a guarded MCP server. <https://github.com/coilyco-flight-deck/mcp-beaver>
+* **agent-compose** - Compose agent personas and context. Selects a role, its personality meld, the skills it can see, and the tools it gets, then materializes them as plain files. <https://github.com/coilyco-flight-deck/agent-compose>
+* **housecast** - Agent context, cast from one roster. Change what a role may do and the evaluation that checks it moves with it, in the same commit. <https://forgejo.coilysiren.me/coilyco-flight-deck/housecast>
+* **umbra** - occlusion for agent CLIs and APIs. Declare what an agent may run, and everything you did not name stays unreachable. <https://github.com/coilyco-flight-deck/umbra>
+* **mcp-beaver** - A MCP server generator with a natural flow. Renders one policy file into an MCP server, an HTTP tool API, a widget, and a helm release. <https://github.com/coilyco-flight-deck/mcp-beaver>
 
 ### Product
 
