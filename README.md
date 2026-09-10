@@ -2,7 +2,7 @@
 
 <img src="https://github.com/coilysiren.png?size=200" width="88" align="right" alt="Kai Ase Siren">
 
-I'm **Kai Ase Siren**, a senior platform engineer, ten-plus years in. I build the policy-bound platform layer that lets engineering teams develop, ship, and operate agentic systems safely. The work spans infrastructure, context composition, bounded execution, MCP delivery, model routing, observability, and the Kubernetes systems underneath.
+I'm **Kai Ase Siren**, a senior platform engineer, ten-plus years in. I build the policy-bound platform layer that lets engineering teams develop, ship, and operate agentic systems safely. That layer is the four projects below, built as independent open-source work: bounded execution and egress in umbra, guarded MCP generation in mcp-beaver, context composition in agent-compose, and evaluation in housecast. The Kubernetes and observability systems underneath come from the day job and the two-site homelab described further down.
 
 The throughline is developer infrastructure, and agents are its newest consumer. That has meant language-ecosystem tooling at Ruby Together, multi-cloud platforms at Textio, government infrastructure at Nava, and agent-facing observability and MCP surfaces at Kapwing.
 
