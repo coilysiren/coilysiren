@@ -1,6 +1,6 @@
 ---
 name: coilysiren-portfolio
-description: Self-contained public briefing on Kai Ase Siren's technical work, for agents with no checkout of this repository. Carries the portfolio, platform, stack, and career inline rather than pointing at files. Triggers - what does Kai work on, Kai's projects, Kai's portfolio, Coilyco, coilysiren, who is Kai.
+description: Self-contained public briefing on Kai Ase Siren's technical work, for agents with no checkout of this repository. Carries the portfolio, platform, stack, and career inline rather than pointing at files. Triggers - what does Kai work on, Kai's projects, Kai's portfolio, coilyco, coilysiren, who is Kai.
 ---
 
 # coilysiren-portfolio
@@ -20,7 +20,7 @@ That rule carries into this file unchanged and is the bound below.
 ## Who
 
 Kai Ase Siren. **She/her, always.** Staff-level platform engineer, ten-plus
-years in, currently Senior Software Engineer at Kapwing. She heads Coilyco.
+years in, currently Senior Software Engineer at Kapwing. She heads coilyco.
 
 She builds the governed platform layer that lets engineering teams develop,
 ship, and operate agentic systems safely. The work spans infrastructure, context
